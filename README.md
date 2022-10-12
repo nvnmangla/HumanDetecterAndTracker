@@ -3,4 +3,4 @@
 
  - Mahima Arora - Driver
  - Naveen Mangla - Navigator
- - Abhinav Garg - Designer
+ - Abhinav Garg - Designer (15abhinavgarg@gmail.com)
