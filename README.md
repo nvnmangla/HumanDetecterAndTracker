@@ -1,6 +1,5 @@
 # Human Detector and Tracker 
-## Team:
-## Group 4
+## Team:Group 4
 
 ### Mahima Arora - Driver
 ### Naveen Mangla - Navigator
