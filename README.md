@@ -1,4 +1,7 @@
-# HumanDetecterAndTracker
-This is the implementation for detecting and tracking a human using classic software engineering practices.
+# Human Detector and Tracker 
+## Team:
+## Group 4
 
-# Author
+### Mahima Arora - Driver
+### Naveen Mangla - Navigator
+### Abhinav Garg - Designer
