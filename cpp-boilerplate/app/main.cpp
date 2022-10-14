@@ -1,9 +1,9 @@
 #include <iostream>
-#include <lib.hpp>
+#include <image.hpp>
 
 int main()
 {
-    dummy();
+    cout<<"Hello worls\n";
     return 0;
 }
 
