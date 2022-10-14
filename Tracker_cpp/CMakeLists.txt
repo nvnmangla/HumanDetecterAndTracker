@@ -21,6 +21,10 @@ else()
 endif()
 
 include(CMakeToolsHelpers OPTIONAL)
+# Adding OpenCV library
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 
