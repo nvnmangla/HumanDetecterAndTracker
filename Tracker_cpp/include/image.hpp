@@ -3,7 +3,7 @@
  * @author Naveen Mangla (nvnmangla@umd.edu)
  * @author Mahima Arora
  * @author Abhinav Garg  
- * @brief 
+ * @brief Image related functions
  * @version 0.1 
  * @copyright Copyright (c) 2022
  * 
@@ -40,6 +40,11 @@ class Image{
      * 
      */
     void view();
+    /**
+     * @brief Gray Scaling the image
+     * 
+     */
+    void grayScale();
 
 };
 

@@ -1,20 +1,23 @@
 /**
  * @file main.cpp
  * @author Naveen Mangla (nmangla@umd.edu)
- * @brief Defining Functions and implementation
+ * @brief  Implementation
  * @version 0.1
  * @date 2022-09-20
  * @copyright Copyright (c) 2022
  * 
  */
 #include <iostream>
-#include <image.hpp>
+#include <humanDetector.hpp>
 
 using std::cin;
 using std::cout;
 using std::string;
 
 int main() {
+  
+  cout<<"Detecting Humans ......... :) \n"<<"They are complicated\n";
 
+  // TODO fill this up
   return 0;
 }
