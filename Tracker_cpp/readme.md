@@ -1,3 +1,3 @@
 ## Human Tracker 
 
-### Stater Code
+### Starter Code
