@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/build",
+  "command": "/usr/bin/c++ -I/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/include -isystem /usr/local/include/opencv4 -Wall -Wextra -Wpedantic -g -g -std=gnu++14 -o app/CMakeFiles/shell-app.dir/main.cpp.o -c /home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/main.cpp",
+  "file": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/main.cpp"
+},
+{
+  "directory": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/build",
+  "command": "/usr/bin/c++ -I/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/include -isystem /usr/local/include/opencv4 -Wall -Wextra -Wpedantic -g -g -std=gnu++14 -o app/CMakeFiles/shell-app.dir/image.cpp.o -c /home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/image.cpp",
+  "file": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/image.cpp"
+},
+{
+  "directory": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/build",
+  "command": "/usr/bin/c++ -I/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/include -isystem /usr/local/include/opencv4 -Wall -Wextra -Wpedantic -g -g -std=gnu++14 -o app/CMakeFiles/shell-app.dir/yolo.cpp.o -c /home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/yolo.cpp",
+  "file": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/yolo.cpp"
+},
+{
+  "directory": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/build",
+  "command": "/usr/bin/c++ -I/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/include -isystem /usr/local/include/opencv4 -Wall -Wextra -Wpedantic -g -g -std=gnu++14 -o app/CMakeFiles/shell-app.dir/humanDetector.cpp.o -c /home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/humanDetector.cpp",
+  "file": "/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/Tracker_cpp/app/humanDetector.cpp"
+}
+]
