@@ -25,6 +25,7 @@ class Image{
     cv::Mat image = cv::imread(imagePath); // image itself :)
     cv::Mat shortImage = shorten();
     int ratio = 4;
+    cv::Mat gray;
 
    public:
     Image() = default;
