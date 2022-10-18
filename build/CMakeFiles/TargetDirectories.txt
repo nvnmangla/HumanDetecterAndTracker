@@ -1,5 +1,0 @@
-/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/build/CMakeFiles/edit_cache.dir
-/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/build/CMakeFiles/rebuild_cache.dir
-/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/build/app/CMakeFiles/shell-app.dir
-/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/build/app/CMakeFiles/edit_cache.dir
-/home/naveen/courses/ENPM808x/HumanDetecterAndTracker/build/app/CMakeFiles/rebuild_cache.dir
