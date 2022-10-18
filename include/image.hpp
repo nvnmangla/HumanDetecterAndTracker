@@ -18,17 +18,25 @@ using std::string;
 using std::cout;
 using std::cin;
 
+
 class Image{
    private: 
     string imagePath;  // Path of the image 
     cv::Mat image = cv::imread(imagePath); // image itself :)
+    cv::Mat shortImage = shorten();
+    int ratio = 4;
+    cv::Mat gray;
+
    public:
+    Image() = default;
+    Image(string);
     /**
      * @brief Shorten the input image
      * 
      * @return cv::Mat 
      */
     cv::Mat shorten(); 
+
     /**
      * @brief Enlage the output image 
      * 
