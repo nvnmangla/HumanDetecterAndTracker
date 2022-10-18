@@ -11,4 +11,4 @@
 ## AIP Development
 
 The development for this repository follows AIP process.
-[Google Sheet] https://docs.google.com/spreadsheets/d/1orR3ox2GwO3lmyQWUVJ2Hde6_NE9Of1N/edit?usp=sharing&ouid=116188927346925099505&rtpof=true&sd=true
+[Google Sheet] https://docs.google.com/spreadsheets/d/1orR3ox2GwO3lmyQWUVJ2Hde6_NE9Of1N/edit?usp=sharing&ouid=116188927346925099505&rtpof=true&sd=trueg
