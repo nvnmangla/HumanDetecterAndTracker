@@ -10,6 +10,7 @@
 
 #include <yolo.hpp>
 
+
 cv::Mat Yolo::getOutput(){
 
     cv::Mat outImage;
