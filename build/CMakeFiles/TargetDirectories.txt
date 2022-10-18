@@ -1,5 +1,0 @@
-/home/mahima/Desktop/git/HumanDetecterAndTracker/build/CMakeFiles/rebuild_cache.dir
-/home/mahima/Desktop/git/HumanDetecterAndTracker/build/CMakeFiles/edit_cache.dir
-/home/mahima/Desktop/git/HumanDetecterAndTracker/build/app/CMakeFiles/rebuild_cache.dir
-/home/mahima/Desktop/git/HumanDetecterAndTracker/build/app/CMakeFiles/edit_cache.dir
-/home/mahima/Desktop/git/HumanDetecterAndTracker/build/app/CMakeFiles/shell-app.dir
