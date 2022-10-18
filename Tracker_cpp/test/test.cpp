@@ -26,3 +26,4 @@ TEST(Image, shorten) {
   Image img;
   EXPECT_EQ(120, img.shorten().rows);
 }
+

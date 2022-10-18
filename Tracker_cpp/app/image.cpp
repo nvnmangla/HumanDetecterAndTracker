@@ -10,24 +10,34 @@
 
 #include <image.hpp>
 
-cv::Mat Image::enlarge(){
-    // TODO enlarge the image
+Image::Image(string dirToImage){
+    this->image = cv::imread(dirToImage,1);
+}
 
-    return image;
+cv::Mat Image::enlarge(){
+
+    cv::Mat enlarged;
+    cv::resize(shortImage, enlarged,image.size(), cv::INTER_LINEAR);
+    return enlarged;
 
 }
 
 cv::Mat Image::shorten(){
-    // TODO shorten the image
 
-    return image;
+    cv::Mat shortImg;
+    cv::resize(this->image,shortImg, cv::Size(static_cast<int>(image.rows/4), static_cast<int>(image.cols/4)), cv::INTER_LINEAR);
+    return shortImg;
 
 }
 
 void Image::view(){
 
-    //TODO View the image
+    cout<<"Photo in View\tPress 0 to close";
 
+    cv::imshow("View Window",image);
+    cv::waitKey(0);
+
+    //TODO View the image
 }
 
 void Image::grayScale(){
