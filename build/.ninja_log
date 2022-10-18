@@ -1,0 +1,6 @@
+# ninja log v5
+1480	1639	1665952651030350624	app/shell-app	b81f33cb8febaff6
+1	1198	1665937842383658951	app/CMakeFiles/shell-app.dir/yolo.cpp.o	efad479a2fad29ad
+1	1181	1665937842363659396	app/CMakeFiles/shell-app.dir/image.cpp.o	2c2cdf64cb64ad4b
+1	1454	1665952650846384252	app/CMakeFiles/shell-app.dir/main.cpp.o	4ea34ad63834f8ad
+1	1480	1665952650870379867	app/CMakeFiles/shell-app.dir/humanDetector.cpp.o	8bc0e65b35dced61

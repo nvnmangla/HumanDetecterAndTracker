@@ -1,3 +1,0 @@
-## Human Tracker 
-
-### Starter Code
