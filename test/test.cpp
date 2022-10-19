@@ -29,12 +29,12 @@ TEST(Image2, shorten) {
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
-TEST(Image3, viewCheck) {
-  Image img;
-  img.view();
-  EXPECT_EQ(false, img.testView);
-  // EXPECT_EQ(120, img.shorten().rows);
-}
+// TEST(Image3, viewCheck) {
+//   Image img;
+//   img.view();
+//   EXPECT_EQ(false, img.testView);
+//   // EXPECT_EQ(120, img.shorten().rows);
+// }
 
 TEST(Image4, grayscaleCheck) {
   Image img;
@@ -51,11 +51,11 @@ TEST(Yolo, getOutputCheck) {
 
 
 
-// TEST(HumanDetector, detectHumanCheck) {
-//   HumanDetector hd;
-//   EXPECT_EQ(cv::Mat::zeros(2,2,CV_8UC1), hd.detectHuman());
-//   // EXPECT_EQ(120, img.shorten().rows);
-// }
+TEST(HumanDetector, detectHumanCheck) {
+  HumanDetector hd;
+  EXPECT_EQ(2, hd.detectHuman().rows);
+  // EXPECT_EQ(120, img.shorten().rows);
+}
 
 
 
