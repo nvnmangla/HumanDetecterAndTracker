@@ -18,8 +18,11 @@ using std::string;
 int main() {
   Image img;
 
-  cout << "Detecting Humans ......... :) \n"
-       << "They are complicated\n";
+  cv::imshow("new",img.shorten());
+  cv::waitKey(0);
+
+  
+  cout<<"Detecting Humans ......... :) \n"<<"They are complicated\n";
 
   return 0;
 }

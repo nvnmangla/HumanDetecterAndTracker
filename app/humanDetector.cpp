@@ -14,4 +14,4 @@ cv::Mat HumanDetector::detectHuman() {
   cv::Mat image = cv::Mat::ones(2, 2, CV_8UC1);
   return image;
 
-    
+}

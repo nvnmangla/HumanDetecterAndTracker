@@ -17,15 +17,15 @@
 
 
 
-TEST(Image, enlarge) {
+TEST(Image1, shorten) {
   Image img;
-  EXPECT_EQ(img.getImage().rows,img.enlarge().rows);
+  EXPECT_EQ(static_cast<int>(img.getImage().rows/4), static_cast<int>(img.shorten().rows));
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
-TEST(Image, shorten) {
+TEST(Image2, englarge) {
   Image img;
-  EXPECT_EQ(static_cast<int>(img.getImage().rows/4),static_cast<int>(img.shorten().rows));
+  EXPECT_EQ(img.getImage().rows, img.enlarge().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
