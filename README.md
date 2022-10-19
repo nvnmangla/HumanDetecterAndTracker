@@ -10,5 +10,10 @@
 
 ## AIP Development
 
-The development for this repository follows AIP process.
+This project will be completed using AIP with the involvement of 3 programmers using Pair-programming in turns. One of the programmer would be driver while other 2 would be navigator and design keeper. The detailed Product Backlog, Iteration Backlogs and Work Log are mentioned in the link given below :
+
 [Google Sheet] https://docs.google.com/spreadsheets/d/1orR3ox2GwO3lmyQWUVJ2Hde6_NE9Of1N/edit?usp=sharing&ouid=116188927346925099505&rtpof=true&sd=true
+
+## Important Links
+
+<a href="doc:introduction" target="_blank">Introduction</a>
