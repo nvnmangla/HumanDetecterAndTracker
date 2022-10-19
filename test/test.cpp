@@ -57,5 +57,3 @@ TEST(HumanDetector, detectHumanCheck) {
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
-
-
