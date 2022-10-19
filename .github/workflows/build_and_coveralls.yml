@@ -37,6 +37,12 @@ jobs:
       - name: Install packages
         run: sudo apt install -y lcov
 
+      # Install OpenCV
+      - name: Install OpenCV
+        run: sudo apt install python3-pip
+        run: pip install opencv-python
+
+
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
         run: cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -B ${{github.workspace}}/build 
