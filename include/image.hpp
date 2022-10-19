@@ -21,7 +21,7 @@ using std::cin;
 
 class Image{
    private: 
-    string imagePath = "../../test.jpg";  // Path of the image 
+    string imagePath = "../../shiva.jpg";  // Path of the image 
     cv::Mat image = cv::imread(imagePath,1); // image itself :)
     // cv::Mat shortImage = shorten();
     int ratio = 4;
