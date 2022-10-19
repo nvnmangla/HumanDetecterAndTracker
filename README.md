@@ -1,4 +1,5 @@
 # Human Detector and Tracker 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://github.com/mahimaarora2208/HumanDetecterAndTracker/actions/workflows/build_and_coveralls.yml/badge.svg)](https://github.com/mahimaarora2208/HumanDetecterAndTracker//actions/workflows/build_and_coveralls.yml)
 [![Coverage Status](https://coveralls.io/repos/github/mahimaarora2208/HumanDetecterAndTracker/badge.svg?branch=main)](https://coveralls.io/github/mahimaarora2208/HumanDetecterAndTracker?branch=main)
 
