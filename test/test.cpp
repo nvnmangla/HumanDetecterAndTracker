@@ -10,6 +10,7 @@
  */
 
 #include <gtest/gtest.h>
+#include<opencv2/opencv.hpp>
 #include <image.hpp>
 #include <humanDetector.hpp>
 #include <yolo.hpp>
@@ -17,42 +18,44 @@
 
 
 TEST(Image1, enlarge) {
-  // Image img;
+  Image img;
   EXPECT_EQ(240, 240);
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
 TEST(Image2, shorten) {
-  // Image img;
+  Image img;
   EXPECT_EQ(120, 120);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(Image3, viewCheck) {
-  // Image img;
-  EXPECT_EQ(120, 120);
+  Image img;
+  img.view();
+  EXPECT_EQ(false, img.testView);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(Image4, grayscaleCheck) {
-  // Image img;
-  EXPECT_EQ(121, 121);
+  Image img;
+  img.grayScale();
+  EXPECT_EQ(false, img.testGrayscale);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(Yolo, getOutputCheck) {
-  // Image img;
-  EXPECT_EQ(120, 120);
+  Yolo objYolo;
+  EXPECT_EQ(2, objYolo.getOutput().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 
 
-TEST(HumanDetector, detectHumanCheck) {
-  // Image img;
-  EXPECT_EQ(120, 120);
-  // EXPECT_EQ(120, img.shorten().rows);
-}
+// TEST(HumanDetector, detectHumanCheck) {
+//   HumanDetector hd;
+//   EXPECT_EQ(cv::Mat::zeros(2,2,CV_8UC1), hd.detectHuman());
+//   // EXPECT_EQ(120, img.shorten().rows);
+// }
 
 
 

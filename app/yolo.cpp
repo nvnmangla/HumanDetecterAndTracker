@@ -13,7 +13,7 @@
 
 cv::Mat Yolo::getOutput(){
 
-    cv::Mat outImage;
+    cv::Mat outImage = cv::Mat::zeros(2,2,CV_8UC1);
 
     //TODO 
     // Get output image from model

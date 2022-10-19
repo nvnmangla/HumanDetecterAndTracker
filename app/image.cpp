@@ -26,7 +26,7 @@
 // }
 
 void Image::view(){
-
+    testView = false;
     cout<<"Photo in View\tPress 0 to close";
     cv::imshow("View Window",this->image);
     cv::waitKey(0);
@@ -34,7 +34,7 @@ void Image::view(){
 }
 
 void Image::grayScale(){
-    
+    testGrayscale = false;
     if (this->image.channels()<3){this->image.copyTo(this->gray);}
     else {
         cv::cvtColor(this->image, this->gray, cv::COLOR_BGR2GRAY);}
