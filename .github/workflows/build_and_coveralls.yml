@@ -39,8 +39,7 @@ jobs:
 
       # Install dependencies
       - name: Install OpenCV
-        run: sudo apt install python3-pip; pip install opencv-python
-
+        run: sudo apt install -y g++ cmake make git libgtk2.0-dev pkg-config;git clone https://github.com/opencv/opencv.git;mkdir -p build && cd build;cmake ../opencv;make -j4;sudo make install
 
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
