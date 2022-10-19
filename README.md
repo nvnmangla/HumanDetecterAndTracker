@@ -35,7 +35,7 @@ This project will be completed using AIP process with the involvement of 3 progr
 [Quad Chart](https://drive.google.com/file/d/1kqztJTiyrLfmTfumVQuHahukdQgT3-xU/view?usp=sharing)
 
 
-## Standard install via command-line
+## How to build and run demo code
 ```
 git clone https://github.com/nvnmangla/HumanDetecterAndTracker.git
 cd <path to repository>
@@ -56,3 +56,11 @@ make
 make code_coverage
 ```
 This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
+
+## To Generate Doxygen Documentation
+open your terminal in your repository
+```
+doxywizard
+
+```
+Follow steps in GUI after selecting path of your repository.
