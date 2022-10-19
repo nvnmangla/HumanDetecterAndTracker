@@ -29,12 +29,6 @@ TEST(Image2, shorten) {
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
-// TEST(Image3, viewCheck) {
-//   Image img;
-//   img.view();
-//   EXPECT_EQ(false, img.testView);
-//   // EXPECT_EQ(120, img.shorten().rows);
-// }
 
 TEST(Image4, grayscaleCheck) {
   Image img;

@@ -31,6 +31,7 @@ class Image{
    bool testView = true;
    bool testGrayscale = true;
 
+
    
     /**
      * @brief Shorten the input image
@@ -38,6 +39,7 @@ class Image{
      * @return cv::Mat 
      */
     // cv::Mat shorten(); 
+    
 
     /**
      * @brief Enlage the output image 
