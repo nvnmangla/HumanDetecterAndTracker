@@ -34,6 +34,10 @@ This project will be completed using AIP process with the involvement of 3 progr
 
 [Quad Chart](https://drive.google.com/file/d/1kqztJTiyrLfmTfumVQuHahukdQgT3-xU/view?usp=sharing)
 
+## Sprint Planning Notes
+
+[Link](https://docs.google.com/document/d/1r_AImnCmMG55agtjQzNZ3n2YdrxkfY6n6iax4RRetbs/edit?usp=sharing)
+
 
 ## How to build and run demo code
 ```
@@ -61,6 +65,6 @@ This generates a index.html page in the build/coverage sub-directory that can be
 open your terminal in your repository
 ```
 doxywizard
-
 ```
 Follow steps in GUI after selecting path of your repository.
+
