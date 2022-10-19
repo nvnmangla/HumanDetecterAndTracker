@@ -16,19 +16,29 @@
 
 
 
-TEST(Image, enlarge) {
+TEST(Image1, enlarge) {
   // Image img;
   EXPECT_EQ(240, 240);
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
-
-TEST(Image, shorten) {
+TEST(Image2, shorten) {
   // Image img;
   EXPECT_EQ(120, 120);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
+TEST(Image3, viewCheck) {
+  // Image img;
+  EXPECT_EQ(120, 120);
+  // EXPECT_EQ(120, img.shorten().rows);
+}
+
+TEST(Image4, grayscaleCheck) {
+  // Image img;
+  EXPECT_EQ(121, 121);
+  // EXPECT_EQ(120, img.shorten().rows);
+}
 
 TEST(Yolo, getOutputCheck) {
   // Image img;
@@ -43,5 +53,6 @@ TEST(HumanDetector, detectHumanCheck) {
   EXPECT_EQ(120, 120);
   // EXPECT_EQ(120, img.shorten().rows);
 }
+
 
 
