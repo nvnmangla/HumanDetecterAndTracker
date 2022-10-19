@@ -20,6 +20,9 @@ int main() {
   
   img.view();
 
+  cv::imshow("new",img.shorten());
+  cv::waitKey(0);
+
   
   cout<<"Detecting Humans ......... :) \n"<<"They are complicated\n";
 

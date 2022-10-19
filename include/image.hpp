@@ -23,7 +23,7 @@ class Image{
    private: 
     string imagePath = "../shiva.jpg";  // Path of the image 
     cv::Mat image = cv::imread(imagePath,1); // image itself :)
-    // cv::Mat shortImage = shorten();
+    cv::Mat shortImage = shorten();
     int ratio = 4;
     cv::Mat gray;
 
@@ -38,15 +38,16 @@ class Image{
      * 
      * @return cv::Mat 
      */
-    // cv::Mat shorten(); 
+    cv::Mat shorten(); 
     
+    cv::Mat getImage();
 
     /**
      * @brief Enlage the output image 
      * 
      * @return cv::Mat 
      */
-    // cv::Mat enlarge();
+    cv::Mat enlarge();
     /**
      * @brief view the image
      * 
