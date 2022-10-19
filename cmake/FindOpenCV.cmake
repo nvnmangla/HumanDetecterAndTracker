@@ -1,13 +1,13 @@
-Main Page
-Related Pages
+Main(Page)
+Related(Pages)
 Modules
 Namespaces
 Classes
 Files
 
 Search
-File List
-File Members
+File(List)
+File(Members)
 src
 cmake
 find
