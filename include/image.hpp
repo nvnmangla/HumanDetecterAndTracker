@@ -24,7 +24,7 @@ class Image {
   cv::Mat image = cv::imread(imagePath, 1);  // image itself :)
   cv::Mat shortImage = shorten();
   int ratio = 4;
-  cv::Mat gray;
+  cv::Mat gray = grayScale();
 
  public:
   bool testView = true;
@@ -53,7 +53,7 @@ class Image {
    * @brief Gray Scaling the image
    *
    */
-  void grayScale();
+  cv::Mat grayScale();
 };
 
 #endif  // IMAGE_HPP_
