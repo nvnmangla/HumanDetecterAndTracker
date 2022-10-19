@@ -27,15 +27,6 @@ cv::Mat Image::shorten(){
 
 cv::Mat Image::getImage() { return this->image; }
 
-cv::Mat Image::shorten() {
-  cv::Mat shortImg;
-  cv::resize(this->image, shortImg,
-             cv::Size(static_cast<int>(this->image.rows / this->ratio),
-                      static_cast<int>(this->image.cols / this->ratio)),
-             cv::INTER_LINEAR);
-  return shortImg;
-}
-
 void Image::view() {
   testView = false;
   cout << "Photo in View\tPress 0 to close";
@@ -50,8 +41,4 @@ void Image::grayScale() {
   } else {
     cv::cvtColor(this->image, this->gray, cv::COLOR_BGR2GRAY);
   }
-}
-
-cv::Mat Image::getImage(){
-    return this->image;
 }
