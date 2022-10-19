@@ -4,10 +4,9 @@
 
 ## Overview
 In this project, a Human Detector and Tracker has been developed. To achieve this, we
-used the pre-trained model Yolo-V5. The last layer of the Yolo neural network was frozen so that it only detects humans in the image.
+used the pre-trained model of Yolo-V5. The last layer of the Yolo neural network was frozen so that it only detects humans in the image. After detecting the humans in the image there distance was calculated from the camera. Assumption we have taken is that the human in average is of 5ft.
 
-Four classes were implemented for this objective, in which the master class is Human-
-Detector.
+Four classes were implemented to achieve this objective, in which the master class is Human-Detector.
 
 ## Team:Group 4
 
@@ -20,7 +19,7 @@ Detector.
 
 This project will be completed using AIP process with the involvement of 3 programmers using Pair-programming in turns. One of the programmer would be driver while other 2 would be navigator and design keeper. The detailed Product Backlog, Iteration Backlogs and Work Log are mentioned in the link given below :
 
-[Google Sheet] https://docs.google.com/spreadsheets/d/1orR3ox2GwO3lmyQWUVJ2Hde6_NE9Of1N/edit?usp=sharing&ouid=116188927346925099505&rtpof=true&sd=true
+[Agile Iterative Process](https://docs.google.com/spreadsheets/d/1lvFBjKfvxlf-LXtopkBy3UAMlyQPi31W/edit?usp=sharing&ouid=106728747057946217321&rtpof=true&sd=true)
 
 ## Important Links
 
