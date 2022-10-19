@@ -13,11 +13,11 @@ name: Build
 on:
   # Triggered whenever push to the master branch
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
   # Triggered whenever a pull request is created on master
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     types: [opened]
 
   # Allow manual trigger
@@ -37,10 +37,9 @@ jobs:
       - name: Install packages
         run: sudo apt install -y lcov
 
-      # # Install OpenCV
-      # - name: Install OpenCV
-      #   run: sudo apt install python3-pip
-      #   run: pip install opencv-python
+      # Install dependencies
+      - name: Install OpenCV
+        run: sudo apt install python3-pip; pip install opencv-python
 
 
       # Run CMake to setup compilation flags
