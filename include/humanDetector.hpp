@@ -22,8 +22,8 @@ class HumanDetector{
     private:
         Image imageOb;
         Yolo yolOb;
-    
     public:
+
         /**
          * @brief Decting and Tracking human. 
          * 

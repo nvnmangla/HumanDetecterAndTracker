@@ -15,6 +15,13 @@ using std::cout;
 using std::string;
 
 int main() {
+
+  Image img;
+  
+  img.view();
+
+
+
   
   cout<<"Detecting Humans ......... :) \n"<<"They are complicated\n";
 
