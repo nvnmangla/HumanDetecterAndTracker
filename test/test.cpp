@@ -30,10 +30,11 @@ TEST(Image2, englarge) {
 }
 
 
+
 TEST(Image, grayscaleCheck) {
   Image img;
-  img.grayScale();
-  EXPECT_EQ(false, img.testGrayscale);
+  
+  EXPECT_EQ(1, img.grayScale().channels());
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
