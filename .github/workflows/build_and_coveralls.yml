@@ -37,10 +37,10 @@ jobs:
       - name: Install packages
         run: sudo apt install -y lcov
 
-      # Install OpenCV
-      - name: Install OpenCV
-        run: sudo apt install python3-pip
-        run: pip install opencv-python
+      # # Install OpenCV
+      # - name: Install OpenCV
+      #   run: sudo apt install python3-pip
+      #   run: pip install opencv-python
 
 
       # Run CMake to setup compilation flags
