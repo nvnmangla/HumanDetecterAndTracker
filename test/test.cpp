@@ -17,20 +17,20 @@
 
 
 
-TEST(Image1, enlarge) {
+TEST(Image, enlarge) {
   Image img;
-  EXPECT_EQ(240, 240);
+  EXPECT_EQ(img.getImage().rows,img.enlarge().rows);
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
-TEST(Image2, shorten) {
+TEST(Image, shorten) {
   Image img;
-  EXPECT_EQ(120, 120);
+  EXPECT_EQ(static_cast<int>(img.getImage().rows/4),static_cast<int>(img.shorten().rows));
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 
-TEST(Image4, grayscaleCheck) {
+TEST(Image, grayscaleCheck) {
   Image img;
   img.grayScale();
   EXPECT_EQ(false, img.testGrayscale);
