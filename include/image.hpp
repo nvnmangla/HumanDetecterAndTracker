@@ -21,28 +21,27 @@ using std::cin;
 
 class Image{
    private: 
-    string imagePath;  // Path of the image 
-    cv::Mat image = cv::imread(imagePath); // image itself :)
-    cv::Mat shortImage = shorten();
+    string imagePath = "../../shiva.jpg";  // Path of the image 
+    cv::Mat image = cv::imread(imagePath,1); // image itself :)
+    // cv::Mat shortImage = shorten();
     int ratio = 4;
     cv::Mat gray;
 
    public:
-    Image() = default;
-    Image(string);
+   
     /**
      * @brief Shorten the input image
      * 
      * @return cv::Mat 
      */
-    cv::Mat shorten(); 
+    // cv::Mat shorten(); 
 
     /**
      * @brief Enlage the output image 
      * 
      * @return cv::Mat 
      */
-    cv::Mat enlarge();
+    // cv::Mat enlarge();
     /**
      * @brief view the image
      * 

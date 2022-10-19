@@ -10,8 +10,9 @@
 
 #include <humanDetector.hpp>
 
-cv::Mat HumanDetector(){
-    cv::Mat humanDetect;
-    //TODO write code for detect human
-    return humanDetect;
-}   
+cv::Mat HumanDetector::detectHuman(){
+
+    cv::Mat image;
+
+    return image;
+}
