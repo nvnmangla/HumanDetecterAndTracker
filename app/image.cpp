@@ -10,7 +10,6 @@
 
 #include <image.hpp>
 
-<<<<<<< HEAD
 cv::Mat Image::enlarge(){
 
     cv::Mat enlarged;
@@ -24,15 +23,6 @@ cv::Mat Image::shorten(){
     cv::Mat shortImg;
     cv::resize(this->image,shortImg, cv::Size(static_cast<int>(this->image.cols/4),static_cast<int>(this->image.rows/4)), cv::INTER_LINEAR);
     return shortImg;
-=======
-cv::Mat Image::enlarge() {
-  cv::Mat enlarged;
-  cv::resize(shortImage, enlarged,
-             cv::Size(static_cast<int>(this->image.rows),
-                      static_cast<int>(this->image.cols)),
-             cv::INTER_LINEAR);
-  return enlarged;
->>>>>>> a11f2a6bfd8ee3de636a8d5cb4d077324c129691
 }
 
 cv::Mat Image::getImage() { return this->image; }

@@ -17,7 +17,6 @@
 
 
 
-<<<<<<< HEAD
 TEST(Image1, shorten) {
   Image img;
   EXPECT_EQ(static_cast<int>(img.getImage().rows/4), static_cast<int>(img.shorten().rows));
@@ -27,17 +26,6 @@ TEST(Image1, shorten) {
 TEST(Image2, englarge) {
   Image img;
   EXPECT_EQ(img.getImage().rows, img.enlarge().rows);
-=======
-TEST(Image, enlarge) {
-  Image img;
-  EXPECT_EQ(img.getImage().rows,img.enlarge().rows);
-  // EXPECT_EQ(240, img.enlarge().rows);
-}
-
-TEST(Image, shorten) {
-  Image img;
-  EXPECT_EQ(static_cast<int>(img.getImage().rows/4),static_cast<int>(img.shorten().rows));
->>>>>>> a11f2a6bfd8ee3de636a8d5cb4d077324c129691
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
