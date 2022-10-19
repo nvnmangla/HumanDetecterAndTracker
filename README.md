@@ -33,3 +33,26 @@ This project will be completed using AIP process with the involvement of 3 progr
 [Activity Diagram Phase 0](https://drive.google.com/file/d/1PFQ3R563C5RVZqSqUmu6HlybmQZDz23V/view?usp=sharing)
 
 [Quad Chart](https://drive.google.com/file/d/1kqztJTiyrLfmTfumVQuHahukdQgT3-xU/view?usp=sharing)
+
+
+## Standard install via command-line
+```
+git clone https://github.com/nvnmangla/HumanDetecterAndTracker.git
+cd <path to repository>
+mkdir build
+cd build
+cmake ..
+make
+Run tests: ./test/cpp-test
+Run program: ./app/shell-app
+```
+
+
+## To Generate and Check code coverage
+```
+sudo apt-get install lcov
+cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
+make
+make code_coverage
+```
+This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
