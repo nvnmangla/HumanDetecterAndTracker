@@ -34,11 +34,14 @@ void Image::view() {
   cv::waitKey(0);
 }
 
-void Image::grayScale() {
+cv::Mat Image::grayScale() {
+  cv::Mat graysc;  
   testGrayscale = false;
   if (this->image.channels() < 3) {
-    this->image.copyTo(this->gray);
+    this->image.copyTo(graysc);
   } else {
-    cv::cvtColor(this->image, this->gray, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(this->image, graysc, cv::COLOR_BGR2GRAY);
   }
+  return graysc;
+
 }
