@@ -17,14 +17,14 @@
 
 
 TEST(Image, enlarge) {
-  Image img;
+  // Image img;
   EXPECT_EQ(240, 240);
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
 
 TEST(Image, shorten) {
-  Image img;
+  // Image img;
   EXPECT_EQ(120, 120);
   // EXPECT_EQ(120, img.shorten().rows);
 }
