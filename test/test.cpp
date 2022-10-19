@@ -29,3 +29,19 @@ TEST(Image, shorten) {
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
+
+TEST(Yolo, getOutputCheck) {
+  // Image img;
+  EXPECT_EQ(120, 120);
+  // EXPECT_EQ(120, img.shorten().rows);
+}
+
+
+
+TEST(HumanDetector, detectHumanCheck) {
+  // Image img;
+  EXPECT_EQ(120, 120);
+  // EXPECT_EQ(120, img.shorten().rows);
+}
+
+
