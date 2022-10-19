@@ -1,3 +1,10 @@
+# Overview
+In this project, a Human Detector and Tracker has been developed. To achieve this, we
+used the pre-trained model Yolo-V5. The last layer of the Yolo neural network was frozen so that it only detects humans in the image.
+
+Four classes were implemented for this objective, in which the master class is Human-
+Detector.
+
 # Human Detector and Tracker 
 [![Build Status](https://github.com/mahimaarora2208/HumanDetecterAndTracker/actions/workflows/build_and_coveralls.yml/badge.svg)](https://github.com/mahimaarora2208/HumanDetecterAndTracker//actions/workflows/build_and_coveralls.yml)
 [![Coverage Status](https://coveralls.io/repos/github/mahimaarora2208/HumanDetecterAndTracker/badge.svg?branch=main)](https://coveralls.io/github/mahimaarora2208/HumanDetecterAndTracker?branch=main)
