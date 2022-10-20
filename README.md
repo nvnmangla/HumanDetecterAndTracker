@@ -28,6 +28,8 @@ This project will be completed using AIP process with the involvement of 3 progr
 
 [Phase 0 Video](https://drive.google.com/file/d/1qjiJ8MVaANbqeYgCbcMmP3CATyp1pWou/view?usp=sharing)
 
+[Phase 1 Video](https://drive.google.com/file/d/1FNlZqDXzz6H9pJ2Tok4gB1hnIMF776Sp/view?usp=sharing)
+
 [UML Class Diagram Phase 0](https://drive.google.com/file/d/16ZB5cMJbd44Ys_4KVa8fdSBXSPN-JB1F/view?usp=sharing)
 
 [UML Class Diagram Phase 1](https://drive.google.com/file/d/1Ky4Y5SGkwsw3tudvV3qMJoQ9zC0JVxFh/view?usp=sharing)
