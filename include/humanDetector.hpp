@@ -16,6 +16,7 @@
 #include <iostream>
 #include <yolo.hpp>
 
+
 class HumanDetector {
  private:
   Image imageOb;

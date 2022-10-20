@@ -36,6 +36,12 @@ class Image {
    * @return cv::Mat
    */
   cv::Mat shorten();
+
+  /**
+   * @brief Get the Image 
+   * 
+   * @return cv::Mat 
+   */
   cv::Mat getImage();
 
   /**

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flagsforfile_17',['FlagsForFile',['../_8ycm__extra__conf_8py.html#a0508dba70447af09ec9e4594d5d5ca5e',1,'.ycm_extra_conf.py']]]
+  ['branchfiles_1820',['BranchFiles',['../classrelease__docs_1_1_wiki_brancher.html#a5ef284f7e1742f465ecd0c14d2667327',1,'release_docs::WikiBrancher']]]
 ];
