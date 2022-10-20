@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['makerelativepathsinflagsabsolute_20',['MakeRelativePathsInFlagsAbsolute',['../_8ycm__extra__conf_8py.html#aa20d30f8cc08fc0ab076b4cf458e0d3d',1,'.ycm_extra_conf.py']]]
+  ['enlarge_1824',['enlarge',['../class_image.html#a3eedbb5ce2ce1acaf43bd466826c4a3b',1,'Image']]]
 ];

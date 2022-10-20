@@ -16,6 +16,7 @@ using std::cout;
 using std::string;
 
 int main() {
+  
   Image img;
 
   cv::imshow("new",img.shorten());
