@@ -20,8 +20,9 @@ using std::string;
 
 class Yolo {
  private:
-  // This will change to original yolo model
-  int model;
+  
+  // Yolo model YOLO V5
+  cv::dnn::Net model = cv::dnn::readNetFromONNX("../yolov5s.onnx");
 
   void modelFilter(){
       // TODO, Model Filter.
