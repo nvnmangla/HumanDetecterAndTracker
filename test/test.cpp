@@ -15,8 +15,6 @@
 #include <humanDetector.hpp>
 #include <yolo.hpp>
 
-
-
 TEST(Image1, shorten) {
   Image img;
   EXPECT_EQ(static_cast<int>(img.getImage().rows/4), static_cast<int>(img.shorten().rows));
@@ -28,8 +26,6 @@ TEST(Image2, englarge) {
   EXPECT_EQ(img.getImage().rows, img.enlarge().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
-
-
 
 TEST(Image, grayscaleCheck) {
   Image img;
@@ -43,8 +39,6 @@ TEST(Yolo, getOutputCheck) {
   EXPECT_EQ(2, objYolo.getOutput().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
-
-
 
 TEST(HumanDetector, detectHumanCheck) {
   HumanDetector hd;
