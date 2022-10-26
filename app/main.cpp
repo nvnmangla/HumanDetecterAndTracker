@@ -17,10 +17,14 @@ using std::string;
 
 int main() {
   
-  Image img;
 
-  cv::imshow("new",img.shorten());
+  Image img;
+  
+
+  cv::imshow("new",img.getImage());
   cv::waitKey(0);
+
+  
 
   
   cout<<"Detecting Humans ......... :) \n"<<"They are complicated\n";
