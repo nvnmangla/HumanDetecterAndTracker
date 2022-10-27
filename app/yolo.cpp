@@ -10,10 +10,20 @@
 
 #include <yolo.hpp>
 
-Yolo::Yolo(string modelPath) {
+Yolo::Yolo(string modelPath,bool is_cuda) {
   this->model = cv::dnn::readNetFromONNX(modelPath);
-  this->model.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
-  this->model.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
+  if (is_cuda)
+    {
+        std::cout << "Attempty to use CUDA\n";
+        this->model.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
+        this->model.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA_FP16);
+    }
+    else
+    {
+        std::cout << "Running on CPU\n";
+        this->model.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
+        this->model.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
+    }
 }
 
 cv::Mat Yolo::getOutput() {
