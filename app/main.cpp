@@ -19,7 +19,7 @@ using std::string;
 int main(int argc, char **argv) {
   // Image img("../../bus.jpg");
   bool is_cuda = argc > 1 && strcmp(argv[1], "cuda") == 0;
-  Yolo yol("../../yolov5s.onnx",is_cuda);
+  Yolo yol("../../yolov5n.onnx",is_cuda);
 
   const std::vector<cv::Scalar> colors = {
       cv::Scalar(255, 255, 0), cv::Scalar(0, 255, 0), cv::Scalar(0, 255, 255),
