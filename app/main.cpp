@@ -196,7 +196,13 @@
 #include <fstream>
 
 #include <opencv2/opencv.hpp>
+#include "yolo.cpp"
 
+/**
+ * @brief The following function fetches all the classes of coco dataset
+ * 
+ * @return std::vector<std::string> 
+ */
 std::vector<std::string> load_class_list()
 {
     std::vector<std::string> class_list;
@@ -208,13 +214,18 @@ std::vector<std::string> load_class_list()
     }
     return class_list;
 }
-
+/**
+ * @brief The function load_net reads the neural network from its provided location
+ * 
+ * @param net 
+ * @param is_cuda 
+ */
 void load_net(cv::dnn::Net &net, bool is_cuda)
 {
-    auto result = cv::dnn::readNet("/home/silver/Documents/HumanDetecterAndTracker/yolov5s.onnx");
+    auto result = cv::dnn::readNet("/home/silver/Documents/HumanDetecterAndTracker/yolov5n.onnx");
     if (is_cuda)
     {
-        std::cout << "Attempty to use CUDA\n";
+        std::cout << "Trying for CUDA\n";
         result.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
         result.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA_FP16);
     }
@@ -233,7 +244,7 @@ const float INPUT_WIDTH = 640.0;
 const float INPUT_HEIGHT = 640.0;
 const float SCORE_THRESHOLD = 0.2;
 const float NMS_THRESHOLD = 0.4;
-const float CONFIDENCE_THRESHOLD = 0.4;
+const float CONFIDENCE_THRESHOLD = 0.7;
 
 struct Detection
 {
@@ -324,7 +335,7 @@ int main(int argc, char **argv)
     std::vector<std::string> class_list = load_class_list();
 
     cv::Mat frame;
-    cv::VideoCapture capture("/home/silver/Documents/HumanDetecterAndTracker/videoplayback.mp4");
+    cv::VideoCapture capture("/home/silver/Documents/HumanDetecterAndTracker/in.avi");
     if (!capture.isOpened())
     {
         std::cerr << "Error opening video file\n";

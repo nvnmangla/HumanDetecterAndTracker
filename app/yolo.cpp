@@ -16,3 +16,14 @@ cv::Mat Yolo::getOutput() {
   // Get output image from model
   return outImage;
 }
+
+std::vector<std::string>  Yolo::load_class_list() {
+  std::vector<std::string> class_list;
+  std::ifstream ifs("/home/silver/Documents/HumanDetecterAndTracker/classes.txt");
+  std::string line;
+  while (getline(ifs, line))
+  {
+      class_list.push_back(line);
+  }
+  return class_list;
+}

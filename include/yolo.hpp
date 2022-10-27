@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <fstream>
+
 using std::cin;
 using std::cout;
 using std::string;
@@ -34,6 +36,7 @@ class Yolo {
    * @return cv::Mat
    */
   cv::Mat getOutput();
+  std::vector<std::string> load_class_list();
 };
 
 #endif  // YOLO_HPP_
