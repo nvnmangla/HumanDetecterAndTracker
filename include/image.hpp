@@ -17,12 +17,11 @@
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
-<<<<<<< HEAD
 using std::cin;
 using std::cout;
 using std::string;
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 class Image {
  private:
   string imagePath = "../shiva.jpg";         // Path of the image
@@ -59,23 +58,6 @@ class Image {
    *
    */
   void grayScale();
-=======
-
-class Image{
-   private: 
-    string imagePath = "../shiva.jpg";  // Path of the image 
-    cv::Mat image = cv::imread(imagePath,1); // image itself :)
-    // cv::Mat shortImage = shorten();
-    int ratio = 4;
-    cv::Mat gray;
-
-   public:
-   bool testView = true;
-   bool testGrayscale = true;
-=======
-#include <string>
-#include <vector>
->>>>>>> 1e918620d45118a13202a60b3ed48c25da8d788f
 
 
 
