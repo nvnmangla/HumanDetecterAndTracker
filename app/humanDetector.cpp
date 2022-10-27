@@ -10,6 +10,12 @@
 
 #include <humanDetector.hpp>
 
+
+HumanDetector::HumanDetector(string imagePath,string modelPath){
+    Image img(imagePath);
+    Yolo model(modelPath);
+}
+
 cv::Mat HumanDetector::detectHuman() {
   cv::Mat image = cv::Mat::ones(2, 2, CV_8UC1);
   return image;
