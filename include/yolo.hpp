@@ -12,7 +12,24 @@
 #ifndef YOLO_HPP_
 #define YOLO_HPP_
 
+#include <iostream>
+#include <opencv2/opencv.hpp>
+using std::cin;
+using std::cout;
+using std::string;
 using cv::Scalar;
+
+class Yolo {
+ private:
+  
+  // Yolo model YOLO V5
+  cv::dnn::Net model = cv::dnn::readNetFromONNX("../yolov5s.onnx");
+
+  void modelFilter(){
+      // TODO, Model Filter.
+  };
+
+ public:
 
 /**
  * @brief The constants INPUT_WIDTH and INPUT_HEIGHT are for the blob size.
@@ -38,27 +55,6 @@ Scalar BLACK = Scalar(0,0,0);
 Scalar BLUE = Scalar(255, 178, 50);
 Scalar YELLOW = Scalar(0, 255, 255);
 Scalar RED = Scalar(0,0,255);
-
-
-
-
-#include <iostream>
-#include <opencv2/opencv.hpp>
-using std::cin;
-using std::cout;
-using std::string;
-
-class Yolo {
- private:
-  
-  // Yolo model YOLO V5
-  cv::dnn::Net model = cv::dnn::readNetFromONNX("../yolov5s.onnx");
-
-  void modelFilter(){
-      // TODO, Model Filter.
-  };
-
- public:
   /**
    * @brief Get the Output image
    *

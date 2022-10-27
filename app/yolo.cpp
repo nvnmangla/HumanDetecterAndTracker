@@ -10,6 +10,7 @@
 
 #include <yolo.hpp>
 
+
 cv::Mat Yolo::getOutput() {
   cv::Mat outImage = cv::Mat::ones(2, 2, CV_8UC1);
 

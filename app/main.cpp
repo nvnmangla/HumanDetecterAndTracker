@@ -10,13 +10,12 @@
 
 #include <iostream>
 #include <humanDetector.hpp>
-
+// #include <opencv2/opencv.hpp>
 using std::cin;
 using std::cout;
 using std::string;
 
 int main() {
-  
 
   Image img;
   
