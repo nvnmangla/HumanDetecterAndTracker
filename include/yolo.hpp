@@ -39,9 +39,9 @@ class Yolo {
  public:
   const float INPUT_WIDTH = 640.0;
   const float INPUT_HEIGHT = 640.0;
-  const float SCORE_THRESHOLD = 0.25;
+  const float SCORE_THRESHOLD = 0.45;
   const float NMS_THRESHOLD = 0.55;
-  const float CONFIDENCE_THRESHOLD = 0.25;
+  const float CONFIDENCE_THRESHOLD = 0.60;
 
   // Text parameters.
   const float FONT_SCALE = 0.7;
