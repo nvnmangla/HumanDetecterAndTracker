@@ -55,7 +55,7 @@ class Yolo {
   Scalar RED = Scalar(0, 0, 255);
 
   // contructure
-  Yolo(string);
+  Yolo(string,bool);
   cv::dnn::Net model;
   // Yolo model YOLO V5
   cv::Mat format_yolov5(const cv::Mat &source);

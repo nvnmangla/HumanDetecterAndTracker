@@ -35,13 +35,13 @@ TEST(Image, grayscaleCheck) {
 }
 
 TEST(Yolo, getOutputCheck) {
-  Yolo objYolo("../yolov5s.onnx");
+  Yolo objYolo("../yolov5s.onnx",true);
   EXPECT_EQ(2, objYolo.getOutput().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(HumanDetector, detectHumanCheck) {
-  HumanDetector hd("../shiva.jpg","../yolov5.onnx");
+  HumanDetector hd("../shiva.jpg","../yolov5.onnx",true);
   EXPECT_EQ(2, hd.detectHuman().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }

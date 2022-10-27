@@ -18,7 +18,7 @@
 
 class HumanDetector {
  public:
-  HumanDetector(string, string);
+  HumanDetector(string, string,bool);
   /**
    * @brief Decting and Tracking human.
    *

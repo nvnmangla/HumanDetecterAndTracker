@@ -16,9 +16,10 @@ using std::cin;
 using std::cout;
 using std::string;
 
-int main() {
+int main(int argc, char **argv) {
   // Image img("../../bus.jpg");
-  Yolo yol("../../yolov5s1.onnx");
+  bool is_cuda = argc > 1 && strcmp(argv[1], "cuda") == 0;
+  Yolo yol("../../yolov5s.onnx",is_cuda);
 
   const std::vector<cv::Scalar> colors = {
       cv::Scalar(255, 255, 0), cv::Scalar(0, 255, 0), cv::Scalar(0, 255, 255),
@@ -49,11 +50,19 @@ int main() {
     for (int i{}; i < static_cast<int>(detections); i++) {
       auto rectangle = output[i];
       const auto color = colors[rectangle.class_id % colors.size()];
+      if(rectangle.class_id == 0){
       cv::rectangle(in_img, rectangle.box, color, 3);
+      }else{continue;}
     }
 
-    cv::imshow("Display window", in_img);
-    cv::waitKey(1);
+    cv::imshow("Display window", in_img);\
+    if (cv::waitKey(1) != -1)
+        {
+            capture.release();
+            std::cout << "finished by user\n";
+            break;
+        }
+
     in_img.release();
   }
   cout << "Detecting Humans ......... :) \n"
