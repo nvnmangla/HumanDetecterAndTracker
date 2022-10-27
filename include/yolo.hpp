@@ -30,7 +30,7 @@ using std::cout;
 using std::string;
 
 struct Detection {
-  int class_id;
+  // int class_id;
   float confidence;
   cv::Rect box;
 };

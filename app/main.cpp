@@ -17,18 +17,13 @@ using std::cout;
 using std::string;
 
 int main(int argc, char **argv) {
-  // Image img("../../bus.jpg");
+
   bool is_cuda = argc > 1 && strcmp(argv[1], "cuda") == 0;
   Yolo yol("../../yolov5s.onnx",is_cuda);
 
-  const std::vector<cv::Scalar> colors = {
-      cv::Scalar(255, 255, 0), cv::Scalar(0, 255, 0), cv::Scalar(0, 255, 255),
-      cv::Scalar(255, 0, 0)};
 
-  // std::vector<string>classes;'
   auto classes = yol.load_class_list("../../coco_names.txt");
 
-  // auto in_img = img.getImage().clone();
 
   cv::Mat in_img;
 
@@ -49,10 +44,9 @@ int main(int argc, char **argv) {
 
     for (int i{}; i < static_cast<int>(detections); i++) {
       auto rectangle = output[i];
-      const auto color = colors[rectangle.class_id % colors.size()];
-      if(rectangle.class_id == 0){
-      cv::rectangle(in_img, rectangle.box, color, 3);
-      }else{continue;}
+
+      cv::rectangle(in_img, rectangle.box,  cv::Scalar(255, 255, 0), 3);
+
     }
 
     cv::imshow("Display window", in_img);\
