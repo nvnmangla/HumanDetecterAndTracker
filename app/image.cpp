@@ -10,25 +10,29 @@
 
 #include <image.hpp>
 
-cv::Mat Image::enlarge() {
-  cv::Mat enlarged;
-  cv::resize(shortImage, enlarged,
-             cv::Size(static_cast<int>(this->image.rows),
-                      static_cast<int>(this->image.cols)),
-             cv::INTER_LINEAR);
-  return enlarged;
+Image::Image(string pathToImage) {
+  this->imagePath = pathToImage;
+  this->image = cv::imread(pathToImage, 1);
+  this->shortImage = shorten();
+  this->gray = grayScale();
 }
 
-cv::Mat Image::getImage() { return this->image; }
+cv::Mat Image::enlarge() {
+  cv::Mat enlarged;
+  cv::resize(this->shortImage, enlarged, this->image.size(), cv::INTER_LINEAR);
+  return enlarged;
+}
 
 cv::Mat Image::shorten() {
   cv::Mat shortImg;
   cv::resize(this->image, shortImg,
-             cv::Size(static_cast<int>(this->image.rows / this->ratio),
-                      static_cast<int>(this->image.cols / this->ratio)),
+             cv::Size(static_cast<int>(this->image.cols / 4),
+                      static_cast<int>(this->image.rows / 4)),
              cv::INTER_LINEAR);
   return shortImg;
 }
+
+cv::Mat Image::getImage() { return this->image; }
 
 void Image::view() {
   testView = false;
@@ -37,11 +41,13 @@ void Image::view() {
   cv::waitKey(0);
 }
 
-void Image::grayScale() {
+cv::Mat Image::grayScale() {
+  cv::Mat graysc;
   testGrayscale = false;
   if (this->image.channels() < 3) {
-    this->image.copyTo(this->gray);
+    this->image.copyTo(graysc);
   } else {
-    cv::cvtColor(this->image, this->gray, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(this->image, graysc, cv::COLOR_BGR2GRAY);
   }
+  return graysc;
 }
