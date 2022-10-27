@@ -75,7 +75,8 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
       cv::Point class_id;
       double max_class_score;
       minMaxLoc(scores, 0, &max_class_score, 0, &class_id);
-      if (max_class_score > SCORE_THRESHOLD) {
+
+      if (class_id.x == 0 && max_class_score > SCORE_THRESHOLD) {
         confidences.push_back(confidence);
 
         class_ids.push_back(class_id.x);
@@ -101,7 +102,7 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
   for (int i = 0; i < static_cast<int>(nms_result.size()); i++) {
     int idx = nms_result[i];
     Detection result;
-    result.class_id = class_ids[idx];
+    // result.class_id = class_ids[idx];
     result.confidence = confidences[idx];
     result.box = boxes[idx];
     output.push_back(result);
