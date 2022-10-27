@@ -16,13 +16,9 @@
 #include <iostream>
 #include <yolo.hpp>
 
-
 class HumanDetector {
- private:
-  Image imageOb;
-  Yolo yolOb;
-
  public:
+  HumanDetector(string, string,bool);
   /**
    * @brief Decting and Tracking human.
    *
