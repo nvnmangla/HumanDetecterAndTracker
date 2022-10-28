@@ -19,15 +19,15 @@ using std::string;
 int main(int argc, char **argv) {
 
   bool is_cuda = argc > 1 && strcmp(argv[1], "cuda") == 0;
-  Yolo yol("../../yolov5n.onnx",is_cuda);
 
+  Yolo yol("../../models/yolov5n.onnx",is_cuda);  
+  // Creating Yolo class object yol with argument as location of yolo model path
 
-  auto classes = yol.load_class_list("../../coco_names.txt");
-
+  auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
 
   cv::Mat in_img;
 
-  cv::VideoCapture capture("../../Office-Parkour.mp4");
+  cv::VideoCapture capture("../../videos/Office-Parkour.mp4");
   if (!capture.isOpened()) {
     std::cerr << "Error opening video file\n";
     return -1;
