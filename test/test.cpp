@@ -16,32 +16,32 @@
 #include <yolo.hpp>
 
 TEST(Image1, shorten) {
-  Image img("../shiva.jpg");
+  Image img("../videos/shiva.jpg");
   EXPECT_EQ(static_cast<int>(img.getImage().rows/4), static_cast<int>(img.shorten().rows));
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
 TEST(Image2, englarge) {
-  Image img("../shiva.jpg");
+  Image img("../videos/shiva.jpg");
   EXPECT_EQ(img.getImage().rows, img.enlarge().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(Image, grayscaleCheck) {
-  Image img("../shiva.jpg");
+  Image img("../videos/shiva.jpg");
   // img.view();
   EXPECT_EQ(1, img.grayScale().channels());
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(Yolo, getOutputCheck) {
-  Yolo objYolo("../yolov5s.onnx",true);
+  Yolo objYolo("../models/yolov5s.onnx",true);
   EXPECT_EQ(2, objYolo.getOutput().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(HumanDetector, detectHumanCheck) {
-  HumanDetector hd("../shiva.jpg","../yolov5.onnx",true);
+  HumanDetector hd("../videos/shiva.jpg","../models/yolov5.onnx",true);
   EXPECT_EQ(2, hd.detectHuman().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }

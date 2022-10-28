@@ -27,7 +27,7 @@ class HumanDetector {
    */
   cv::Mat detectHuman();
 
-  // int depth();
+  // float depth();
 };
 
 #endif  // HUMANDETECTOR_HPP_

@@ -11,6 +11,7 @@
 #include <fstream>
 #include <humanDetector.hpp>
 #include <iostream>
+#include <opencv2/core/mat.hpp>
 #include <string>
 
 using std::cin;
@@ -21,7 +22,8 @@ int main(int argc, char **argv) {
 
   bool is_cuda = argc > 1 && strcmp(argv[1], "cuda") == 0;
 
-  Yolo yol("../../models/yolov5n.onnx",is_cuda);  
+  Yolo yol("../../models/yolov5n.onnx",is_cuda);
+  Image img("/path");  
   // Creating Yolo class object yol with argument as location of yolo model path
 
   auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
@@ -35,29 +37,18 @@ int main(int argc, char **argv) {
   }
 
   while (true) {
-    // cv::Mat in_img;
+
     capture.read(in_img);
 
     std::vector<Detection> output;
-    // float depth = 0;
+
     yol.detect(in_img, output, classes);
 
-    auto detections = output.size();
+    int detections = output.size();
 
-    for (int i{}; i < static_cast<int>(detections); i++) {
-      auto rectangle = output[i];
-      auto box = output[i].box;
-      // cout << rectangle.box << "\n";
-      cv::rectangle(in_img, rectangle.box,  cv::Scalar(255, 255, 0), 3);
-      if (output[i].depth > 4){
-        cv::putText(in_img, std::to_string(output[i].depth)+"ft", cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(255, 255, 0));
-      }
-      else{
-        cv::putText(in_img, std::to_string(output[i].depth)+"ft", cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(0, 0, 255));
-      }
-    }
+    cv::Mat out_img = img.draw_rectangles(detections,output,in_img);
 
-    cv::imshow("Display window", in_img);\
+    cv::imshow("Display window", out_img);\
     if (cv::waitKey(1) != -1)
         {
             capture.release();
@@ -65,7 +56,7 @@ int main(int argc, char **argv) {
             break;
         }
 
-    in_img.release();
+    out_img.release();
   }
   cout << "Detecting Humans ......... :) \n"
        << "They are complicated\n";
@@ -73,3 +64,4 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+

@@ -50,18 +50,20 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
   cv::Mat blob;
 
   // converting input image to square image.
-  auto input_image = format_yolov5(image);
+
+  Image img("/path");
+  auto input_image = img.square_img(image);
   
 
   cv::dnn::blobFromImage(input_image, blob, 1. / 255.,
-                         cv::Size(INPUT_WIDTH, INPUT_HEIGHT), cv::Scalar(),
+                         cv::Size(img.INPUT_WIDTH, img.INPUT_HEIGHT), cv::Scalar(),
                          true, false);
   this->model.setInput(blob);
   std::vector<cv::Mat> outputs;
   this->model.forward(outputs, this->model.getUnconnectedOutLayersNames());
 
-  float x_factor = input_image.cols / INPUT_WIDTH;
-  float y_factor = input_image.rows / INPUT_HEIGHT;
+  float x_factor = input_image.cols / img.INPUT_WIDTH;
+  float y_factor = input_image.rows / img.INPUT_HEIGHT;
 
   float *data = (float *)outputs[0].data;
 
@@ -122,18 +124,4 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
     result.depth = (2/tan((box_height*55*3.14159/180)/input_image.rows));
     output.push_back(result);
   }
-}
-/**
- * @brief format_yolov5 function converts the image into square image, yolo perfoms better on sqare images
- * 
- * @param source 
- * @return cv::Mat 
- */
-cv::Mat Yolo::format_yolov5(const cv::Mat &source) {
-  int col = source.cols;
-  int row = source.rows;
-  int _max = MAX(col, row);
-  cv::Mat result = cv::Mat::zeros(_max, _max, CV_8UC3);
-  source.copyTo(result(cv::Rect(0, 0, col, row)));
-  return result;
 }

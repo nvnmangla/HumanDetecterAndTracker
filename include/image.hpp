@@ -20,6 +20,12 @@
 #include <string>
 #include <vector>
 
+struct Detection {
+  // int class_id;
+  float confidence;
+  cv::Rect box;
+  float depth;
+};
 
 
 using std::cin;
@@ -36,6 +42,8 @@ class Image {
   explicit Image(string pathToImage);
   bool testView = true;
   bool testGrayscale = true;
+  const float INPUT_WIDTH = 640.0;
+  const float INPUT_HEIGHT = 640.0;
 
  private:
   string imagePath;  // Path of the image
@@ -75,6 +83,10 @@ class Image {
    *
    */
   cv::Mat grayScale();
+
+  cv::Mat square_img(const cv::Mat &source);
+
+  cv::Mat draw_rectangles(int, std::vector<Detection>, cv::Mat);
 };
 
 #endif  // HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_

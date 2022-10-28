@@ -22,3 +22,7 @@ cv::Mat HumanDetector::detectHuman() {
 
 }
 
+// float HumanDetector::depth(){
+//   float d = 0;
+//   return d;
+// } 

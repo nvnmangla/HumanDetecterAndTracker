@@ -12,8 +12,8 @@
 
 Image::Image(string pathToImage) {
   this->imagePath = pathToImage;
-  this->image = cv::imread(pathToImage, 1);
-  this->shortImage = shorten();
+  // this->image = cv::imread(pathToImage, 1);
+  // this->shortImage = shorten();
 }
 
 cv::Mat Image::enlarge() {
@@ -50,3 +50,35 @@ cv::Mat Image::grayScale() {
   }
   return graysc;
 }
+/**
+ * @brief we need to pass a square image to Yolo, hence this function returns a square image
+ * 
+ * @param source 
+ * @return cv::Mat 
+ */
+cv::Mat Image::square_img(const cv::Mat &source) {
+  int col = source.cols;
+  int row = source.rows;
+  int _max = MAX(col, row);
+  cv::Mat result = cv::Mat::zeros(_max, _max, CV_8UC3);
+  source.copyTo(result(cv::Rect(0, 0, col, row)));
+  return result;
+}
+
+cv::Mat Image::draw_rectangles(int detections, std::vector<Detection> output, cv::Mat in_img) {
+  cv::Mat out_img = in_img;
+  for (int i{}; i < static_cast<int>(detections); i++) {
+    auto rectangle = output[i];
+    auto box = output[i].box;
+    // cout << rectangle.box << "\n";
+    cv::rectangle(out_img, rectangle.box,  cv::Scalar(255, 255, 0), 3);
+    if (output[i].depth > 4){
+      cv::putText(out_img, std::to_string(output[i].depth)+"ft", cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(255, 255, 0));
+    }
+    else{
+      cv::putText(out_img, std::to_string(output[i].depth)+"ft", cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(0, 0, 255));
+    }
+  }
+  return out_img;
+}
+
