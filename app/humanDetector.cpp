@@ -21,3 +21,4 @@ cv::Mat HumanDetector::detectHuman() {
   return image;
 
 }
+

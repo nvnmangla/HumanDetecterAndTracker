@@ -8,9 +8,11 @@
  *
  */
 
+#include <cmath>
 #include <yolo.hpp>
+#include <image.hpp>
 
-Yolo::Yolo(string modelPath,bool is_cuda) {
+Yolo::Yolo(string modelPath,bool is_cuda = true) {
   this->model = cv::dnn::readNetFromONNX(modelPath);
   if (is_cuda)
     {
@@ -47,7 +49,9 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
                   const std::vector<std::string> &className) {
   cv::Mat blob;
 
+  // converting input image to square image.
   auto input_image = format_yolov5(image);
+  
 
   cv::dnn::blobFromImage(input_image, blob, 1. / 255.,
                          cv::Size(INPUT_WIDTH, INPUT_HEIGHT), cv::Scalar(),
@@ -66,6 +70,7 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
   std::vector<int> class_ids;
   std::vector<float> confidences;
   std::vector<cv::Rect> boxes;
+  float box_height = 0;
 
   for (int i = 0; i < rows; ++i) {
     float confidence = data[4];
@@ -89,6 +94,8 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
         int top = int((y - 0.5 * h) * y_factor);
         int width = int(w * x_factor);
         int height = int(h * y_factor);
+        box_height = height;
+        // depth = (5/tan((height*50*3.14159/180)/input_image.rows))/10;
         boxes.push_back(cv::Rect(left, top, width, height));
       }
     }
@@ -97,6 +104,12 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
   }
 
   std::vector<int> nms_result;
+  
+  /**
+   * @brief Removing excessive boxes detected by yolo model
+   * 
+   */
+
   cv::dnn::NMSBoxes(boxes, confidences, this->SCORE_THRESHOLD,
                     this->NMS_THRESHOLD, nms_result);
   for (int i = 0; i < static_cast<int>(nms_result.size()); i++) {
@@ -105,10 +118,17 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
     // result.class_id = class_ids[idx];
     result.confidence = confidences[idx];
     result.box = boxes[idx];
+    // cout<<"boxes"<<boxes[idx]<<"\n";
+    result.depth = (2/tan((box_height*55*3.14159/180)/input_image.rows));
     output.push_back(result);
   }
 }
-
+/**
+ * @brief format_yolov5 function converts the image into square image, yolo perfoms better on sqare images
+ * 
+ * @param source 
+ * @return cv::Mat 
+ */
 cv::Mat Yolo::format_yolov5(const cv::Mat &source) {
   int col = source.cols;
   int row = source.rows;

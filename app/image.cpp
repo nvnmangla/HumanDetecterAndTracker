@@ -14,7 +14,6 @@ Image::Image(string pathToImage) {
   this->imagePath = pathToImage;
   this->image = cv::imread(pathToImage, 1);
   this->shortImage = shorten();
-  this->gray = grayScale();
 }
 
 cv::Mat Image::enlarge() {

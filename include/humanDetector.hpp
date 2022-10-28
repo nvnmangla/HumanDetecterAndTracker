@@ -15,6 +15,7 @@
 #include <image.hpp>
 #include <iostream>
 #include <yolo.hpp>
+#include <cmath>
 
 class HumanDetector {
  public:
@@ -25,6 +26,8 @@ class HumanDetector {
    * @return cv::Mat
    */
   cv::Mat detectHuman();
+
+  // int depth();
 };
 
 #endif  // HUMANDETECTOR_HPP_

@@ -33,6 +33,7 @@ struct Detection {
   // int class_id;
   float confidence;
   cv::Rect box;
+  float depth;
 };
 
 class Yolo {

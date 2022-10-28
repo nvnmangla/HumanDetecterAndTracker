@@ -29,7 +29,7 @@ TEST(Image2, englarge) {
 
 TEST(Image, grayscaleCheck) {
   Image img("../shiva.jpg");
-  
+  // img.view();
   EXPECT_EQ(1, img.grayScale().channels());
   // EXPECT_EQ(120, img.shorten().rows);
 }
@@ -45,4 +45,11 @@ TEST(HumanDetector, detectHumanCheck) {
   EXPECT_EQ(2, hd.detectHuman().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
+
+// TEST(Yolo,detect){
+//   Yolo yol("../yolov5s.onnx",true);
+//   auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
+
+//   yol.detect();
+// }
 
