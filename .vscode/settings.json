@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "iostream": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
@@ -66,4 +67,9 @@
         "typeinfo": "cpp",
         "variant": "cpp"
     }
+=======
+        "iostream": "cpp"
+    },
+    "ros.distro": "noetic"
+>>>>>>> development
 }
