@@ -9,19 +9,32 @@
  */
 
 #include "./image.hpp"
-
+/**
+ * @brief Construct a new Image:: Image object
+ * 
+ * @param pathToImage 
+ */
 Image::Image(string pathToImage) {
   this->imagePath = pathToImage;
   // this->image = cv::imread(pathToImage, 1);
   // this->shortImage = shorten();
 }
-
+/**
+ * @brief The function enlarge is used to make the image bigger
+ * 
+ * @return cv::Mat 
+ */
 cv::Mat Image::enlarge() {
   cv::Mat enlarged;
   cv::resize(this->shortImage, enlarged, this->image.size(), cv::INTER_LINEAR);
   return enlarged;
 }
 
+/**
+ * @brief the function shorten is used to make image small
+ * 
+ * @return cv::Mat 
+ */
 cv::Mat Image::shorten() {
   cv::Mat shortImg;
   cv::resize(this->image, shortImg,
@@ -32,7 +45,10 @@ cv::Mat Image::shorten() {
 }
 
 cv::Mat Image::getImage() { return this->image; }
-
+/**
+ * @brief To view the image frame
+ * 
+ */
 void Image::view() {
   testView = false;
   cout << "Photo in View\tPress 0 to close";

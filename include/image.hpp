@@ -82,9 +82,20 @@ class Image {
    *
    */
   cv::Mat grayScale();
-
+  
+  /**
+   * @brief to make the image square
+   * 
+   * @param source 
+   * @return cv::Mat 
+   */
   cv::Mat square_img(const cv::Mat &source);
-
+  
+  /**
+   * @brief To draw rectangle on the image
+   * 
+   * @return cv::Mat 
+   */
   cv::Mat draw_rectangles(int, std::vector<Detection>, cv::Mat);
 };
 

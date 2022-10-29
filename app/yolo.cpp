@@ -11,7 +11,12 @@
 #include <cmath>
 #include <image.hpp>
 #include <yolo.hpp>
-
+/**
+ * @brief Construct a new Yolo:: Yolo object
+ * 
+ * @param modelPath 
+ * @param is_cuda 
+ */
 Yolo::Yolo(string modelPath, bool is_cuda = true) {
   this->model = cv::dnn::readNetFromONNX(modelPath);
   if (is_cuda) {
@@ -31,7 +36,12 @@ cv::Mat Yolo::getOutput() {
   // Get output image from model
   return outImage;
 }
-
+/**
+ * @brief To load all the class names of coco dataset
+ * 
+ * @param fileName 
+ * @return std::vector<std::string> 
+ */
 std::vector<std::string> Yolo::load_class_list(string fileName) {
   std::vector<string> class_list;
   std::ifstream ifs(fileName);
@@ -41,7 +51,15 @@ std::vector<std::string> Yolo::load_class_list(string fileName) {
   }
   return class_list;
 }
-
+/**
+ * @brief storing all the rectangle dimension which would be further used to draw on the object
+ * 
+ * @param boxes 
+ * @param data 
+ * @param box_height 
+ * @param x_factor 
+ * @param y_factor 
+ */
 void Yolo::getting_Rect_dim(std::vector<cv::Rect> &boxes, float *data,
                             float &box_height, float x_factor, float y_factor) {
   float x = data[0];
@@ -56,7 +74,13 @@ void Yolo::getting_Rect_dim(std::vector<cv::Rect> &boxes, float *data,
   boxes.push_back(cv::Rect(left, top, width, height));
   // return boxes;
 }
-
+/**
+ * @brief The function passes the image through yolo neural network and stores the result in vector
+ * 
+ * @param image 
+ * @param output 
+ * @param className 
+ */
 void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
                   const std::vector<std::string> &className) {
   cv::Mat blob;

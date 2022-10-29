@@ -9,7 +9,13 @@
  */
 
 #include <humanDetector.hpp>
-
+/**
+ * @brief Construct a new Human Detector:: Human Detector object
+ * 
+ * @param imagePath 
+ * @param modelPath 
+ * @param is_cuda 
+ */
 HumanDetector::HumanDetector(string imagePath, string modelPath, bool is_cuda) {
   Image img(imagePath);
   Yolo model(modelPath, is_cuda);
