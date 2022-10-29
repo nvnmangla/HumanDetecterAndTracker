@@ -17,17 +17,13 @@
  * @param modelPath 
  * @param is_cuda 
  */
-Yolo::Yolo(string modelPath, bool is_cuda = true) {
+Yolo::Yolo(string modelPath) {
   this->model = cv::dnn::readNetFromONNX(modelPath);
-  if (is_cuda) {
-    std::cout << "Attempty to use CUDA\n";
-    this->model.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
-    this->model.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA_FP16);
-  } else {
-    std::cout << "Running on CPU\n";
-    this->model.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
-    this->model.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
-  }
+
+  std::cout << "Running on CPU\n";
+  this->model.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
+  this->model.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
+
 }
 
 cv::Mat Yolo::getOutput() {
@@ -72,23 +68,21 @@ void Yolo::getting_Rect_dim(std::vector<cv::Rect> &boxes, float *data,
   int height = static_cast<int>(h * y_factor);
   box_height = height;
   boxes.push_back(cv::Rect(left, top, width, height));
-  // return boxes;
+
 }
 /**
  * @brief The function passes the image through yolo neural network and stores the result in vector
  * 
- * @param image 
- * @param output 
- * @param className 
+ * @param image:cv::Mat - Input frame 
+ * @param output:cv::Mat -  Output frame with detection
+ * @param className:vector<string> string list with class name  
  */
 void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
                   const std::vector<std::string> &className) {
   cv::Mat blob;
 
-  // converting input image to square image.
-
-  Image img("/path");
-  auto input_image = img.square_img(image);
+  Image img(image);
+  auto input_image = img.square_img();
 
   cv::dnn::blobFromImage(input_image, blob, 1. / 255.,
                          cv::Size(img.INPUT_WIDTH, img.INPUT_HEIGHT),

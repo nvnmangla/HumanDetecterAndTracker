@@ -34,11 +34,13 @@ using std::cout;
 using std::string;
 
 class Yolo {
- public:
+  
+private:
   const float SCORE_THRESHOLD = 0.45;
   const float NMS_THRESHOLD = 0.55;
   const float CONFIDENCE_THRESHOLD = 0.60;
-
+  
+public:
   // Text parameters.
   const float FONT_SCALE = 0.7;
   const int FONT_FACE = cv::FONT_HERSHEY_SIMPLEX;
@@ -50,8 +52,8 @@ class Yolo {
   Scalar YELLOW = Scalar(0, 255, 255);
   Scalar RED = Scalar(0, 0, 255);
 
-  // contructure
-  Yolo(string, bool);
+  // constructur
+  Yolo(string);
   cv::dnn::Net model;
   // Yolo model YOLO V5
   // cv::Mat format_yolov5(const cv::Mat &source);

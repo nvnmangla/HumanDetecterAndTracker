@@ -16,9 +16,9 @@
  * @param modelPath 
  * @param is_cuda 
  */
-HumanDetector::HumanDetector(string imagePath, string modelPath, bool is_cuda) {
+HumanDetector::HumanDetector(cv::Mat imagePath, string modelPath) {
   Image img(imagePath);
-  Yolo model(modelPath, is_cuda);
+  Yolo model(modelPath);
 }
 
 cv::Mat HumanDetector::detectHuman() {

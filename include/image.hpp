@@ -33,31 +33,23 @@ using std::cout;
 using std::string;
 
 class Image {
+ 
+ private:
+  cv::Mat image;     // image itself :)
  public:
   /**
    * @brief Construct a new Image object
-   *
-   * @param pathToImage:string - Directory to the image
+   * 
+   * @param img Input Image 
    */
-  explicit Image(string pathToImage);
-  bool testView = true;
-  bool testGrayscale = true;
-  const float INPUT_WIDTH = 640.0;
-  const float INPUT_HEIGHT = 640.0;
+    explicit Image(cv::Mat &img);
+    
 
- private:
-  string imagePath;  // Path of the image
-  cv::Mat image;     // image itself :)
-  cv::Mat shortImage;
-  int ratio = 4;
-  cv::Mat gray;
+    // Dimentions of the square image
+    const float INPUT_WIDTH = 640.0;
+    const float INPUT_HEIGHT = 640.0;
 
- public:
-  /**
-   * @brief Shorten the input image
-   *
-   * @return cv::Mat
-   */
+
   cv::Mat shorten();
 
   /**
@@ -68,36 +60,23 @@ class Image {
   cv::Mat getImage();
 
   /**
-   * @brief Enlage the output image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat enlarge();
-  /**
    * @brief view the image
    *
    */
   void view();
   /**
-   * @brief Gray Scaling the image
-   *
+   * @brief Squaring Image for Yolo Model
+   * 
+   * @return cv::Mat 
    */
-  cv::Mat grayScale();
-
-  /**
-   * @brief to make the image square
-   *
-   * @param source
-   * @return cv::Mat
-   */
-  cv::Mat square_img(const cv::Mat &source);
+  cv::Mat square_img();
 
   /**
    * @brief To draw rectangle on the image
    *
    * @return cv::Mat
    */
-  cv::Mat draw_rectangles(int, std::vector<Detection>, cv::Mat);
+  cv::Mat draw_rectangles(int, std::vector<Detection>);
 };
 
 #endif  // INCLUDE_IMAGE_HPP_

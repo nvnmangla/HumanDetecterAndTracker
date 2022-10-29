@@ -16,13 +16,10 @@
 #include <cmath>
 #include <image.hpp>
 #include "./yolo.hpp"
-// #include <iostream>
-
-
 
 class HumanDetector {
  public:
-  HumanDetector(string, string, bool);
+  HumanDetector(cv::Mat, string);
   /**
    * @brief Decting and Tracking human.
    *
@@ -30,7 +27,6 @@ class HumanDetector {
    */
   cv::Mat detectHuman();
 
-  // float depth();
 };
 
 #endif  // INCLUDE_HUMANDETECTOR_HPP_
