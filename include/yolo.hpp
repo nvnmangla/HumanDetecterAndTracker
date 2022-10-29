@@ -33,8 +33,6 @@ using std::string;
 
 class Yolo {
  public:
-  // const float INPUT_WIDTH = 640.0;
-  // const float INPUT_HEIGHT = 640.0;
   const float SCORE_THRESHOLD = 0.45;
   const float NMS_THRESHOLD = 0.55;
   const float CONFIDENCE_THRESHOLD = 0.60;
@@ -72,6 +70,9 @@ class Yolo {
 
   void detect(cv::Mat &image, std::vector<Detection> &output,
               const std::vector<std::string> &className);
+
+
+  void getting_Rect_dim(std::vector<cv::Rect> &boxes,float *data, float& box_height, float x_factor, float y_factor);
 };
 
 #endif  // HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_

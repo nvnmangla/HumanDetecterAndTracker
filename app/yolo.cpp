@@ -45,6 +45,21 @@ std::vector<std::string> Yolo::load_class_list(string fileName) {
   return class_list;
 }
 
+void Yolo::getting_Rect_dim( std::vector<cv::Rect> &boxes,float*data,float& box_height, float x_factor, float y_factor){
+
+  float x = data[0];
+  float y = data[1];
+  float w = data[2];
+  float h = data[3];
+  int left = int((x - 0.5 * w) * x_factor);
+  int top = int((y - 0.5 * h) * y_factor);
+  int width = int(w * x_factor);
+  int height = int(h * y_factor);
+  box_height = height;
+  boxes.push_back(cv::Rect(left, top, width, height));
+  // return boxes;
+}
+
 void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
                   const std::vector<std::string> &className) {
   cv::Mat blob;
@@ -88,24 +103,16 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
 
         class_ids.push_back(class_id.x);
 
-        float x = data[0];
-        float y = data[1];
-        float w = data[2];
-        float h = data[3];
-        int left = int((x - 0.5 * w) * x_factor);
-        int top = int((y - 0.5 * h) * y_factor);
-        int width = int(w * x_factor);
-        int height = int(h * y_factor);
-        box_height = height;
-        // depth = (5/tan((height*50*3.14159/180)/input_image.rows))/10;
-        boxes.push_back(cv::Rect(left, top, width, height));
+        getting_Rect_dim(boxes,data, box_height, x_factor, y_factor);
+
       }
     }
 
     data += 85;
   }
-
+  // remove_Redundant_box(boxes,confidences);
   std::vector<int> nms_result;
+
   
   /**
    * @brief Removing excessive boxes detected by yolo model
@@ -125,3 +132,19 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
     output.push_back(result);
   }
 }
+
+// std::vector<Detection> remove_Redundant_box(std::vector<cv::Rect>boxes, std::vector<float>confidences){
+
+//   cv::dnn::NMSBoxes(boxes, confidences, this->SCORE_THRESHOLD,
+//                     this->NMS_THRESHOLD, nms_result);
+//   for (int i = 0; i < static_cast<int>(nms_result.size()); i++) {
+//     int idx = nms_result[i];
+//     Detection result;
+//     // result.class_id = class_ids[idx];
+//     result.confidence = confidences[idx];
+//     result.box = boxes[idx];
+//     // cout<<"boxes"<<boxes[idx]<<"\n";
+//     result.depth = (2/tan((box_height*55*3.14159/180)/input_image.rows));
+//     output.push_back(result);
+//   }
+// }
