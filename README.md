@@ -34,14 +34,35 @@ This project will be completed using AIP process with the involvement of 3 progr
 
 [UML Class Diagram Phase 1](https://drive.google.com/file/d/1Ky4Y5SGkwsw3tudvV3qMJoQ9zC0JVxFh/view?usp=sharing)
 
+[UML Class Diagram Phase 2](https://drive.google.com/file/d/16FxAjM2_JpMt4aBtbE3PJujs9iiaqlJj/view?usp=sharing)
+
 [Activity Diagram Phase 0](https://drive.google.com/file/d/1PFQ3R563C5RVZqSqUmu6HlybmQZDz23V/view?usp=sharing)
 
 [Quad Chart](https://drive.google.com/file/d/1kqztJTiyrLfmTfumVQuHahukdQgT3-xU/view?usp=sharing)
 
 ## Sprint Planning Notes
-
+The below link contains combined notes of sprint 1 and sprint 2.
 [Link](https://docs.google.com/document/d/1r_AImnCmMG55agtjQzNZ3n2YdrxkfY6n6iax4RRetbs/edit?usp=sharing)
 
+
+## Downloading Dependencies
+The main dependency that needs to be downloaded is openCV4.2 or above.
+```
+# Install minimal prerequisites (Ubuntu 18.04 as reference)
+sudo apt update && sudo apt install -y cmake g++ wget unzip
+# Download and unpack sources
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.x.zip
+unzip opencv.zip
+unzip opencv_contrib.zip
+# Create build directory and switch into it
+mkdir -p build && cd build
+# Configure
+cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
+# Build
+cmake --build .
+
+```
 
 ## How to build and run demo code
 ```

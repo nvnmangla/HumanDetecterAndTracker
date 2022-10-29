@@ -94,7 +94,7 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
   float x_factor = input_image.cols / img.INPUT_WIDTH;
   float y_factor = input_image.rows / img.INPUT_HEIGHT;
 
-  float *data = (float *)outputs[0].data;
+  float *data = reinterpret_cast<float*>(outputs[0].data);
 
   const int rows = 25200;
 
