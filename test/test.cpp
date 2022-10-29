@@ -4,20 +4,21 @@
  * @brief Test cases for functions
  * @version 0.1
  * @date 2022-10-16
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include <gtest/gtest.h>
-#include<opencv2/opencv.hpp>
-#include <image.hpp>
 #include <humanDetector.hpp>
+#include <image.hpp>
+#include <opencv2/opencv.hpp>
 #include <yolo.hpp>
 
 TEST(Image1, shorten) {
   Image img("../videos/shiva.jpg");
-  EXPECT_EQ(static_cast<int>(img.getImage().rows/4), static_cast<int>(img.shorten().rows));
+  EXPECT_EQ(static_cast<int>(img.getImage().rows / 4),
+            static_cast<int>(img.shorten().rows));
   // EXPECT_EQ(240, img.enlarge().rows);
 }
 
@@ -35,13 +36,13 @@ TEST(Image, grayscaleCheck) {
 }
 
 TEST(Yolo, getOutputCheck) {
-  Yolo objYolo("../models/yolov5s.onnx",true);
+  Yolo objYolo("../models/yolov5s.onnx", true);
   EXPECT_EQ(2, objYolo.getOutput().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
 
 TEST(HumanDetector, detectHumanCheck) {
-  HumanDetector hd("../videos/shiva.jpg","../models/yolov5.onnx",true);
+  HumanDetector hd("../videos/shiva.jpg", "../models/yolov5.onnx", true);
   EXPECT_EQ(2, hd.detectHuman().rows);
   // EXPECT_EQ(120, img.shorten().rows);
 }
@@ -52,4 +53,3 @@ TEST(HumanDetector, detectHumanCheck) {
 
 //   yol.detect();
 // }
-

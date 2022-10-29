@@ -9,17 +9,20 @@
  * @copyright Copyright (c) 2022
  */
 
-#ifndef HUMANDETECTOR_HPP_
-#define HUMANDETECTOR_HPP_
+#ifndef INCLUDE_HUMANDETECTOR_HPP_
+#define INCLUDE_HUMANDETECTOR_HPP_
 
-#include <image.hpp>
-#include <iostream>
-#include <yolo.hpp>
+#include <string>
 #include <cmath>
+#include <image.hpp>
+#include "./yolo.hpp"
+// #include <iostream>
+
+
 
 class HumanDetector {
  public:
-  HumanDetector(string, string,bool);
+  HumanDetector(string, string, bool);
   /**
    * @brief Decting and Tracking human.
    *
@@ -30,4 +33,4 @@ class HumanDetector {
   // float depth();
 };
 
-#endif  // HUMANDETECTOR_HPP_
+#endif  // INCLUDE_HUMANDETECTOR_HPP_

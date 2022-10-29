@@ -8,7 +8,7 @@
  *
  */
 
-#include "./image.h"
+#include "./image.hpp"
 
 Image::Image(string pathToImage) {
   this->imagePath = pathToImage;

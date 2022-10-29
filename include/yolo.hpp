@@ -11,10 +11,12 @@
 
 #ifndef INCLUDE_YOLO_HPP_
 #define INCLUDE_YOLO_HPP_
+
+#include <vector>
+#include <string>
 #include <fstream>
 #include <image.hpp>
-// #include <vector>
-// #include <string>
+
 
 using cv::Scalar;
 /**
