@@ -8,7 +8,7 @@
  *
  */
 
-#include <image.hpp>
+#include "./image.h"
 
 Image::Image(string pathToImage) {
   this->imagePath = pathToImage;
@@ -39,7 +39,12 @@ void Image::view() {
   cv::imshow("View Window", this->image);
   cv::waitKey(0);
 }
-
+/**
+ * @brief Converts the coloured image of three channel to a single channel black
+ * and white image
+ *
+ * @return cv::Mat
+ */
 cv::Mat Image::grayScale() {
   cv::Mat graysc;
   testGrayscale = false;
@@ -51,10 +56,11 @@ cv::Mat Image::grayScale() {
   return graysc;
 }
 /**
- * @brief we need to pass a square image to Yolo, hence this function returns a square image
- * 
- * @param source 
- * @return cv::Mat 
+ * @brief we need to pass a square image to Yolo, hence this function returns a
+ * square image
+ *
+ * @param source (input image)
+ * @return cv::Mat
  */
 cv::Mat Image::square_img(const cv::Mat &source) {
   int col = source.cols;
@@ -65,20 +71,33 @@ cv::Mat Image::square_img(const cv::Mat &source) {
   return result;
 }
 
-cv::Mat Image::draw_rectangles(int detections, std::vector<Detection> output, cv::Mat in_img) {
+/**
+ * @brief This function edits the image by drawing rectange around the objects
+ in the image it also prints the depth measurement of object.
+ *
+ * @param detections (output size)
+ * @param output (contains the measurement of all the rectangles)
+ * @param in_img (input image)
+ * @return cv::Mat
+ */
+cv::Mat Image::draw_rectangles(int detections, std::vector<Detection> output,
+                               cv::Mat in_img) {
   cv::Mat out_img = in_img;
   for (int i{}; i < static_cast<int>(detections); i++) {
     auto rectangle = output[i];
     auto box = output[i].box;
-    // cout << rectangle.box << "\n";
-    cv::rectangle(out_img, rectangle.box,  cv::Scalar(255, 255, 0), 3);
-    if (output[i].depth > 4){
-      cv::putText(out_img, std::to_string(output[i].depth)+"ft", cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(255, 255, 0));
-    }
-    else{
-      cv::putText(out_img, std::to_string(output[i].depth)+"ft", cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(0, 0, 255));
+
+    if (output[i].depth > 4) {
+      cv::putText(out_img, std::to_string(output[i].depth) + "ft",
+                  cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75,
+                  cv::Scalar(255, 255, 0));
+      cv::rectangle(out_img, rectangle.box, cv::Scalar(255, 255, 0), 3);
+    } else {
+      cv::putText(out_img, std::to_string(output[i].depth) + "ft",
+                  cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75,
+                  cv::Scalar(0, 0, 255));
+      cv::rectangle(out_img, rectangle.box, cv::Scalar(0, 0, 255), 3);
     }
   }
   return out_img;
 }
-

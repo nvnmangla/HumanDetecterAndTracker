@@ -9,10 +9,12 @@
  *
  */
 
-#ifndef HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
-#define HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
+#ifndef INCLUDE_YOLO_HPP_
+#define INCLUDE_YOLO_HPP_
 #include <fstream>
 #include <image.hpp>
+// #include <vector>
+// #include <string>
 
 using cv::Scalar;
 /**
@@ -28,8 +30,6 @@ using cv::Scalar;
 using std::cin;
 using std::cout;
 using std::string;
-
-
 
 class Yolo {
  public:
@@ -49,7 +49,7 @@ class Yolo {
   Scalar RED = Scalar(0, 0, 255);
 
   // contructure
-  Yolo(string,bool);
+  Yolo(string, bool);
   cv::dnn::Net model;
   // Yolo model YOLO V5
   // cv::Mat format_yolov5(const cv::Mat &source);
@@ -68,11 +68,10 @@ class Yolo {
    */
   cv::Mat getOutput();
 
-  void detect(cv::Mat &image, std::vector<Detection> &output,
-              const std::vector<std::string> &className);
+  void detect(cv::Mat&, std::vector<Detection>&,
+              const std::vector<std::string>&);
 
-
-  void getting_Rect_dim(std::vector<cv::Rect> &boxes,float *data, float& box_height, float x_factor, float y_factor);
+  void getting_Rect_dim(std::vector<cv::Rect> &, float *,
+                        float &, float, float);
 };
-
-#endif  // HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
+#endif  // INCLUDE_YOLO_HPP_

@@ -9,14 +9,15 @@
  *
  */
 
-#ifndef HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
-#define HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
+#ifndef INCLUDE_IMAGE_H_
+#define INCLUDE_IMAGE_H_
 
 #include <iostream>
 #include <opencv2/core.hpp>
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
+
 #include <string>
 #include <vector>
 
@@ -88,4 +89,4 @@ class Image {
   cv::Mat draw_rectangles(int, std::vector<Detection>, cv::Mat);
 };
 
-#endif  // HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
+#endif  // INCLUDE_IMAGE_H_
