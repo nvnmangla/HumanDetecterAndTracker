@@ -17,35 +17,42 @@ using std::cin;
 using std::cout;
 using std::string;
 
-int main(int argc, char **argv) {
-  bool is_cuda = argc > 1 && strcmp(argv[1], "cuda") == 0;
-
-  Yolo yol("../../models/yolov5n.onnx", is_cuda);
-  Image img("/path");
+int main() {
+ 
   // Creating Yolo class object yol with argument as location of yolo model path
 
-  auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
+  Yolo yol("../../models/yolov5n.onnx");
+  
   // classes variable contains all the class name possible in coco dataset
+  auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
 
   cv::Mat in_img;
-  cv::VideoCapture capture("../../videos/Office-Parkour.mp4");
+  
   // reading video from the file path
+  cv::VideoCapture capture("../../videos/Office-Parkour.mp4");
   if (!capture.isOpened()) {
+    // Sanity check
     std::cerr << "Error opening video file\n";
     return -1;
   }
-
+  
+  // looping through the frames 
   while (true) {
+
     capture.read(in_img);
+    // creating image object from input image 
+    Image img(in_img);
 
     std::vector<Detection> output;
 
-    yol.detect(in_img, output, classes);
     // detects all the persons in the image frame
+    yol.detect(in_img, output, classes);
+    
 
     int detections = output.size();
+    
 
-    cv::Mat out_img = img.draw_rectangles(detections, output, in_img);
+    cv::Mat out_img = img.draw_rectangles(detections, output);
     // functions draws all the rectangle and prints the depth
 
     cv::imshow("Display window", out_img);
