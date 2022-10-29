@@ -12,9 +12,6 @@
 #ifndef INCLUDE_YOLO_HPP_
 #define INCLUDE_YOLO_HPP_
 
-#include <vector>
-#include <string>
-#include <fstream>
 #include <image.hpp>
 
 
@@ -42,6 +39,8 @@ private:
   
 public:
   // Text parameters.
+  std::vector<Detection> output;
+
   const float FONT_SCALE = 0.7;
   const int FONT_FACE = cv::FONT_HERSHEY_SIMPLEX;
   const int THICKNESS = 1;
@@ -68,10 +67,12 @@ public:
    */
   cv::Mat getOutput();
 
-  void detect(cv::Mat&, std::vector<Detection>&,
-              const std::vector<std::string>&);
+  void detect(Image&,const std::vector<std::string>&);
 
   void getting_Rect_dim(std::vector<cv::Rect> &, float *,
                         float &, float, float);
+
+  void remove_Redundant_box(float &,Image&,std::vector<cv::Rect>,
+                    std::vector<float>);
 };
 #endif  // INCLUDE_YOLO_HPP_

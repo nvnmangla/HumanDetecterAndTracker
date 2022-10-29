@@ -1,7 +1,8 @@
 /**
  * @file main.cpp
- * @author Naveen Mangla (nmangla@umd.edu); Mahima Arora (marora1@umd.edu);
- * Abhinav Garg (agarg125@umd.edu)
+ * @author Naveen Mangla (nmangla@umd.edu); 
+ * @author Mahima Arora (marora1@umd.edu);
+ * @author Abhinav Garg (agarg125@umd.edu)
  * @brief  Implementation
  * @version 0.1
  * @date 2022-09-20
@@ -9,9 +10,8 @@
  *
  */
 
-#include <fstream>
-#include <humanDetector.hpp>
-#include <opencv2/core/mat.hpp>
+#include <yolo.hpp>
+
 
 using std::cin;
 using std::cout;
@@ -24,7 +24,7 @@ int main() {
   Yolo yol("../../models/yolov5n.onnx");
   
   // classes variable contains all the class name possible in coco dataset
-  auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
+  const auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
 
   cv::Mat in_img;
   
@@ -43,16 +43,12 @@ int main() {
     // creating image object from input image 
     Image img(in_img);
 
-    std::vector<Detection> output;
 
     // detects all the persons in the image frame
-    yol.detect(in_img, output, classes);
+    yol.detect(img, classes);
     
-
-    int detections = output.size();
-    
-
-    cv::Mat out_img = img.draw_rectangles(detections, output);
+    // Getting output image 
+    cv::Mat out_img = img.draw_rectangles(static_cast<int>(yol.output.size()),yol.output);
     // functions draws all the rectangle and prints the depth
 
     cv::imshow("Display window", out_img);
@@ -62,6 +58,7 @@ int main() {
       break;
     }
     out_img.release();
+    yol.output.clear();
   }
   cout << "Detecting Humans ......... :) \n"
        << "They are complicated\n";

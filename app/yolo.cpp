@@ -71,17 +71,16 @@ void Yolo::getting_Rect_dim(std::vector<cv::Rect> &boxes, float *data,
 
 }
 /**
- * @brief The function passes the image through yolo neural network and stores the result in vector
+ * @brief The function passes the image through yolo neural 
+ * network and stores the result in vector
  * 
  * @param image:cv::Mat - Input frame 
- * @param output:cv::Mat -  Output frame with detection
  * @param className:vector<string> string list with class name  
+ * 
  */
-void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
-                  const std::vector<std::string> &className) {
+void Yolo::detect(Image &img,const std::vector<std::string> &className) {
   cv::Mat blob;
 
-  Image img(image);
   auto input_image = img.square_img();
 
   cv::dnn::blobFromImage(input_image, blob, 1. / 255.,
@@ -94,15 +93,15 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
   float x_factor = input_image.cols / img.INPUT_WIDTH;
   float y_factor = input_image.rows / img.INPUT_HEIGHT;
 
-  float *data = reinterpret_cast<float*>(outputs[0].data);
+  float *data = reinterpret_cast<float *>(outputs[0].data);
 
   const int rows = 25200;
 
   std::vector<int> class_ids;
   std::vector<float> confidences;
   std::vector<cv::Rect> boxes;
-  float box_height = 0;
-
+  
+  float box_height{};
   for (int i = 0; i < rows; ++i) {
     float confidence = data[4];
     if (confidence >= this->CONFIDENCE_THRESHOLD) {
@@ -111,8 +110,8 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
       cv::Point class_id;
       double max_class_score;
       minMaxLoc(scores, 0, &max_class_score, 0, &class_id);
-
-      if (class_id.x == 0 && max_class_score > SCORE_THRESHOLD) {
+      
+      if (class_id.x == 0 && max_class_score > this->SCORE_THRESHOLD) {
         confidences.push_back(confidence);
 
         class_ids.push_back(class_id.x);
@@ -123,41 +122,23 @@ void Yolo::detect(cv::Mat &image, std::vector<Detection> &output,
 
     data += 85;
   }
-  // remove_Redundant_box(boxes,confidences);
+  remove_Redundant_box(box_height,img,boxes,confidences);
+}
+
+void Yolo::remove_Redundant_box(float &box_height,Image &img,std::vector<cv::Rect>boxes,
+  std::vector<float>confidences){
   std::vector<int> nms_result;
 
-  /**
-   * @brief Removing excessive boxes detected by yolo model
-   *
-   */
+
   cv::dnn::NMSBoxes(boxes, confidences, this->SCORE_THRESHOLD,
                     this->NMS_THRESHOLD, nms_result);
   for (int i = 0; i < static_cast<int>(nms_result.size()); i++) {
     int idx = nms_result[i];
     Detection result;
-    // result.class_id = class_ids[idx];
+   
     result.confidence = confidences[idx];
     result.box = boxes[idx];
-    // cout<<"boxes"<<boxes[idx]<<"\n";
-    result.depth =
-        (2 / tan((box_height * 55 * 3.14159 / 180) / input_image.rows));
+    result.depth = (2/tan((box_height*55*3.14159/180)/img.square_img().rows));
     output.push_back(result);
   }
 }
-
-// std::vector<Detection> remove_Redundant_box(std::vector<cv::Rect>boxes,
-// std::vector<float>confidences){
-
-//   cv::dnn::NMSBoxes(boxes, confidences, this->SCORE_THRESHOLD,
-//                     this->NMS_THRESHOLD, nms_result);
-//   for (int i = 0; i < static_cast<int>(nms_result.size()); i++) {
-//     int idx = nms_result[i];
-//     Detection result;
-//     // result.class_id = class_ids[idx];
-//     result.confidence = confidences[idx];
-//     result.box = boxes[idx];
-//     // cout<<"boxes"<<boxes[idx]<<"\n";
-//     result.depth = (2/tan((box_height*55*3.14159/180)/input_image.rows));
-//     output.push_back(result);
-//   }
-// }
