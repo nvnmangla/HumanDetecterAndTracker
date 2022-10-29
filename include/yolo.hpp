@@ -58,10 +58,6 @@ class Yolo {
 
   std::vector<std::string> load_class_list(string);
 
-  void modelFilter() {
-    // TODO(nvnmangla) , Model Filter.
-  }
-
   //  public:
   /**
    * @brief Get the Output image
