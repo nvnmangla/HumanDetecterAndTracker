@@ -59,13 +59,6 @@ public:
 
   std::vector<std::string> load_class_list(string);
 
-  //  public:
-  /**
-   * @brief Get the Output image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat getOutput();
 
   void detect(Image&,const std::vector<std::string>&);
 

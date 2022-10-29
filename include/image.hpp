@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include <opencv2/core.hpp>
 #include <opencv2/dnn.hpp>
@@ -42,7 +43,7 @@ class Image {
    * 
    * @param img Input Image 
    */
-    explicit Image(cv::Mat &img);
+  explicit Image(cv::Mat &img);
     
 
     // Dimentions of the square image
@@ -50,13 +51,7 @@ class Image {
     const float INPUT_HEIGHT = 640.0;
 
 
-  cv::Mat shorten();
-
-  /**
-   * @brief Get the Image
-   *
-   * @return cv::Mat
-   */
+  
   cv::Mat getImage();
 
   /**

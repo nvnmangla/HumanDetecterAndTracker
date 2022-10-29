@@ -21,15 +21,15 @@ int main() {
  
   // Creating Yolo class object yol with argument as location of yolo model path
 
-  Yolo yol("../../models/yolov5n.onnx");
+  Yolo yol("../models/yolov5n.onnx");
   
   // classes variable contains all the class name possible in coco dataset
-  const auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
+  const auto classes = yol.load_class_list("../segmentations/coco_names.txt");
 
   cv::Mat in_img;
   
   // reading video from the file path
-  cv::VideoCapture capture("../../videos/Office-Parkour.mp4");
+  cv::VideoCapture capture("../videos/Office-Parkour.mp4");
   if (!capture.isOpened()) {
     // Sanity check
     std::cerr << "Error opening video file\n";
@@ -48,8 +48,9 @@ int main() {
     yol.detect(img, classes);
     
     // Getting output image 
-    cv::Mat out_img = img.draw_rectangles(static_cast<int>(yol.output.size()),yol.output);
     // functions draws all the rectangle and prints the depth
+    cv::Mat out_img = img.draw_rectangles(static_cast<int>(yol.output.size()),yol.output);
+  
 
     cv::imshow("Display window", out_img);
     if (cv::waitKey(1) != -1) {

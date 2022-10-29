@@ -26,12 +26,6 @@ Yolo::Yolo(string modelPath) {
 
 }
 
-cv::Mat Yolo::getOutput() {
-  cv::Mat outImage = cv::Mat::ones(2, 2, CV_8UC1);
-
-  // Get output image from model
-  return outImage;
-}
 /**
  * @brief To load all the class names of coco dataset
  * 
