@@ -58,7 +58,7 @@ public:
 
   void detect(Image&,const std::vector<std::string>&);
 
-  void getting_Rect_dim(std::vector<cv::Rect> &, float *,
+    void getting_Rect_dim(std::vector<cv::Rect> &, float *,
                         float &, float, float);
 
   void remove_Redundant_box(float &,Image&,std::vector<cv::Rect>,
