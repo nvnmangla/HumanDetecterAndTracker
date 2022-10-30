@@ -90,10 +90,6 @@ TEST(Yolo_Getting_rectangle_dimensions,getting_Rect_dim){
 TEST(Yolo_load_class_list_test,load_class_list){
   Yolo yol("../models/yolov5n.onnx");
   auto list = yol.load_class_list("../segmentations/coco_names.txt");
-<<<<<<< HEAD
-  EXPECT_EQ(80,static_cast<int>(list.size()));
-}
-=======
   EXPECT_EQ(80,list.size());
 }
 
@@ -111,4 +107,3 @@ TEST(Image_rectangle_draw,Test2){
     EXPECT_TRUE(cv::norm(img1,img2,cv::NORM_L1));}
 
   }  
->>>>>>> f5d151af45d9983584e3422871ea290b6a72d487
