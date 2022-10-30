@@ -40,18 +40,10 @@ private:
 public:
   // Text parameters.
   std::vector<Detection> output;
-
-  // Colors.
-  Scalar BLACK = Scalar(0, 0, 0);
-  Scalar BLUE = Scalar(255, 178, 50);
-  Scalar YELLOW = Scalar(0, 255, 255);
-  Scalar RED = Scalar(0, 0, 255);
-
   // constructur
   Yolo(string);
   cv::dnn::Net model;
   // Yolo model YOLO V5
-  // cv::Mat format_yolov5(const cv::Mat &source);
 
   std::vector<std::string> load_class_list(string);
 

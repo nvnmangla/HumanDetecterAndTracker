@@ -133,6 +133,6 @@ void Yolo::remove_Redundant_box(float &box_height,Image &img,std::vector<cv::Rec
     result.confidence = confidences[idx];
     result.box = boxes[idx];
     result.depth = (2/tan((box_height*55*3.14159/180)/img.square_img().rows));
-    output.push_back(result);
+    this->output.push_back(result);
   }
 }
