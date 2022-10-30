@@ -34,6 +34,7 @@ using std::cout;
 using std::string;
 
 class Image {
+
  
  private:
   cv::Mat image;     // image itself :)
@@ -45,6 +46,7 @@ class Image {
    */
   explicit Image(cv::Mat &img);
     
+    int testDetection{};
 
     // Dimentions of the square image
     const float INPUT_WIDTH = 640.0;

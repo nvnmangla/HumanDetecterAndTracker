@@ -41,10 +41,6 @@ public:
   // Text parameters.
   std::vector<Detection> output;
 
-  const float FONT_SCALE = 0.7;
-  const int FONT_FACE = cv::FONT_HERSHEY_SIMPLEX;
-  const int THICKNESS = 1;
-
   // Colors.
   Scalar BLACK = Scalar(0, 0, 0);
   Scalar BLUE = Scalar(255, 178, 50);
