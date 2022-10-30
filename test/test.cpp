@@ -46,6 +46,13 @@ TEST(Image_sq_image_Test,sqare_image){
 }
 
 
+TEST(Image_get_image_Test,get_image){
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+  EXPECT_FLOAT_EQ(img.getImage().cols,im.cols);
+
+}
+
 
 TEST(Image_draw_rectangles_Test,draw_rectangles){
   Yolo yol("../../models/yolov5n.onnx");
@@ -57,13 +64,20 @@ TEST(Image_draw_rectangles_Test,draw_rectangles){
 
 }
 
-TEST(Getting_rectangle_dimensions,getting_Rect_dim){
-  Yolo yol("../../models/yolov5n.onnx");
-  cv::Mat im = cv::imread("../../videos/shiva.jpg",1);
+TEST(Yolo_Getting_rectangle_dimensions,getting_Rect_dim){
+  Yolo yol("../models/yolov5n.onnx");
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
   std::vector<cv::Rect> boxes;
   float data[4] = {1,2,3,4};
   float box_height{};
   yol.getting_Rect_dim(boxes,data, box_height,1.0, 1.0);
 
+}
+
+
+TEST(Yolo_load_class_list_test,load_class_list){
+  Yolo yol("../models/yolov5n.onnx");
+  auto list = yol.load_class_list("../segmentations/coco_names.txt");
+  EXPECT_EQ(80,list.size());
 }

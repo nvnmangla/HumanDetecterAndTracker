@@ -24,11 +24,11 @@ cv::Mat Image::getImage() { return this->image; }
  * @brief To view the image frame
  * 
  */
-void Image::view() {
-  cout << "Photo in View\tPress 0 to close";
-  cv::imshow("View Window", this->image);
-  cv::waitKey(0);
-}
+// void Image::view() {
+//   cout << "Photo in View\tPress 0 to close";
+//   cv::imshow("View Window", this->image);
+//   cv::waitKey(0);
+// }
 
 /**
  * @brief we need to pass a square image to Yolo, hence this function returns a
