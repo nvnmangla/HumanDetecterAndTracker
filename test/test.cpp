@@ -60,7 +60,8 @@ TEST(Image_draw_rectangles_Test,draw_rectangles){
   Image img(im);
   auto size = static_cast<int>(yol.output.size());
   
-  img.draw_rectangles(size,yol.output);
+  EXPECT_EQ(img.getImage().cols,img.draw_rectangles(size,yol.output).cols);
+  
 
 }
 

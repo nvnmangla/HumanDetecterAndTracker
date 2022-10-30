@@ -58,19 +58,18 @@ cv::Mat Image::square_img() {
 cv::Mat Image::draw_rectangles(int detections, std::vector<Detection> output) {
   cv::Mat out_img = this->image.clone();
   for (int i{}; i < static_cast<int>(detections); i++) {
+    //// LCOV_EXCL_START
     auto rectangle = output[i];
+   
     auto box = output[i].box;
-
     if (output[i].depth > 4) {
-      cv::putText(out_img, std::to_string(output[i].depth) + "ft",
-                  cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75,
-                  cv::Scalar(255, 255, 0));
+      cv::putText(out_img, std::to_string(output[i].depth) + "ft",cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75,cv::Scalar(255, 255, 0));
       cv::rectangle(out_img, rectangle.box, cv::Scalar(255, 255, 0), 3);
+    
     } else {
-      cv::putText(out_img, std::to_string(output[i].depth) + "ft",
-                  cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75,
-                  cv::Scalar(0, 0, 255));
+      cv::putText(out_img, std::to_string(output[i].depth) + "ft",cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.75,cv::Scalar(0, 0, 255));
       cv::rectangle(out_img, rectangle.box, cv::Scalar(0, 0, 255), 3);
+      //// LCOV_EXCL_STOP
     }
   }
   return out_img;
