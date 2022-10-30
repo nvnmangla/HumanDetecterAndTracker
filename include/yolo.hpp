@@ -9,11 +9,10 @@
  *
  */
 
-#ifndef INCLUDE_YOLO_HPP_
-#define INCLUDE_YOLO_HPP_
+#ifndef HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
+#define HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
 
 #include <image.hpp>
-
 
 using cv::Scalar;
 /**
@@ -31,29 +30,27 @@ using std::cout;
 using std::string;
 
 class Yolo {
-  
-private:
+ private:
   const float SCORE_THRESHOLD = 0.45;
   const float NMS_THRESHOLD = 0.55;
   const float CONFIDENCE_THRESHOLD = 0.60;
-  
-public:
+
+ public:
   // Text parameters.
   std::vector<Detection> output;
   // constructur
-  Yolo(string);
+  explicit Yolo(string);
   cv::dnn::Net model;
   // Yolo model YOLO V5
 
   std::vector<std::string> load_class_list(string);
 
+  void detect(Image &, const std::vector<std::string> &);
 
-  void detect(Image&,const std::vector<std::string>&);
+  void getting_rect_dim(std::vector<cv::Rect> &, float *, float &, float,
+                        float);
 
-    void getting_rect_dim(std::vector<cv::Rect> &, float *,
-                        float &, float, float);
-
-  void remove_redundant_box(float &,Image&,std::vector<cv::Rect>,
-                    std::vector<float>);
+  void remove_redundant_box(float &, Image &, std::vector<cv::Rect>,
+                            std::vector<float>);
 };
-#endif  // INCLUDE_YOLO_HPP_
+#endif  // HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_"
