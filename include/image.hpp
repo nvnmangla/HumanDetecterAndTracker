@@ -58,12 +58,12 @@ class Image {
    * @brief view the image
    *
    */
-  void view();
-  /**
-   * @brief Squaring Image for Yolo Model
-   * 
-   * @return cv::Mat 
-   */
+  // void view();
+  // /**
+  //  * @brief Squaring Image for Yolo Model
+  //  * 
+  //  * @return cv::Mat 
+  //  */
   cv::Mat square_img();
 
   /**
