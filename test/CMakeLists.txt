@@ -6,7 +6,7 @@ add_executable(
     test.cpp
     ../app/image.cpp
     ../app/yolo.cpp
-    ../app/humanDetector.cpp
+
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 

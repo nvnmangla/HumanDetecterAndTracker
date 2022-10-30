@@ -7,7 +7,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 # We probably don't want this to run on every build.
 option(COVERAGE "Generate Coverage Data" OFF)
 # Adding OpenCV library
-find_package( OpenCV REQUIRED )
+find_package( OpenCV 4 REQUIRED)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 if (COVERAGE)

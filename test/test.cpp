@@ -4,45 +4,81 @@
  * @brief Test cases for functions
  * @version 0.1
  * @date 2022-10-16
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include <gtest/gtest.h>
-#include<opencv2/opencv.hpp>
+
 #include <image.hpp>
-#include <humanDetector.hpp>
+#include <opencv2/opencv.hpp>
 #include <yolo.hpp>
 
-TEST(Image1, shorten) {
-  Image img("../shiva.jpg");
-  EXPECT_EQ(static_cast<int>(img.getImage().rows/4), static_cast<int>(img.shorten().rows));
-  // EXPECT_EQ(240, img.enlarge().rows);
+TEST(Yolo_detect_Test,detect){
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+  Yolo yol("../models/yolov5n.onnx");
+  auto classes = yol.load_class_list("../segmentations/coco_names.txt");
+
+  yol.detect(img,classes);
 }
 
-TEST(Image2, englarge) {
-  Image img("../shiva.jpg");
-  EXPECT_EQ(img.getImage().rows, img.enlarge().rows);
-  // EXPECT_EQ(120, img.shorten().rows);
-}
-
-TEST(Image, grayscaleCheck) {
-  Image img("../shiva.jpg");
+TEST(Yolo_constuctor_test,yolo){
   
-  EXPECT_EQ(1, img.grayScale().channels());
-  // EXPECT_EQ(120, img.shorten().rows);
+  Yolo yol("../models/yolov5n.onnx");
+ 
 }
 
-TEST(Yolo, getOutputCheck) {
-  Yolo objYolo("../yolov5s.onnx",true);
-  EXPECT_EQ(2, objYolo.getOutput().rows);
-  // EXPECT_EQ(120, img.shorten().rows);
+
+TEST(Image_constuctor_test,image){
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+ 
 }
 
-TEST(HumanDetector, detectHumanCheck) {
-  HumanDetector hd("../shiva.jpg","../yolov5.onnx",true);
-  EXPECT_EQ(2, hd.detectHuman().rows);
-  // EXPECT_EQ(120, img.shorten().rows);
+
+TEST(Image_sq_image_Test,sqare_image){
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+  EXPECT_FLOAT_EQ(img.square_img().cols,img.square_img().rows);
+
 }
 
+
+TEST(Image_get_image_Test,get_image){
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+  EXPECT_FLOAT_EQ(img.getImage().cols,im.cols);
+
+}
+
+
+TEST(Image_draw_rectangles_Test,draw_rectangles){
+  Yolo yol("../models/yolov5n.onnx");
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+  auto size = static_cast<int>(yol.output.size());
+  
+  EXPECT_EQ(img.getImage().cols,img.draw_rectangles(size,yol.output).cols);
+  
+
+}
+
+TEST(Yolo_Getting_rectangle_dimensions,getting_Rect_dim){
+  Yolo yol("../models/yolov5n.onnx");
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
+  Image img(im);
+  std::vector<cv::Rect> boxes;
+  float data[4] = {1,2,3,4};
+  float box_height{};
+  yol.getting_Rect_dim(boxes,data, box_height,1.0, 1.0);
+
+}
+
+
+TEST(Yolo_load_class_list_test,load_class_list){
+  Yolo yol("../models/yolov5n.onnx");
+  auto list = yol.load_class_list("../segmentations/coco_names.txt");
+  EXPECT_EQ(80,list.size());
+}

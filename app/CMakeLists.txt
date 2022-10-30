@@ -1,4 +1,4 @@
-add_executable(shell-app main.cpp image.cpp yolo.cpp humanDetector.cpp)
+add_executable(shell-app main.cpp image.cpp yolo.cpp)
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
 )
