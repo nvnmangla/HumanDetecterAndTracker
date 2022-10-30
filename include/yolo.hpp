@@ -9,10 +9,11 @@
  *
  */
 
-#ifndef HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
-#define HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
-#include <fstream>
+#ifndef INCLUDE_YOLO_HPP_
+#define INCLUDE_YOLO_HPP_
+
 #include <image.hpp>
+
 
 using cv::Scalar;
 /**
@@ -29,24 +30,16 @@ using std::cin;
 using std::cout;
 using std::string;
 
-struct Detection {
-  // int class_id;
-  float confidence;
-  cv::Rect box;
-};
-
 class Yolo {
- public:
-  const float INPUT_WIDTH = 640.0;
-  const float INPUT_HEIGHT = 640.0;
-  const float SCORE_THRESHOLD = 0.25;
+  
+private:
+  const float SCORE_THRESHOLD = 0.45;
   const float NMS_THRESHOLD = 0.55;
-  const float CONFIDENCE_THRESHOLD = 0.25;
-
+  const float CONFIDENCE_THRESHOLD = 0.60;
+  
+public:
   // Text parameters.
-  const float FONT_SCALE = 0.7;
-  const int FONT_FACE = cv::FONT_HERSHEY_SIMPLEX;
-  const int THICKNESS = 1;
+  std::vector<Detection> output;
 
   // Colors.
   Scalar BLACK = Scalar(0, 0, 0);
@@ -54,28 +47,21 @@ class Yolo {
   Scalar YELLOW = Scalar(0, 255, 255);
   Scalar RED = Scalar(0, 0, 255);
 
-  // contructure
-  Yolo(string,bool);
+  // constructur
+  Yolo(string);
   cv::dnn::Net model;
   // Yolo model YOLO V5
-  cv::Mat format_yolov5(const cv::Mat &source);
+  // cv::Mat format_yolov5(const cv::Mat &source);
 
   std::vector<std::string> load_class_list(string);
 
-  void modelFilter() {
-    // TODO(nvnmangla) , Model Filter.
-  }
 
-  //  public:
-  /**
-   * @brief Get the Output image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat getOutput();
+  void detect(Image&,const std::vector<std::string>&);
 
-  void detect(cv::Mat &image, std::vector<Detection> &output,
-              const std::vector<std::string> &className);
+  void getting_Rect_dim(std::vector<cv::Rect> &, float *,
+                        float &, float, float);
+
+  void remove_Redundant_box(float &,Image&,std::vector<cv::Rect>,
+                    std::vector<float>);
 };
-
-#endif  // HUMANDETECTERANDTRACKER_INCLUDE_YOLO_HPP_
+#endif  // INCLUDE_YOLO_HPP_

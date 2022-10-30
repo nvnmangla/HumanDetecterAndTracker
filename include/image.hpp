@@ -9,10 +9,14 @@
  *
  */
 
-#ifndef HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
-#define HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
+#ifndef INCLUDE_IMAGE_HPP_
+#define INCLUDE_IMAGE_HPP_
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+
 #include <opencv2/core.hpp>
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
@@ -20,61 +24,66 @@
 #include <string>
 #include <vector>
 
+=======
+>>>>>>> af854c728f6c06fb0872ef6651470701b9433164
 
+struct Detection {
+  // int class_id;
+  float confidence;
+  cv::Rect box;
+  float depth;
+};
 
 using std::cin;
 using std::cout;
 using std::string;
 
 class Image {
+
+ 
+ private:
+  cv::Mat image;     // image itself :)
  public:
   /**
    * @brief Construct a new Image object
    * 
-   * @param pathToImage:string - Directory to the image
+   * @param img Input Image 
    */
-  explicit Image(string pathToImage);
-  bool testView = true;
-  bool testGrayscale = true;
+  explicit Image(cv::Mat &img);
+    
+    int testDetection{};
 
- private:
-  string imagePath;  // Path of the image
-  cv::Mat image;     // image itself :)
-  cv::Mat shortImage;
-  int ratio = 4;
-  cv::Mat gray;
+    // Dimentions of the square image
+    const float INPUT_WIDTH = 640.0;
+    const float INPUT_HEIGHT = 640.0;
 
- public:
-  /**
-   * @brief Shorten the input image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat shorten();
 
-  /**
-   * @brief Get the Image
-   *
-   * @return cv::Mat
-   */
+  
   cv::Mat getImage();
 
-  /**
-   * @brief Enlage the output image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat enlarge();
   /**
    * @brief view the image
    *
    */
-  void view();
+  // void view();
+  // /**
+  //  * @brief Squaring Image for Yolo Model
+  //  * 
+  //  * @return cv::Mat 
+  //  */
+  cv::Mat square_img();
+
   /**
-   * @brief Gray Scaling the image
+   * @brief To draw rectangle on the image
    *
+   * @return cv::Mat
    */
+<<<<<<< HEAD
   cv::Mat grayScale();
+>>>>>>> 1e918620d45118a13202a60b3ed48c25da8d788f
+=======
+  cv::Mat draw_rectangles(int, std::vector<Detection>);
+>>>>>>> af854c728f6c06fb0872ef6651470701b9433164
 };
 
 #endif  // HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
