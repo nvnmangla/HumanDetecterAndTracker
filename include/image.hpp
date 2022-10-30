@@ -21,11 +21,6 @@
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
-#include <string>
-#include <vector>
-
-=======
->>>>>>> af854c728f6c06fb0872ef6651470701b9433164
 
 struct Detection {
   // int class_id;
@@ -78,12 +73,7 @@ class Image {
    *
    * @return cv::Mat
    */
-<<<<<<< HEAD
-  cv::Mat grayScale();
->>>>>>> 1e918620d45118a13202a60b3ed48c25da8d788f
-=======
   cv::Mat draw_rectangles(int, std::vector<Detection>);
->>>>>>> af854c728f6c06fb0872ef6651470701b9433164
 };
 
-#endif  // HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
+#endif  // INCLUDE_IMAGE_HPP_
