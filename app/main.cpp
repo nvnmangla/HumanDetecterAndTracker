@@ -17,9 +17,17 @@ using std::cin;
 using std::cout;
 using std::string;
 
-int main() {
+int main(int argc, char *argv[] ) {
  
   // Creating Yolo class object yol with argument as location of yolo model path
+  string path = "../videos/Office-Parkour.mp4";
+  if( argc == 2 ) {
+      cout << "The argument supplied is "<< argv[1] << std::endl;
+      path = argv[1];
+  } 
+  else {
+      cout << "Reading file "<< path <<std::endl;      
+  }
 
   Yolo yol("../models/yolov5n.onnx");
   
@@ -29,7 +37,7 @@ int main() {
   cv::Mat in_img;
   
   // reading video from the file path
-  cv::VideoCapture capture("../videos/Office-Parkour.mp4");
+  cv::VideoCapture capture(path);
   if (!capture.isOpened()) {
     // Sanity check
     std::cerr << "Error opening video file\n";

@@ -90,7 +90,7 @@ TEST(Yolo_Getting_rectangle_dimensions,getting_rect_dim){
 TEST(Yolo_load_class_list_test,load_class_list){
   Yolo yol("../models/yolov5n.onnx");
   auto list = yol.load_class_list("../segmentations/coco_names.txt");
-  EXPECT_EQ(80,list.size());
+  EXPECT_EQ(80,static_cast<int>(list.size()));
 }
 
 
