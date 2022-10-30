@@ -45,8 +45,6 @@ class Image {
    * @param img Input Image 
    */
   explicit Image(cv::Mat &img);
-    
-    int testDetection{};
 
     // Dimentions of the square image
     const float INPUT_WIDTH = 640.0;
