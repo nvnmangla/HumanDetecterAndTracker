@@ -21,51 +21,6 @@
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
-<<<<<<< HEAD
-using std::cin;
-using std::cout;
-using std::string;
-
-// <<<<<<< HEAD
-class Image {
- private:
-  string imagePath = "../shiva.jpg";         // Path of the image
-  cv::Mat image = cv::imread(imagePath, 1);  // image itself :)
-  cv::Mat shortImage = shorten();
-  int ratio = 4;
-  cv::Mat gray;
-
- public:
-  bool testView = true;
-  bool testGrayscale = true;
-
-  /**
-   * @brief Shorten the input image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat shorten();
-  cv::Mat getImage();
-
-  /**
-   * @brief Enlage the output image
-   *
-   * @return cv::Mat
-   */
-  cv::Mat enlarge();
-  /**
-   * @brief view the image
-   *
-   */
-  void view();
-  /**
-   * @brief Gray Scaling the image
-   *
-   */
-  void grayScale();
-
-=======
->>>>>>> af854c728f6c06fb0872ef6651470701b9433164
 
 struct Detection {
   // int class_id;
@@ -78,9 +33,6 @@ using std::cin;
 using std::cout;
 using std::string;
 
-<<<<<<< HEAD
->>>>>>> 77e0c2d27d4f469ad96fede773330b239b988a39
-=======
 class Image {
 
  
@@ -121,12 +73,7 @@ class Image {
    *
    * @return cv::Mat
    */
-<<<<<<< HEAD
-  cv::Mat grayScale();
->>>>>>> 1e918620d45118a13202a60b3ed48c25da8d788f
-=======
   cv::Mat draw_rectangles(int, std::vector<Detection>);
->>>>>>> af854c728f6c06fb0872ef6651470701b9433164
 };
 
 #endif  // INCLUDE_IMAGE_HPP_
