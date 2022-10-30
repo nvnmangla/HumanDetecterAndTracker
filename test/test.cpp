@@ -16,30 +16,30 @@
 #include <yolo.hpp>
 
 TEST(Yolo_detect_Test,detect){
-  cv::Mat im = cv::imread("../../videos/shiva.jpg",1);
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
-  Yolo yol("../../models/yolov5n.onnx");
-  auto classes = yol.load_class_list("../../segmentations/coco_names.txt");
+  Yolo yol("../models/yolov5n.onnx");
+  auto classes = yol.load_class_list("../segmentations/coco_names.txt");
 
   yol.detect(img,classes);
 }
 
 TEST(Yolo_constuctor_test,yolo){
   
-  Yolo yol("../../models/yolov5n.onnx");
+  Yolo yol("../models/yolov5n.onnx");
  
 }
 
 
 TEST(Image_constuctor_test,image){
-  cv::Mat im = cv::imread("../../videos/shiva.jpg",1);
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
  
 }
 
 
 TEST(Image_sq_image_Test,sqare_image){
-  cv::Mat im = cv::imread("../../videos/shiva.jpg",1);
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
   EXPECT_FLOAT_EQ(img.square_img().cols,img.square_img().rows);
 
@@ -55,8 +55,8 @@ TEST(Image_get_image_Test,get_image){
 
 
 TEST(Image_draw_rectangles_Test,draw_rectangles){
-  Yolo yol("../../models/yolov5n.onnx");
-  cv::Mat im = cv::imread("../../videos/shiva.jpg",1);
+  Yolo yol("../models/yolov5n.onnx");
+  cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
   auto size = static_cast<int>(yol.output.size());
   
