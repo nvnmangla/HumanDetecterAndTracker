@@ -59,7 +59,7 @@ TEST(Image_sq_image_Test,sqare_image){
 TEST(Image_get_image_Test,get_image){
   cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
-  EXPECT_FLOAT_EQ(img.getImage().cols,im.cols);
+  EXPECT_FLOAT_EQ(img.get_image().cols,im.cols);
 
 }
 
@@ -70,19 +70,19 @@ TEST(Image_draw_rectangles_Test,draw_rectangles){
   Image img(im);
   auto size = static_cast<int>(yol.output.size());
   
-  EXPECT_EQ(img.getImage().cols,img.draw_rectangles(size,yol.output).cols);
+  EXPECT_EQ(img.get_image().cols,img.draw_rectangles(size,yol.output).cols);
   
 
 }
 
-TEST(Yolo_Getting_rectangle_dimensions,getting_Rect_dim){
+TEST(Yolo_Getting_rectangle_dimensions,getting_rect_dim){
   Yolo yol("../models/yolov5n.onnx");
   cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
   std::vector<cv::Rect> boxes;
   float data[4] = {1,2,3,4};
   float box_height{};
-  yol.getting_Rect_dim(boxes,data, box_height,1.0, 1.0);
+  yol.getting_rect_dim(boxes,data, box_height,1.0, 1.0);
 
 }
 
@@ -99,7 +99,7 @@ TEST(Image_rectangle_draw,Test2){
   cv::Mat im = cv::imread("../videos/shiva.jpg",1);
   Image img(im);
   auto size = static_cast<int>(yol.output.size());
-  auto img1 = img.getImage();
+  auto img1 = img.get_image();
   auto img2 = img.draw_rectangles(size,yol.output);
   if (yol.output.size() == 0){
     EXPECT_FALSE(cv::norm(img1,img2,cv::NORM_L1));}

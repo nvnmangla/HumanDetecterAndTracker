@@ -50,7 +50,7 @@ std::vector<std::string> Yolo::load_class_list(string fileName) {
  * @param x_factor 
  * @param y_factor 
  */
-void Yolo::getting_Rect_dim(std::vector<cv::Rect> &boxes, float *data,
+void Yolo::getting_rect_dim(std::vector<cv::Rect> &boxes, float *data,
                             float &box_height, float x_factor, float y_factor) {
   float x = data[0];
   float y = data[1];
@@ -110,16 +110,16 @@ void Yolo::detect(Image &img,const std::vector<std::string> &className) {
 
         class_ids.push_back(class_id.x);
 
-        getting_Rect_dim(boxes, data, box_height, x_factor, y_factor);
+        getting_rect_dim(boxes, data, box_height, x_factor, y_factor);
       }
     }
 
     data += 85;
   }
-  remove_Redundant_box(box_height,img,boxes,confidences);
+  remove_redundant_box(box_height,img,boxes,confidences);
 }
 
-void Yolo::remove_Redundant_box(float &box_height,Image &img,std::vector<cv::Rect>boxes,
+void Yolo::remove_redundant_box(float &box_height,Image &img,std::vector<cv::Rect>boxes,
   std::vector<float>confidences){
   std::vector<int> nms_result;
 

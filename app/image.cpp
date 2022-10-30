@@ -19,7 +19,7 @@ Image::Image(cv::Mat &img) {
   this->image = img;
 }
 
-cv::Mat Image::getImage() { return this->image; }
+cv::Mat Image::get_image() { return this->image; }
 /**
  * @brief To view the image frame
  * 

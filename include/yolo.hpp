@@ -50,10 +50,10 @@ public:
 
   void detect(Image&,const std::vector<std::string>&);
 
-    void getting_Rect_dim(std::vector<cv::Rect> &, float *,
+    void getting_rect_dim(std::vector<cv::Rect> &, float *,
                         float &, float, float);
 
-  void remove_Redundant_box(float &,Image&,std::vector<cv::Rect>,
+  void remove_redundant_box(float &,Image&,std::vector<cv::Rect>,
                     std::vector<float>);
 };
 #endif  // INCLUDE_YOLO_HPP_

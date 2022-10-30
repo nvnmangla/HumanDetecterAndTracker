@@ -54,7 +54,7 @@ class Image {
 
 
   
-  cv::Mat getImage();
+  cv::Mat get_image();
 
   
   void view();
