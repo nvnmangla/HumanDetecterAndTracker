@@ -1,8 +1,6 @@
 <map id="include/yolo.hpp" name="include/yolo.hpp">
-<area shape="rect" id="node1" title="Model related functions." alt="" coords="197,5,326,32"/>
-<area shape="rect" id="node2" href="$yolo_8cpp_source.html" title=" " alt="" coords="30,80,135,107"/>
-<area shape="rect" id="node3" href="$human_detector_8hpp.html" title="The binding class." alt="" coords="160,80,363,107"/>
-<area shape="rect" id="node6" href="$test_8cpp.html" title="Test cases for functions." alt="" coords="347,155,450,181"/>
-<area shape="rect" id="node4" href="$human_detector_8cpp.html" title="Functions definitions for class HumanDetector." alt="" coords="5,155,184,181"/>
-<area shape="rect" id="node5" href="$app_2main_8cpp.html" title="Implementation." alt="" coords="209,155,319,181"/>
+<area shape="rect" id="node1" title="Model related functions." alt="" coords="128,5,257,32"/>
+<area shape="rect" id="node2" href="$app_2main_8cpp.html" title="Implementation." alt="" coords="5,80,116,107"/>
+<area shape="rect" id="node3" href="$yolo_8cpp_source.html" title=" " alt="" coords="140,80,245,107"/>
+<area shape="rect" id="node4" href="$test_8cpp.html" title="Test cases for functions." alt="" coords="269,80,372,107"/>
 </map>

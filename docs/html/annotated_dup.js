@@ -1,8 +1,8 @@
 var annotated_dup =
 [
     [ "bar", null, [
-      [ "Setup", "md_vendor_googletest_googletest__r_e_a_d_m_e.html#autotoc_md1232", null ],
-      [ "Build", "md_vendor_googletest_googletest__r_e_a_d_m_e.html#autotoc_md1233", null ],
+      [ "Setup", "md_vendor_googletest_googletest__r_e_a_d_m_e.html#autotoc_md1233", null ],
+      [ "Build", "md_vendor_googletest_googletest__r_e_a_d_m_e.html#autotoc_md1234", null ],
       [ "MixedUpTestCaseTest", "classbar_1_1_mixed_up_test_case_test.html", null ],
       [ "MixedUpTestCaseWithSameTestNameTest", "classbar_1_1_mixed_up_test_case_with_same_test_name_test.html", null ]
     ] ],
@@ -699,6 +699,7 @@ var annotated_dup =
     [ "ConversionHelperDerived", "class_conversion_helper_derived.html", null ],
     [ "ConvertibleToAssertionResult", "struct_convertible_to_assertion_result.html", "struct_convertible_to_assertion_result" ],
     [ "Counter", "class_counter.html", "class_counter" ],
+    [ "Detection", "struct_detection.html", "struct_detection" ],
     [ "DisabledTest", "class_disabled_test.html", null ],
     [ "ExpectFailureTest", "class_expect_failure_test.html", "class_expect_failure_test" ],
     [ "FailedTest", "class_failed_test.html", null ],
@@ -709,7 +710,6 @@ var annotated_dup =
     [ "FooEnvironment", "class_foo_environment.html", "class_foo_environment" ],
     [ "FooTest", "class_foo_test.html", null ],
     [ "GMockOutputTest", "class_g_mock_output_test.html", "class_g_mock_output_test" ],
-    [ "HumanDetector", "class_human_detector.html", "class_human_detector" ],
     [ "Image", "class_image.html", "class_image" ],
     [ "IntegerFunctionTest", "class_integer_function_test.html", null ],
     [ "Interface", "class_interface.html", "class_interface" ],

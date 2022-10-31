@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('md_vendor_googletest_googlemock_docs_v
 <div class="title">Defining a <a class="el" href="class_mock.html">Mock</a> Class </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md340"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md341"></a>
 Mocking a Normal Class</h1>
 <p>Given </p><div class="fragment"><div class="line">class Foo {</div>
 <div class="line">  ...</div>
@@ -105,7 +105,7 @@ Mocking a Normal Class</h1>
 <div class="line">};</div>
 </div><!-- fragment --><p>To create a "nice" mock object which ignores all uninteresting calls, or a "strict" mock object, which treats them as failures: </p><div class="fragment"><div class="line">NiceMock&lt;MockFoo&gt; nice_foo;     // The type is a subclass of MockFoo.</div>
 <div class="line">StrictMock&lt;MockFoo&gt; strict_foo; // The type is a subclass of MockFoo.</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md341"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md342"></a>
 Mocking a Class Template</h1>
 <p>To mock </p><div class="fragment"><div class="line">template &lt;typename Elem&gt;</div>
 <div class="line">class StackInterface {</div>
@@ -122,12 +122,12 @@ Mocking a Class Template</h1>
 <div class="line">  MOCK_CONST_METHOD0_T(GetSize, int());</div>
 <div class="line">  MOCK_METHOD1_T(Push, void(const Elem&amp; x));</div>
 <div class="line">};</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md342"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md343"></a>
 Specifying Calling Conventions for Mock Functions</h1>
 <p>If your mock function doesn't use the default calling convention, you can specify it by appending <code>_WITH_CALLTYPE</code> to any of the macros described in the previous two sections and supplying the calling convention as the first argument to the macro. For example, </p><div class="fragment"><div class="line">MOCK_METHOD_1_WITH_CALLTYPE(STDMETHODCALLTYPE, Foo, bool(int n));</div>
 <div class="line">MOCK_CONST_METHOD2_WITH_CALLTYPE(STDMETHODCALLTYPE, Bar, int(double x, double y));</div>
 </div><!-- fragment --><p>where <code>STDMETHODCALLTYPE</code> is defined by <code>&lt;objbase.h&gt;</code> on Windows.</p>
-<h1><a class="anchor" id="autotoc_md343"></a>
+<h1><a class="anchor" id="autotoc_md344"></a>
 Using Mocks in Tests</h1>
 <p>The typical flow is:</p><ol type="1">
 <li>Import the Google <a class="el" href="class_mock.html">Mock</a> names you need to use. All Google <a class="el" href="class_mock.html">Mock</a> names are in the <code>testing</code> namespace unless they are macros or otherwise noted.</li>
@@ -163,7 +163,7 @@ Using Mocks in Tests</h1>
 <div class="line"> </div>
 <div class="line">  EXPECT_EQ(&quot;good&quot;, MyProductionFunction(&amp;foo));  // #5</div>
 <div class="line">}                                                 // #6</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md344"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md345"></a>
 Setting Default Actions</h1>
 <p>Google <a class="el" href="class_mock.html">Mock</a> has a <b>built-in default action</b> for any function that returns <code>void</code>, <code>bool</code>, a numeric value, or a pointer.</p>
 <p>To customize the default action for functions with return type <code>T</code> globally: </p><div class="fragment"><div class="line">using ::testing::DefaultValue;</div>
@@ -174,7 +174,7 @@ Setting Default Actions</h1>
 </div><!-- fragment --><p>To customize the default action for a particular method, use <code>ON_CALL()</code>: </p><div class="fragment"><div class="line">ON_CALL(mock_object, method(matchers))</div>
 <div class="line">    .With(multi_argument_matcher)  ?</div>
 <div class="line">    .WillByDefault(action);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md345"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md346"></a>
 Setting Expectations</h1>
 <p><code>EXPECT_CALL()</code> sets <b>expectations</b> on a mock method (How will it be called? What will it do?): </p><div class="fragment"><div class="line">EXPECT_CALL(mock_object, method(matchers))</div>
 <div class="line">    .With(multi_argument_matcher)  ?</div>
@@ -191,7 +191,7 @@ Setting Expectations</h1>
 <li><code>Times(AtLeast(n))</code> when there are <code>n WillOnce()</code>s and a <code>WillRepeatedly()</code>, where <code>n</code> &gt;= 0.</li>
 </ul>
 <p>A method with no <code>EXPECT_CALL()</code> is free to be invoked <em>any number of times</em>, and the default action will be taken each time.</p>
-<h1><a class="anchor" id="autotoc_md346"></a>
+<h1><a class="anchor" id="autotoc_md347"></a>
 Matchers</h1>
 <p>A <b>matcher</b> matches a <em>single</em> argument. You can use it inside <code>ON_CALL()</code> or <code>EXPECT_CALL()</code>, or use it to validate a value directly:</p>
 <table class="markdownTable">
@@ -201,7 +201,7 @@ Matchers</h1>
 <td class="markdownTableBodyLeft"><code>ASSERT_THAT(value, matcher)</code> </td><td class="markdownTableBodyLeft">The same as <code>EXPECT_THAT(value, matcher)</code>, except that it generates a <b>fatal</b> failure.  </td></tr>
 </table>
 <p>Built-in matchers (where <code>argument</code> is the function argument) are divided into several categories:</p>
-<h2><a class="anchor" id="autotoc_md347"></a>
+<h2><a class="anchor" id="autotoc_md348"></a>
 Wildcard</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -209,7 +209,7 @@ Wildcard</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><code>A&lt;type&gt;()</code> or <code>An&lt;type&gt;()</code> </td><td class="markdownTableBodyLeft"><code>argument</code> can be any value of type <code>type</code>.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md348"></a>
+<h2><a class="anchor" id="autotoc_md349"></a>
 Generic Comparison</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -234,7 +234,7 @@ Generic Comparison</h2>
 <td class="markdownTableBodyLeft"><code>TypedEq&lt;type&gt;(value)</code> </td><td class="markdownTableBodyLeft"><code>argument</code> has type <code>type</code> and is equal to <code>value</code>. You may need to use this instead of <code>Eq(value)</code> when the mock function is overloaded.  </td></tr>
 </table>
 <p>Except <code>Ref()</code>, these matchers make a <em>copy</em> of <code>value</code> in case it's modified or destructed later. If the compiler complains that <code>value</code> doesn't have a public copy constructor, try wrap it in <code>ByRef()</code>, e.g. <code>Eq(ByRef(non_copyable_value))</code>. If you do that, make sure <code>non_copyable_value</code> is not changed afterwards, or the meaning of your matcher will be changed.</p>
-<h2><a class="anchor" id="autotoc_md349"></a>
+<h2><a class="anchor" id="autotoc_md350"></a>
 Floating-Point Matchers</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -247,7 +247,7 @@ Floating-Point Matchers</h2>
 <td class="markdownTableBodyLeft"><code>NanSensitiveFloatEq(a_float)</code> </td><td class="markdownTableBodyLeft"><code>argument</code> is a <code>float</code> value approximately equal to <code>a_float</code>, treating two NaNs as equal.  </td></tr>
 </table>
 <p>These matchers use ULP-based comparison (the same as used in <a href="http://code.google.com/p/googletest/">Google Test</a>). They automatically pick a reasonable error bound based on the absolute value of the expected value. <code>DoubleEq()</code> and <code>FloatEq()</code> conform to the IEEE standard, which requires comparing two NaNs for equality to return false. The <code>NanSensitive*</code> version instead treats two NaNs as equal, which is often what a user wants.</p>
-<h2><a class="anchor" id="autotoc_md350"></a>
+<h2><a class="anchor" id="autotoc_md351"></a>
 String Matchers</h2>
 <p>The <code>argument</code> can be either a C string or a C++ string object:</p>
 <table class="markdownTable">
@@ -271,7 +271,7 @@ String Matchers</h2>
 <td class="markdownTableBodyLeft"><code>StrNe(string)</code> </td><td class="markdownTableBodyLeft"><code>argument</code> is not equal to <code>string</code>.  </td></tr>
 </table>
 <p><code>ContainsRegex()</code> and <code>MatchesRegex()</code> use the regular expression syntax defined <a href="http://code.google.com/p/googletest/wiki/V1_6_AdvancedGuide#Regular_Expression_Syntax">here</a>. <code>StrCaseEq()</code>, <code>StrCaseNe()</code>, <code>StrEq()</code>, and <code>StrNe()</code> work for wide strings as well.</p>
-<h2><a class="anchor" id="autotoc_md351"></a>
+<h2><a class="anchor" id="autotoc_md352"></a>
 Container Matchers</h2>
 <p>Most STL-style containers support <code>==</code>, so you can use <code>Eq(expected_container)</code> or simply <code>expected_container</code> to match a container exactly. If you want to write the elements in-line, match them more flexibly, or get more informative messages, you can use:</p>
 <table class="markdownTable">
@@ -296,7 +296,7 @@ Container Matchers</h2>
 <li>an array passed as a pointer and a count (e.g. in <code>Bar(const T* buffer, int len)</code> &ndash; see Multi-argument Matchers).</li>
 </ol>
 <p>where the array may be multi-dimensional (i.e. its elements can be arrays).</p>
-<h2><a class="anchor" id="autotoc_md352"></a>
+<h2><a class="anchor" id="autotoc_md353"></a>
 Member Matchers</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -308,13 +308,13 @@ Member Matchers</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><code>Property(&amp;class::property, m)</code> </td><td class="markdownTableBodyLeft"><code>argument.property()</code> (or <code>argument-&gt;property()</code> when <code>argument</code> is a plain pointer) matches matcher <code>m</code>, where <code>argument</code> is an object of type <em>class</em>.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md353"></a>
+<h2><a class="anchor" id="autotoc_md354"></a>
 Matching the Result of a Function or Functor</h2>
 <p>|<code>ResultOf(f, m)</code>|<code>f(argument)</code> matches matcher <code>m</code>, where <code>f</code> is a function or functor.| |:------------&mdash;|:------------------------------------------------------------------&mdash;|</p>
-<h2><a class="anchor" id="autotoc_md354"></a>
+<h2><a class="anchor" id="autotoc_md355"></a>
 Pointer Matchers</h2>
 <p>|<code>Pointee(m)</code>|<code>argument</code> (either a smart pointer or a raw pointer) points to a value that matches matcher <code>m</code>.| |:--------&mdash;|:--------------------------------------------------------------------------------------------&mdash;|</p>
-<h2><a class="anchor" id="autotoc_md355"></a>
+<h2><a class="anchor" id="autotoc_md356"></a>
 Multiargument Matchers</h2>
 <p>Technically, all matchers match a <em>single</em> value. A "multi-argument" matcher is just one that matches a <em>tuple</em>. The following matchers can be used to match a tuple <code>(x, y)</code>:</p>
 <table class="markdownTable">
@@ -338,7 +338,7 @@ Multiargument Matchers</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><code>Args&lt;N1, N2, ..., Nk&gt;(m)</code> </td><td class="markdownTableBodyLeft">The tuple of the <code>k</code> selected (using 0-based indices) arguments matches <code>m</code>, e.g. <code>Args&lt;1, 2&gt;(Eq())</code>.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md356"></a>
+<h2><a class="anchor" id="autotoc_md357"></a>
 Composite Matchers</h2>
 <p>You can make a matcher from one or more other matchers:</p>
 <table class="markdownTable">
@@ -349,7 +349,7 @@ Composite Matchers</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><code>Not(m)</code> </td><td class="markdownTableBodyLeft"><code>argument</code> doesn't match matcher <code>m</code>.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md357"></a>
+<h2><a class="anchor" id="autotoc_md358"></a>
 Adapters for Matchers</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -359,7 +359,7 @@ Adapters for Matchers</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><code>Truly(predicate)</code> </td><td class="markdownTableBodyLeft"><code>predicate(argument)</code> returns something considered by C++ to be true, where <code>predicate</code> is a function or functor.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md358"></a>
+<h2><a class="anchor" id="autotoc_md359"></a>
 Matchers as Predicates</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -369,7 +369,7 @@ Matchers as Predicates</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><code>Value(value, m)</code> </td><td class="markdownTableBodyLeft">evaluates to <code>true</code> if <code>value</code> matches <code>m</code>.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md359"></a>
+<h2><a class="anchor" id="autotoc_md360"></a>
 Defining Matchers</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -389,7 +389,7 @@ Defining Matchers</h2>
 <ol type="1">
 <li>You can use <code>PrintToString(x)</code> to convert a value <code>x</code> of any type to a string.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md360"></a>
+<h2><a class="anchor" id="autotoc_md361"></a>
 Matchers as Test Assertions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -397,10 +397,10 @@ Matchers as Test Assertions</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><code>EXPECT_THAT(expression, m)</code> </td><td class="markdownTableBodyLeft">Generates a non-fatal failure if the value of <code>expression</code> doesn't match matcher <code>m</code>.  </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md361"></a>
+<h1><a class="anchor" id="autotoc_md362"></a>
 Actions</h1>
 <p><b>Actions</b> specify what a mock function should do when invoked.</p>
-<h2><a class="anchor" id="autotoc_md362"></a>
+<h2><a class="anchor" id="autotoc_md363"></a>
 Returning a Value</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -420,7 +420,7 @@ Returning a Value</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><code>ReturnRefOfCopy(value)</code> </td><td class="markdownTableBodyLeft">Return a reference to a copy of <code>value</code>; the copy lives as long as the action.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md363"></a>
+<h2><a class="anchor" id="autotoc_md364"></a>
 Side Effects</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -444,7 +444,7 @@ Side Effects</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><code>Throw(exception)</code> </td><td class="markdownTableBodyLeft">Throws the given exception, which can be any copyable value. Available since v1.1.0.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md364"></a>
+<h2><a class="anchor" id="autotoc_md365"></a>
 Using a Function or a Functor as an Action</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -464,11 +464,11 @@ Using a Function or a Functor as an Action</h2>
 <div class="line">EXPECT_CALL(mock, Foo(&quot;Hi&quot;, _, _)).WillOnce(Invoke(Distance));</div>
 </div><!-- fragment --><p>In <code>InvokeArgument&lt;N&gt;(...)</code>, if an argument needs to be passed by reference, wrap it inside <code>ByRef()</code>. For example, </p><div class="fragment"><div class="line">InvokeArgument&lt;2&gt;(5, string(&quot;Hi&quot;), ByRef(foo))</div>
 </div><!-- fragment --><p>calls the mock function's #2 argument, passing to it <code>5</code> and <code>string("Hi")</code> by value, and <code>foo</code> by reference.</p>
-<h2><a class="anchor" id="autotoc_md365"></a>
+<h2><a class="anchor" id="autotoc_md366"></a>
 Default Action</h2>
 <p>|<code>DoDefault()</code>|Do the default action (specified by <code>ON_CALL()</code> or the built-in one).| |:---------&mdash;|:-----------------------------------------------------------------&mdash;|</p>
 <p><b>Note:</b> due to technical reasons, <code>DoDefault()</code> cannot be used inside a composite action - trying to do so will result in a run-time error.</p>
-<h2><a class="anchor" id="autotoc_md366"></a>
+<h2><a class="anchor" id="autotoc_md367"></a>
 Composite Actions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -482,7 +482,7 @@ Composite Actions</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><code>WithoutArgs(a)</code> </td><td class="markdownTableBodyLeft">Perform action <code>a</code> without any arguments.  </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md367"></a>
+<h2><a class="anchor" id="autotoc_md368"></a>
 Defining Actions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -493,7 +493,7 @@ Defining Actions</h2>
 <td class="markdownTableBodyLeft"><code>ACTION_Pk(Foo, p1, ..., pk) { statements; }</code> </td><td class="markdownTableBodyLeft">Defines a parameterized action <code>Foo(p1, ..., pk)</code> to execute the given <code>statements</code>.  </td></tr>
 </table>
 <p>The <code>ACTION*</code> macros cannot be used inside a function or class.</p>
-<h1><a class="anchor" id="autotoc_md368"></a>
+<h1><a class="anchor" id="autotoc_md369"></a>
 Cardinalities</h1>
 <p>These are used in <code>Times()</code> to specify how many times a mock function will be called:</p>
 <table class="markdownTable">
@@ -508,10 +508,10 @@ Cardinalities</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><code>Exactly(n) or n</code> </td><td class="markdownTableBodyLeft">The call is expected exactly <code>n</code> times. In particular, the call should never happen when <code>n</code> is 0.  </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md369"></a>
+<h1><a class="anchor" id="autotoc_md370"></a>
 Expectation Order</h1>
 <p>By default, the expectations can be matched in <em>any</em> order. If some or all expectations must be matched in a given order, there are two ways to specify it. They can be used either independently or together.</p>
-<h2><a class="anchor" id="autotoc_md370"></a>
+<h2><a class="anchor" id="autotoc_md371"></a>
 The After Clause</h2>
 <div class="fragment"><div class="line">using ::testing::Expectation;</div>
 <div class="line">...</div>
@@ -531,7 +531,7 @@ The After Clause</h2>
 <div class="line">    .After(all_inits);</div>
 </div><!-- fragment --><p>says that <code>Bar()</code> can be called only after all elements have been initialized (but we don't care about which elements get initialized before the others).</p>
 <p>Modifying an <code>ExpectationSet</code> after using it in an <code>.After()</code> doesn't affect the meaning of the <code>.After()</code>.</p>
-<h2><a class="anchor" id="autotoc_md371"></a>
+<h2><a class="anchor" id="autotoc_md372"></a>
 Sequences</h2>
 <p>When you have a long chain of sequential expectations, it's easier to specify the order using <b>sequences</b>, which don't require you to given each expectation in the chain a different name. <em>All expected<br  />
  calls</em> in the same sequence must occur in the order they are specified.</p>
@@ -558,7 +558,7 @@ Sequences</h2>
 <div class="line">  EXPECT_CALL(...)...;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>says that all expected calls in the scope of <code>dummy</code> must occur in strict order. The name <code>dummy</code> is irrelevant.)</p>
-<h1><a class="anchor" id="autotoc_md372"></a>
+<h1><a class="anchor" id="autotoc_md373"></a>
 Verifying and Resetting a Mock</h1>
 <p>Google <a class="el" href="class_mock.html">Mock</a> will verify the expectations on a mock object when it is destructed, or you can do it earlier: </p><div class="fragment"><div class="line">using ::testing::Mock;</div>
 <div class="line">...</div>
@@ -571,14 +571,14 @@ Verifying and Resetting a Mock</h1>
 <div class="line">// returns true iff successful.</div>
 <div class="line">Mock::VerifyAndClear(&amp;mock_obj);</div>
 </div><!-- fragment --><p>You can also tell Google <a class="el" href="class_mock.html">Mock</a> that a mock object can be leaked and doesn't need to be verified: </p><div class="fragment"><div class="line">Mock::AllowLeak(&amp;mock_obj);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md373"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md374"></a>
 Mock Classes</h1>
 <p>Google <a class="el" href="class_mock.html">Mock</a> defines a convenient mock class template </p><div class="fragment"><div class="line">class MockFunction&lt;R(A1, ..., An)&gt; {</div>
 <div class="line"> public:</div>
 <div class="line">  MOCK_METHODn(Call, R(A1, ..., An));</div>
 <div class="line">};</div>
 </div><!-- fragment --><p>See this <a href="http://code.google.com/p/googlemock/wiki/V1_6_CookBook#Using_Check_Points">recipe</a> for one application of it.</p>
-<h1><a class="anchor" id="autotoc_md374"></a>
+<h1><a class="anchor" id="autotoc_md375"></a>
 Flags</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">

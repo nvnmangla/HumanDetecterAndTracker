@@ -1,5 +1,11 @@
 <map id="include/image.hpp" name="include/image.hpp">
-<area shape="rect" id="node1" title="Image related functions." alt="" coords="45,5,187,32"/>
+<area shape="rect" id="node1" title="Image related functions." alt="" coords="313,5,455,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="109,80,264,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="110,80,183,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="208,80,267,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="291,80,354,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="378,80,515,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="540,80,673,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="697,80,860,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="884,80,1039,107"/>
 </map>

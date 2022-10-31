@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('md_vendor_googletest_googlemock_docs_v
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>(<b>Note:</b> If you get compiler errors that you don't understand, be sure to consult Google Mock Doctor.)</p>
-<h1><a class="anchor" id="autotoc_md300"></a>
+<h1><a class="anchor" id="autotoc_md301"></a>
 What Is Google C++ Mocking Framework?</h1>
 <p>When you write a prototype or test, often it's not feasible or wise to rely on real objects entirely. A <b>mock object</b> implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc).</p>
 <p><b>Note:</b> It is easy to confuse the term <em>fake objects</em> with mock objects. Fakes and mocks actually mean very different things in the Test-Driven Development (TDD) community:</p>
@@ -106,7 +106,7 @@ What Is Google C++ Mocking Framework?</h1>
 <ol type="1">
 <li>Exercise code that uses the mock objects. Google <a class="el" href="class_mock.html">Mock</a> will catch any violation of the expectations as soon as it arises.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md301"></a>
+<h1><a class="anchor" id="autotoc_md302"></a>
 Why Google Mock?</h1>
 <p>While mock objects help you remove unnecessary dependencies in tests and make them fast and reliable, using mocks manually in C++ is <em>hard</em>:</p>
 <ul>
@@ -129,10 +129,10 @@ Why Google Mock?</h1>
 <li>a <em>design</em> tool, for it lets you experiment with your interface design early and often. More iterations lead to better designs!</li>
 <li>a <em>testing</em> tool to cut your tests' outbound dependencies and probe the interaction between your module and its collaborators.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md302"></a>
+<h1><a class="anchor" id="autotoc_md303"></a>
 Getting Started</h1>
 <p>Using Google <a class="el" href="class_mock.html">Mock</a> is easy! Inside your C++ source file, just <code>#include</code> <code>&lt;<a class="el" href="gtest_8h_source.html">gtest/gtest.h</a>&gt;</code> and <code>&lt;<a class="el" href="gmock_8h_source.html">gmock/gmock.h</a>&gt;</code>, and you are ready to go.</p>
-<h1><a class="anchor" id="autotoc_md303"></a>
+<h1><a class="anchor" id="autotoc_md304"></a>
 A Case for Mock Turtles</h1>
 <p>Let's look at an example. Suppose you are developing a graphics program that relies on a LOGO-like API for drawing. How would you test that it does the right thing? Well, you can run it and compare the screen with a golden screen snapshot, but let's admit it: tests like this are expensive to run and fragile (What if you just upgraded to a shiny new graphics card that has better anti-aliasing? Suddenly you have to update all your golden images.). It would be too painful if all your tests are like this. Fortunately, you learned about Dependency Injection and know the right thing to do: instead of having your application talk to the drawing API directly, wrap the API in an interface (say, <code>Turtle</code>) and code to that interface:</p>
 <div class="fragment"><div class="line">class Turtle {</div>
@@ -149,10 +149,10 @@ A Case for Mock Turtles</h1>
 </div><!-- fragment --><p>(Note that the destructor of <code>Turtle</code> <b>must</b> be virtual, as is the case for <b>all</b> classes you intend to inherit from - otherwise the destructor of the derived class will not be called when you delete an object through a base pointer, and you'll get corrupted program states like memory leaks.)</p>
 <p>You can control whether the turtle's movement will leave a trace using <code>PenUp()</code> and <code>PenDown()</code>, and control its movement using <code>Forward()</code>, <code>Turn()</code>, and <code>GoTo()</code>. Finally, <code>GetX()</code> and <code>GetY()</code> tell you the current position of the turtle.</p>
 <p>Your program will normally use a real implementation of this interface. In tests, you can use a mock implementation instead. This allows you to easily check what drawing primitives your program is calling, with what arguments, and in which order. Tests written this way are much more robust (they won't break because your new machine does anti-aliasing differently), easier to read and maintain (the intent of a test is expressed in the code, not in some binary images), and run <em>much, much faster</em>.</p>
-<h1><a class="anchor" id="autotoc_md304"></a>
+<h1><a class="anchor" id="autotoc_md305"></a>
 Writing the Mock Class</h1>
 <p>If you are lucky, the mocks you need to use have already been implemented by some nice people. If, however, you find yourself in the position to write a mock class, relax - Google <a class="el" href="class_mock.html">Mock</a> turns this task into a fun game! (Well, almost.)</p>
-<h2><a class="anchor" id="autotoc_md305"></a>
+<h2><a class="anchor" id="autotoc_md306"></a>
 How to Define It</h2>
 <p>Using the <code>Turtle</code> interface as example, here are the simple steps you need to follow:</p>
 <ol type="1">
@@ -185,12 +185,12 @@ How to Define It</h2>
 <div class="line">};</div>
 </div><!-- fragment --><p>You don't need to define these mock methods somewhere else - the <code>MOCK_METHOD*</code> macros will generate the definitions for you. It's that simple! Once you get the hang of it, you can pump out mock classes faster than your source-control system can handle your check-ins.</p>
 <p><b>Tip:</b> If even this is too much work for you, you'll find the <code><a class="el" href="gmock__gen_8py_source.html">gmock_gen.py</a></code> tool in Google <a class="el" href="class_mock.html">Mock</a>'s <code>scripts/generator/</code> directory (courtesy of the <a href="http://code.google.com/p/cppclean/">cppclean</a> project) useful. This command-line tool requires that you have Python 2.4 installed. You give it a C++ file and the name of an abstract class defined in it, and it will print the definition of the mock class for you. Due to the complexity of the C++ language, this script may not always work, but it can be quite handy when it does. For more details, read the <a href="http://code.google.com/p/googlemock/source/browse/trunk/scripts/generator/README">user documentation</a>.</p>
-<h2><a class="anchor" id="autotoc_md306"></a>
+<h2><a class="anchor" id="autotoc_md307"></a>
 Where to Put It</h2>
 <p>When you define a mock class, you need to decide where to put its definition. Some people put it in a <code>*_test.cc</code>. This is fine when the interface being mocked (say, <code>Foo</code>) is owned by the same person or team. Otherwise, when the owner of <code>Foo</code> changes it, your test could break. (You can't really expect <code>Foo</code>'s maintainer to fix every test that uses <code>Foo</code>, can you?)</p>
 <p>So, the rule of thumb is: if you need to mock <code>Foo</code> and it's owned by others, define the mock class in <code>Foo</code>'s package (better, in a <code>testing</code> sub-package such that you can clearly separate production code and testing utilities), and put it in a <code>mock_foo.h</code>. Then everyone can reference <code>mock_foo.h</code> from their tests. If <code>Foo</code> ever changes, there is only one copy of <code><a class="el" href="class_mock_foo.html">MockFoo</a></code> to change, and only tests that depend on the changed methods need to be fixed.</p>
 <p>Another way to do it: you can introduce a thin layer <code>FooAdaptor</code> on top of <code>Foo</code> and code to this new interface. Since you own <code>FooAdaptor</code>, you can absorb changes in <code>Foo</code> much more easily. While this is more work initially, carefully choosing the adaptor interface can make your code easier to write and more readable (a net win in the long run), as you can choose <code>FooAdaptor</code> to fit your specific domain much better than <code>Foo</code> does.</p>
-<h1><a class="anchor" id="autotoc_md307"></a>
+<h1><a class="anchor" id="autotoc_md308"></a>
 Using Mocks in Tests</h1>
 <p>Once you have a mock class, using it is easy. The typical work flow is:</p>
 <ol type="1">
@@ -240,7 +240,7 @@ Using Mocks in Tests</h1>
 <p><b>Important note:</b> Google <a class="el" href="class_mock.html">Mock</a> requires expectations to be set <b>before</b> the mock functions are called, otherwise the behavior is <b>undefined</b>. In particular, you mustn't interleave <code>EXPECT_CALL()</code>s and calls to the mock functions.</p>
 <p>This means <code>EXPECT_CALL()</code> should be read as expecting that a call will occur <em>in the future</em>, not that a call has occurred. Why does Google <a class="el" href="class_mock.html">Mock</a> work like that? Well, specifying the expectation beforehand allows Google <a class="el" href="class_mock.html">Mock</a> to report a violation as soon as it arises, when the context (stack trace, etc) is still available. This makes debugging much easier.</p>
 <p>Admittedly, this test is contrived and doesn't do much. You can easily achieve the same effect without using Google <a class="el" href="class_mock.html">Mock</a>. However, as we shall reveal soon, Google <a class="el" href="class_mock.html">Mock</a> allows you to do <em>much more</em> with the mocks.</p>
-<h2><a class="anchor" id="autotoc_md308"></a>
+<h2><a class="anchor" id="autotoc_md309"></a>
 Using Google Mock with Any Testing Framework</h2>
 <p>If you want to use something other than Google Test (e.g. <a href="http://apps.sourceforge.net/mediawiki/cppunit/index.php?title=Main_Page">CppUnit</a> or <a href="http://cxxtest.tigris.org/">CxxTest</a>) as your testing framework, just change the <code>main()</code> function in the previous section to: </p><div class="fragment"><div class="line">int main(int argc, char** argv) {</div>
 <div class="line">  // The following line causes Google Mock to throw an exception on failure,</div>
@@ -252,10 +252,10 @@ Using Google Mock with Any Testing Framework</h2>
 </div><!-- fragment --><p>This approach has a catch: it makes Google <a class="el" href="class_mock.html">Mock</a> throw an exception from a mock object's destructor sometimes. With some compilers, this sometimes causes the test program to crash. You'll still be able to notice that the test has failed, but it's not a graceful failure.</p>
 <p>A better solution is to use Google Test's <a href="http://code.google.com/p/googletest/wiki/GoogleTestAdvancedGuide#Extending_Google_Test_by_Handling_Test_Events">event listener API</a> to report a test failure to your testing framework properly. You'll need to implement the <code>OnTestPartResult()</code> method of the event listener interface, but it should be straightforward.</p>
 <p>If this turns out to be too much work, we suggest that you stick with Google Test, which works with Google <a class="el" href="class_mock.html">Mock</a> seamlessly (in fact, it is technically part of Google <a class="el" href="class_mock.html">Mock</a>.). If there is a reason that you cannot use Google Test, please let us know.</p>
-<h1><a class="anchor" id="autotoc_md309"></a>
+<h1><a class="anchor" id="autotoc_md310"></a>
 Setting Expectations</h1>
 <p>The key to using a mock object successfully is to set the <em>right expectations</em> on it. If you set the expectations too strict, your test will fail as the result of unrelated changes. If you set them too loose, bugs can slip through. You want to do it just right such that your test can catch exactly the kind of bugs you intend it to catch. Google <a class="el" href="class_mock.html">Mock</a> provides the necessary means for you to do it "just right."</p>
-<h2><a class="anchor" id="autotoc_md310"></a>
+<h2><a class="anchor" id="autotoc_md311"></a>
 General Syntax</h2>
 <p>In Google <a class="el" href="class_mock.html">Mock</a> we use the <code>EXPECT_CALL()</code> macro to set an expectation on a mock method. The general syntax is:</p>
 <div class="fragment"><div class="line">EXPECT_CALL(mock_object, method(matchers))</div>
@@ -273,7 +273,7 @@ General Syntax</h2>
 <div class="line">    .WillRepeatedly(Return(200));</div>
 </div><!-- fragment --><p>says that the <code>turtle</code> object's <code>GetX()</code> method will be called five times, it will return 100 the first time, 150 the second time, and then 200 every time. Some people like to call this style of syntax a Domain-Specific Language (DSL).</p>
 <p><b>Note:</b> Why do we use a macro to do this? It serves two purposes: first it makes expectations easily identifiable (either by <code>grep</code> or by a human reader), and second it allows Google <a class="el" href="class_mock.html">Mock</a> to include the source file location of a failed expectation in messages, making debugging easier.</p>
-<h2><a class="anchor" id="autotoc_md311"></a>
+<h2><a class="anchor" id="autotoc_md312"></a>
 Matchers: What Arguments Do We Expect?</h2>
 <p>When a mock function takes arguments, we must specify what arguments we are expecting; for example:</p>
 <div class="fragment"><div class="line">// Expects the turtle to move forward by 100 units.</div>
@@ -288,7 +288,7 @@ Matchers: What Arguments Do We Expect?</h2>
 <div class="fragment"><div class="line">using ::testing::Ge;...</div>
 <div class="line">EXPECT_CALL(turtle, Forward(Ge(100)));</div>
 </div><!-- fragment --><p>This checks that the turtle will be told to go forward by at least 100 units.</p>
-<h2><a class="anchor" id="autotoc_md312"></a>
+<h2><a class="anchor" id="autotoc_md313"></a>
 Cardinalities: How Many Times Will It Be Called?</h2>
 <p>The first clause we can specify following an <code>EXPECT_CALL()</code> is <code>Times()</code>. We call its argument a <b>cardinality</b> as it tells <em>how many times</em> the call should occur. It allows us to repeat an expectation many times without actually writing it as many times. More importantly, a cardinality can be "fuzzy", just like a matcher can be. This allows a user to express the intent of a test exactly.</p>
 <p>An interesting special case is when we say <code>Times(0)</code>. You may have guessed - it means that the function shouldn't be called with the given arguments at all, and Google <a class="el" href="class_mock.html">Mock</a> will report a Google Test failure whenever the function is (wrongfully) called.</p>
@@ -300,7 +300,7 @@ Cardinalities: How Many Times Will It Be Called?</h2>
 <li>If there are <code>n WillOnce()</code>'s and <b>one</b> <code>WillRepeatedly()</code>, where <code>n</code> &gt;= 0, the cardinality is <code>Times(AtLeast(n))</code>.</li>
 </ul>
 <p><b>Quick quiz:</b> what do you think will happen if a function is expected to be called twice but actually called four times?</p>
-<h2><a class="anchor" id="autotoc_md313"></a>
+<h2><a class="anchor" id="autotoc_md314"></a>
 Actions: What Should It Do?</h2>
 <p>Remember that a mock object doesn't really have a working implementation? We as users have to tell it what to do when a method is invoked. This is easy in Google <a class="el" href="class_mock.html">Mock</a>.</p>
 <p>First, if the return type of a mock function is a built-in type or a pointer, the function has a <b>default action</b> (a <code>void</code> function will just return, a <code>bool</code> function will return <code>false</code>, and other functions will return 0). If you don't say anything, this behavior will be used.</p>
@@ -331,7 +331,7 @@ Actions: What Should It Do?</h2>
 <div class="line">.Times(4)</div>
 <div class="line">.WillOnce(Return(100));</div>
 </div><!-- fragment --><p>Obviously <code>turtle.GetY()</code> is expected to be called four times. But if you think it will return 100 every time, think twice! Remember that one <code>WillOnce()</code> clause will be consumed each time the function is invoked and the default action will be taken afterwards. So the right answer is that <code>turtle.GetY()</code> will return 100 the first time, but <b>return 0 from the second time on</b>, as returning 0 is the default action for <code>int</code> functions.</p>
-<h2><a class="anchor" id="autotoc_md314"></a>
+<h2><a class="anchor" id="autotoc_md315"></a>
 Using Multiple Expectations</h2>
 <p>So far we've only shown examples where you have a single expectation. More realistically, you're going to specify expectations on multiple mock methods, which may be from multiple mock objects.</p>
 <p>By default, when a mock method is invoked, Google <a class="el" href="class_mock.html">Mock</a> will search the expectations in the <b>reverse order</b> they are defined, and stop when an active expectation that matches the arguments is found (you can think of it as "newer rules override older ones."). If the matching expectation cannot take any more calls, you will get an upper-bound-violated failure. Here's an example:</p>
@@ -341,7 +341,7 @@ Using Multiple Expectations</h2>
 <div class="line">    .Times(2);</div>
 </div><!-- fragment --><p>If <code>Forward(10)</code> is called three times in a row, the third time it will be an error, as the last matching expectation (#2) has been saturated. If, however, the third <code>Forward(10)</code> call is replaced by <code>Forward(20)</code>, then it would be OK, as now #1 will be the matching expectation.</p>
 <p><b>Side note:</b> Why does Google <a class="el" href="class_mock.html">Mock</a> search for a match in the <em>reverse</em> order of the expectations? The reason is that this allows a user to set up the default expectations in a mock object's constructor or the test fixture's set-up phase and then customize the mock by writing more specific expectations in the test body. So, if you have two expectations on the same method, you want to put the one with more specific matchers <b>after</b> the other, or the more specific rule would be shadowed by the more general one that comes after it.</p>
-<h2><a class="anchor" id="autotoc_md315"></a>
+<h2><a class="anchor" id="autotoc_md316"></a>
 Ordered vs Unordered Calls</h2>
 <p>By default, an expectation can match a call even though an earlier expectation hasn't been satisfied. In other words, the calls don't have to occur in the order the expectations are specified.</p>
 <p>Sometimes, you may want all the expected calls to occur in a strict order. To say this in Google <a class="el" href="class_mock.html">Mock</a> is easy:</p>
@@ -360,7 +360,7 @@ Ordered vs Unordered Calls</h2>
 </div><!-- fragment --><p>By creating an object of type <code>InSequence</code>, all expectations in its scope are put into a <em>sequence</em> and have to occur <em>sequentially</em>. Since we are just relying on the constructor and destructor of this object to do the actual work, its name is really irrelevant.</p>
 <p>In this example, we test that <code>Foo()</code> calls the three expected functions in the order as written. If a call is made out-of-order, it will be an error.</p>
 <p>(What if you care about the relative order of some of the calls, but not all of them? Can you specify an arbitrary partial order? The answer is ... yes! If you are impatient, the details can be found in the CookBook.)</p>
-<h2><a class="anchor" id="autotoc_md316"></a>
+<h2><a class="anchor" id="autotoc_md317"></a>
 All Expectations Are Sticky (Unless Said Otherwise)</h2>
 <p>Now let's do a quick quiz to see how well you can use this mock stuff already. How would you test that the turtle is asked to go to the origin <em>exactly twice</em> (you want to ignore any other instructions it receives)?</p>
 <p>After you've come up with your answer, take a look at ours and compare notes (solve it yourself first - don't cheat!):</p>
@@ -401,11 +401,11 @@ All Expectations Are Sticky (Unless Said Otherwise)</h2>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>By the way, the other situation where an expectation may <em>not</em> be sticky is when it's in a sequence - as soon as another expectation that comes after it in the sequence has been used, it automatically retires (and will never be used to match any call).</p>
-<h2><a class="anchor" id="autotoc_md317"></a>
+<h2><a class="anchor" id="autotoc_md318"></a>
 Uninteresting Calls</h2>
 <p>A mock object may have many methods, and not all of them are that interesting. For example, in some tests we may not care about how many times <code>GetX()</code> and <code>GetY()</code> get called.</p>
 <p>In Google <a class="el" href="class_mock.html">Mock</a>, if you are not interested in a method, just don't say anything about it. If a call to this method occurs, you'll see a warning in the test output, but it won't be a failure.</p>
-<h1><a class="anchor" id="autotoc_md318"></a>
+<h1><a class="anchor" id="autotoc_md319"></a>
 What Now?</h1>
 <p>Congratulations! You've learned enough about Google <a class="el" href="class_mock.html">Mock</a> to start using it. Now, you might want to join the <a href="http://groups.google.com/group/googlemock">googlemock</a> discussion group and actually write some tests using Google <a class="el" href="class_mock.html">Mock</a> - it will be fun. Hey, it may even be addictive - you've been warned.</p>
 <p>Then, if you feel like increasing your mock quotient, you should move on to the CookBook. You can learn many advanced features of Google <a class="el" href="class_mock.html">Mock</a> there &ndash; and advance your level of enjoyment and testing bliss. </p>

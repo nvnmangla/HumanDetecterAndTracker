@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('md_vendor_googletest_googlemock__r_e_a
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>The Google C++ mocking framework.</p>
-<h2><a class="anchor" id="autotoc_md640"></a>
+<h2><a class="anchor" id="autotoc_md641"></a>
 Overview</h2>
 <p>Google's framework for writing and using C++ mock classes. It can help you derive better designs of your system and write better tests.</p>
 <p>It is inspired by:</p>
@@ -104,7 +104,7 @@ Overview</h2>
 <li>is extensible by users.</li>
 </ul>
 <p>We hope you find it useful!</p>
-<h2><a class="anchor" id="autotoc_md641"></a>
+<h2><a class="anchor" id="autotoc_md642"></a>
 Features</h2>
 <ul>
 <li>Provides a declarative syntax for defining mocks.</li>
@@ -120,7 +120,7 @@ Features</h2>
 </ul>
 <p>Please see the project page above for more information as well as the mailing list for questions, discussions, and development. There is also an IRC channel on OFTC (<a href="irc.oftc.net">irc.oftc.net</a>) #gtest available. Please join us!</p>
 <p>Please note that code under <a href="scripts/generator/">scripts/generator</a> is from <a href="http://code.google.com/p/cppclean/">cppclean</a> and released under the Apache License, which is different from Google <a class="el" href="class_mock.html">Mock</a>'s license.</p>
-<h1><a class="anchor" id="autotoc_md642"></a>
+<h1><a class="anchor" id="autotoc_md643"></a>
 Getting Started</h1>
 <p>If you are new to the project, we suggest that you read the user documentation in the following order:</p>
 <ul>
@@ -135,15 +135,15 @@ Getting Started</h1>
 <li>CookBook - recipes for getting things done, including advanced techniques.</li>
 </ul>
 <p>If you need help, please check the KnownIssues and FrequentlyAskedQuestions before posting a question on the <a href="http://groups.google.com/group/googlemock">discussion group</a>.</p>
-<h2><a class="anchor" id="autotoc_md643"></a>
+<h2><a class="anchor" id="autotoc_md644"></a>
 Using Google Mock Without Google Test</h2>
 <p>Google <a class="el" href="class_mock.html">Mock</a> is not a testing framework itself. Instead, it needs a testing framework for writing tests. Google <a class="el" href="class_mock.html">Mock</a> works seamlessly with <a href="http://code.google.com/p/googletest/">Google Test</a>, but you can also use it with <a href="googlemock/ForDummies.md#Using_Google_Mock_with_Any_Testing_Framework">any C++ testing framework</a>.</p>
-<h2><a class="anchor" id="autotoc_md644"></a>
+<h2><a class="anchor" id="autotoc_md645"></a>
 Requirements for End Users</h2>
 <p>Google <a class="el" href="class_mock.html">Mock</a> is implemented on top of <a href="http://github.com/google/googletest/">Google Test</a>, and depends on it. You must use the bundled version of Google Test when using Google <a class="el" href="class_mock.html">Mock</a>.</p>
 <p>You can also easily configure Google <a class="el" href="class_mock.html">Mock</a> to work with another testing framework, although it will still need Google Test. Please read <a href="docs/ForDummies.md#Using_Google_Mock_with_Any_Testing_Framework">"Using_Google_Mock_with_Any_Testing_Framework"</a> for instructions.</p>
 <p>Google <a class="el" href="class_mock.html">Mock</a> depends on advanced C++ features and thus requires a more modern compiler. The following are needed to use Google <a class="el" href="class_mock.html">Mock</a>:</p>
-<h3><a class="anchor" id="autotoc_md645"></a>
+<h3><a class="anchor" id="autotoc_md646"></a>
 Linux Requirements</h3>
 <ul>
 <li>GNU-compatible Make or "gmake"</li>
@@ -151,18 +151,18 @@ Linux Requirements</h3>
 <li>POSIX(-2) Regular Expressions (regex.h)</li>
 <li>C++98-standard-compliant compiler (e.g. GCC 3.4 or newer)</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md646"></a>
+<h3><a class="anchor" id="autotoc_md647"></a>
 Windows Requirements</h3>
 <ul>
 <li>Microsoft Visual C++ 8.0 SP1 or newer</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md647"></a>
+<h3><a class="anchor" id="autotoc_md648"></a>
 Mac OS X Requirements</h3>
 <ul>
 <li>Mac OS X 10.4 Tiger or newer</li>
 <li>Developer Tools Installed</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md648"></a>
+<h2><a class="anchor" id="autotoc_md649"></a>
 Requirements for Contributors</h2>
 <p>We welcome patches. If you plan to contribute a patch, you need to build Google <a class="el" href="class_mock.html">Mock</a> and its tests, which has further requirements:</p>
 <ul>
@@ -171,9 +171,9 @@ Requirements for Contributors</h2>
 <li>Libtool / Libtoolize</li>
 <li>Python version 2.3 or newer (for running some of the tests and re-generating certain source files from templates)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md649"></a>
+<h2><a class="anchor" id="autotoc_md650"></a>
 Building Google Mock</h2>
-<h3><a class="anchor" id="autotoc_md650"></a>
+<h3><a class="anchor" id="autotoc_md651"></a>
 Preparing to Build (Unix only)</h3>
 <p>If you are using a Unix system and plan to use the GNU Autotools build system to build Google <a class="el" href="class_mock.html">Mock</a> (described below), you'll need to configure it now.</p>
 <p>To prepare the Autotools build system: </p><pre class="fragment">cd googlemock
@@ -198,7 +198,7 @@ ar -rv libgmock.a gtest-all.o gmock-all.o
 make
 ./gmock_test
 </pre><p>If you see errors, try to tweak the contents of <a href="make/Makefile">make/Makefile</a> to make them go away.</p>
-<h2><a class="anchor" id="autotoc_md651"></a>
+<h2><a class="anchor" id="autotoc_md652"></a>
 Windows</h2>
 <p>The msvc/2005 directory contains VC++ 2005 projects and the msvc/2010 directory contains VC++ 2010 projects for building Google <a class="el" href="class_mock.html">Mock</a> and selected tests.</p>
 <p>Change to the appropriate directory and run "msbuild gmock.sln" to build the library and tests (or open the gmock.sln in the MSVC IDE). If you want to create your own project to use with Google <a class="el" href="class_mock.html">Mock</a>, you'll have to configure it to use the <code>gmock_config</code> propety sheet. For that:</p>
@@ -208,45 +208,45 @@ Windows</h2>
 <li>Navigate to <code>gmock_config.vsprops</code> or <code>gmock_config.props</code> and select it.</li>
 <li>In Project Properties | Configuration Properties | General | Additional Include Directories, type &lt;path to Google Mock&gt;/include.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md652"></a>
+<h2><a class="anchor" id="autotoc_md653"></a>
 Tweaking Google Mock</h2>
 <p>Google <a class="el" href="class_mock.html">Mock</a> can be used in diverse environments. The default configuration may not work (or may not work well) out of the box in some environments. However, you can easily tweak Google <a class="el" href="class_mock.html">Mock</a> by defining control macros on the compiler command line. Generally, these macros are named like <code>GTEST_XYZ</code> and you define them to either 1 or 0 to enable or disable a certain feature.</p>
 <p>We list the most frequently used macros below. For a complete list, see file <a href="../googletest/include/gtest/internal/gtest-port.h">${GTEST_DIR}/include/gtest/internal/gtest-port.h</a>.</p>
-<h2><a class="anchor" id="autotoc_md653"></a>
+<h2><a class="anchor" id="autotoc_md654"></a>
 Choosing a TR1 Tuple Library</h2>
 <p>Google <a class="el" href="class_mock.html">Mock</a> uses the C++ Technical Report 1 (TR1) tuple library heavily. Unfortunately TR1 tuple is not yet widely available with all compilers. The good news is that Google Test 1.4.0+ implements a subset of TR1 tuple that's enough for Google <a class="el" href="class_mock.html">Mock</a>'s need. Google <a class="el" href="class_mock.html">Mock</a> will automatically use that implementation when the compiler doesn't provide TR1 tuple.</p>
 <p>Usually you don't need to care about which tuple library Google Test and Google <a class="el" href="class_mock.html">Mock</a> use. However, if your project already uses TR1 tuple, you need to tell Google Test and Google <a class="el" href="class_mock.html">Mock</a> to use the same TR1 tuple library the rest of your project uses, or the two tuple implementations will clash. To do that, add </p><pre class="fragment">-DGTEST_USE_OWN_TR1_TUPLE=0
 </pre><p>to the compiler flags while compiling Google Test, Google <a class="el" href="class_mock.html">Mock</a>, and your tests. If you want to force Google Test and Google <a class="el" href="class_mock.html">Mock</a> to use their own tuple library, just add </p><pre class="fragment">-DGTEST_USE_OWN_TR1_TUPLE=1
 </pre><p>to the compiler flags instead.</p>
 <p>If you want to use Boost's TR1 tuple library with Google <a class="el" href="class_mock.html">Mock</a>, please refer to the Boost website (<a href="http://www.boost.org/">http://www.boost.org/</a>) for how to obtain it and set it up.</p>
-<h2><a class="anchor" id="autotoc_md654"></a>
+<h2><a class="anchor" id="autotoc_md655"></a>
 As a Shared Library (DLL)</h2>
 <p>Google <a class="el" href="class_mock.html">Mock</a> is compact, so most users can build and link it as a static library for the simplicity. Google <a class="el" href="class_mock.html">Mock</a> can be used as a DLL, but the same DLL must contain Google Test as well. See ../googletest/README.md "Google Test's README" for instructions on how to set up necessary compiler settings.</p>
-<h2><a class="anchor" id="autotoc_md655"></a>
+<h2><a class="anchor" id="autotoc_md656"></a>
 Tweaking Google Mock</h2>
 <p>Most of Google Test's control macros apply to Google <a class="el" href="class_mock.html">Mock</a> as well. Please see ../googletest/README.md "Google Test's README" for how to tweak them.</p>
-<h2><a class="anchor" id="autotoc_md656"></a>
+<h2><a class="anchor" id="autotoc_md657"></a>
 Upgrading from an Earlier Version</h2>
 <p>We strive to keep Google <a class="el" href="class_mock.html">Mock</a> releases backward compatible. Sometimes, though, we have to make some breaking changes for the users' long-term benefits. This section describes what you'll need to do if you are upgrading from an earlier version of Google <a class="el" href="class_mock.html">Mock</a>.</p>
-<h3><a class="anchor" id="autotoc_md657"></a>
+<h3><a class="anchor" id="autotoc_md658"></a>
 Upgrading from 1.1.0 or Earlier</h3>
 <p>You may need to explicitly enable or disable Google Test's own TR1 tuple library. See the instructions in section "[Choosing a TR1 Tuple
 Library](../googletest/#choosing-a-tr1-tuple-library)".</p>
-<h3><a class="anchor" id="autotoc_md658"></a>
+<h3><a class="anchor" id="autotoc_md659"></a>
 Upgrading from 1.4.0 or Earlier</h3>
 <p>On platforms where the pthread library is available, Google Test and Google <a class="el" href="class_mock.html">Mock</a> use it in order to be thread-safe. For this to work, you may need to tweak your compiler and/or linker flags. Please see the "[Multi-threaded Tests](../googletest#multi-threaded-tests
 )" section in file Google Test's README for what you may need to do.</p>
 <p>If you have custom matchers defined using <code>MatcherInterface</code> or <code>MakePolymorphicMatcher()</code>, you'll need to update their definitions to use the new matcher API ( <a href="http://code.google.com/p/googlemock/wiki/CookBook#Writing_New_Monomorphic_Matchers">monomorphic</a>, <a href="http://code.google.com/p/googlemock/wiki/CookBook#Writing_New_Polymorphic_Matchers">polymorphic</a>). Matchers defined using <code>MATCHER()</code> or <code>MATCHER_P*()</code> aren't affected.</p>
-<h2><a class="anchor" id="autotoc_md659"></a>
+<h2><a class="anchor" id="autotoc_md660"></a>
 Developing Google Mock</h2>
 <p>This section discusses how to make your own changes to Google <a class="el" href="class_mock.html">Mock</a>.</p>
-<h3><a class="anchor" id="autotoc_md660"></a>
+<h3><a class="anchor" id="autotoc_md661"></a>
 Testing Google Mock Itself</h3>
 <p>To make sure your changes work as intended and don't break existing functionality, you'll want to compile and run Google Test's own tests. For that you'll need Autotools. First, make sure you have followed the instructions above to configure Google <a class="el" href="class_mock.html">Mock</a>. Then, create a build output directory and enter it. Next, </p><pre class="fragment">${GMOCK_DIR}/configure  # try --help for more info
 </pre><p>Once you have successfully configured Google <a class="el" href="class_mock.html">Mock</a>, the build steps are standard for GNU-style OSS packages. </p><pre class="fragment">make        # Standard makefile following GNU conventions
 make check  # Builds and runs all tests - all should pass.
 </pre><p>Note that when building your project against Google <a class="el" href="class_mock.html">Mock</a>, you are building against Google Test as well. There is no need to configure Google Test separately.</p>
-<h3><a class="anchor" id="autotoc_md661"></a>
+<h3><a class="anchor" id="autotoc_md662"></a>
 Contributing a Patch</h3>
 <p>We welcome patches. Please read the Developer's Guide for how you can contribute. In particular, make sure you have signed the Contributor License Agreement, or we won't be able to accept the patch.</p>
 <p>Happy testing! </p>

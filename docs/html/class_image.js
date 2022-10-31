@@ -1,10 +1,9 @@
 var class_image =
 [
-    [ "enlarge", "class_image.html#a3eedbb5ce2ce1acaf43bd466826c4a3b", null ],
-    [ "getImage", "class_image.html#a3535c63b62db05d656cc466214284eab", null ],
-    [ "grayScale", "class_image.html#a2adf4e73522f92a0e0ab2eaad1e14308", null ],
-    [ "shorten", "class_image.html#a9048d86fb8e9df0dda9a88ef958d70a5", null ],
-    [ "view", "class_image.html#af4aec9904198a5958a6871f812feabed", null ],
-    [ "testGrayscale", "class_image.html#a4878340a9c6322fb7460371356e5f623", null ],
-    [ "testView", "class_image.html#ad05219bc9bdc7b47e410a1918cf0974c", null ]
+    [ "Image", "class_image.html#ad2dbb557a8d84eb6c80bd4f527bb3c04", null ],
+    [ "draw_rectangles", "class_image.html#a775a31308d8b4eab205a6f3944535a7b", null ],
+    [ "get_image", "class_image.html#aabbd038639b4e53a5525432156ca59fb", null ],
+    [ "square_img", "class_image.html#ad670e4a6c5a843e3f1b920bc7f68fabe", null ],
+    [ "INPUT_HEIGHT", "class_image.html#a282ee1b07cfd7f922dce5723c89dc906", null ],
+    [ "INPUT_WIDTH", "class_image.html#a564e9f10c25a74cc5caba53ee86ef149", null ]
 ];

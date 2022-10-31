@@ -86,45 +86,58 @@ $(document).ready(function(){initNavTree('image_8hpp_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="image_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef IMAGE_HPP_</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define IMAGE_HPP_</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using</span> std::cin;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using</span> std::cout;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using</span> std::string;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_image.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_image.html">Image</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">string</span> imagePath = <span class="stringliteral">&quot;../shiva.jpg&quot;</span>;         <span class="comment">// Path of the image</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  cv::Mat image = cv::imread(imagePath, 1);  <span class="comment">// image itself :)</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  cv::Mat shortImage = <a class="code" href="class_image.html#a9048d86fb8e9df0dda9a88ef958d70a5">shorten</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">int</span> ratio = 4;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  cv::Mat gray = <a class="code" href="class_image.html#a2adf4e73522f92a0e0ab2eaad1e14308">grayScale</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">bool</span> testView = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">bool</span> testGrayscale = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  cv::Mat <a class="code" href="class_image.html#a9048d86fb8e9df0dda9a88ef958d70a5">shorten</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  cv::Mat <a class="code" href="class_image.html#a3535c63b62db05d656cc466214284eab">getImage</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;opencv2/core.hpp&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;opencv2/dnn.hpp&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;opencv2/imgproc.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_detection.html">   29</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_detection.html">Detection</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">float</span> confidence;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  cv::Rect box;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">float</span> depth;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using</span> std::cin;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using</span> std::cout;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using</span> std::string;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_image.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_image.html">Image</a> {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  cv::Mat image;  <span class="comment">// image itself :)</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  cv::Mat <a class="code" href="class_image.html#a3eedbb5ce2ce1acaf43bd466826c4a3b">enlarge</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_image.html#af4aec9904198a5958a6871f812feabed">view</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  cv::Mat <a class="code" href="class_image.html#a2adf4e73522f92a0e0ab2eaad1e14308">grayScale</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif  // IMAGE_HPP_</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_image.html#ad2dbb557a8d84eb6c80bd4f527bb3c04">Image</a>(cv::Mat);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// Dimensions of the square image</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">float</span> INPUT_WIDTH = 640.0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">float</span> INPUT_HEIGHT = 640.0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  cv::Mat <a class="code" href="class_image.html#aabbd038639b4e53a5525432156ca59fb">get_image</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  cv::Mat <a class="code" href="class_image.html#ad670e4a6c5a843e3f1b920bc7f68fabe">square_img</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  cv::Mat <a class="code" href="class_image.html#a775a31308d8b4eab205a6f3944535a7b">draw_rectangles</a>(std::vector&lt;Detection&gt;);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif  // HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_image_html_a9048d86fb8e9df0dda9a88ef958d70a5"><div class="ttname"><a href="class_image.html#a9048d86fb8e9df0dda9a88ef958d70a5">Image::shorten</a></div><div class="ttdeci">cv::Mat shorten()</div><div class="ttdoc">Shorten the input image.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00021">image.cpp:21</a></div></div>
-<div class="ttc" id="aclass_image_html_a2adf4e73522f92a0e0ab2eaad1e14308"><div class="ttname"><a href="class_image.html#a2adf4e73522f92a0e0ab2eaad1e14308">Image::grayScale</a></div><div class="ttdeci">cv::Mat grayScale()</div><div class="ttdoc">Gray Scaling the image.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00037">image.cpp:37</a></div></div>
-<div class="ttc" id="aclass_image_html"><div class="ttname"><a href="class_image.html">Image</a></div><div class="ttdef"><b>Definition:</b> <a href="image_8hpp_source.html#l00021">image.hpp:21</a></div></div>
-<div class="ttc" id="aclass_image_html_af4aec9904198a5958a6871f812feabed"><div class="ttname"><a href="class_image.html#af4aec9904198a5958a6871f812feabed">Image::view</a></div><div class="ttdeci">void view()</div><div class="ttdoc">view the image</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00030">image.cpp:30</a></div></div>
-<div class="ttc" id="aclass_image_html_a3eedbb5ce2ce1acaf43bd466826c4a3b"><div class="ttname"><a href="class_image.html#a3eedbb5ce2ce1acaf43bd466826c4a3b">Image::enlarge</a></div><div class="ttdeci">cv::Mat enlarge()</div><div class="ttdoc">Enlage the output image.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00013">image.cpp:13</a></div></div>
-<div class="ttc" id="aclass_image_html_a3535c63b62db05d656cc466214284eab"><div class="ttname"><a href="class_image.html#a3535c63b62db05d656cc466214284eab">Image::getImage</a></div><div class="ttdeci">cv::Mat getImage()</div><div class="ttdoc">Get the Image.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00028">image.cpp:28</a></div></div>
+<div class="ttc" id="aclass_image_html_aabbd038639b4e53a5525432156ca59fb"><div class="ttname"><a href="class_image.html#aabbd038639b4e53a5525432156ca59fb">Image::get_image</a></div><div class="ttdeci">cv::Mat get_image()</div><div class="ttdoc">Get the image object.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00018">image.cpp:18</a></div></div>
+<div class="ttc" id="aclass_image_html_ad2dbb557a8d84eb6c80bd4f527bb3c04"><div class="ttname"><a href="class_image.html#ad2dbb557a8d84eb6c80bd4f527bb3c04">Image::Image</a></div><div class="ttdeci">Image(cv::Mat)</div><div class="ttdoc">Construct a new Image object.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00014">image.cpp:14</a></div></div>
+<div class="ttc" id="astruct_detection_html"><div class="ttname"><a href="struct_detection.html">Detection</a></div><div class="ttdoc">Structure to store detections.</div><div class="ttdef"><b>Definition:</b> <a href="image_8hpp_source.html#l00029">image.hpp:29</a></div></div>
+<div class="ttc" id="aclass_image_html"><div class="ttname"><a href="class_image.html">Image</a></div><div class="ttdoc">Image class, manupulates images.</div><div class="ttdef"><b>Definition:</b> <a href="image_8hpp_source.html#l00043">image.hpp:43</a></div></div>
+<div class="ttc" id="aclass_image_html_ad670e4a6c5a843e3f1b920bc7f68fabe"><div class="ttname"><a href="class_image.html#ad670e4a6c5a843e3f1b920bc7f68fabe">Image::square_img</a></div><div class="ttdeci">cv::Mat square_img()</div><div class="ttdoc">Squaring Image for Yolo Model.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00020">image.cpp:20</a></div></div>
+<div class="ttc" id="aclass_image_html_a775a31308d8b4eab205a6f3944535a7b"><div class="ttname"><a href="class_image.html#a775a31308d8b4eab205a6f3944535a7b">Image::draw_rectangles</a></div><div class="ttdeci">cv::Mat draw_rectangles(std::vector&lt; Detection &gt;)</div><div class="ttdoc">To draw rectangle on the image.</div><div class="ttdef"><b>Definition:</b> <a href="image_8cpp_source.html#l00029">image.cpp:29</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

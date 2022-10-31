@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"classtesting_1_1_polymorphic_matcher.html#ab10e4858d8dc903d3e1e378d53d25882":[55,0,26,51,1],
+"classtesting_1_1_safe_matcher_cast_impl.html":[55,0,26,52],
+"classtesting_1_1_scoped_fake_test_part_result_reporter.html":[55,0,26,53],
 "classtesting_1_1_scoped_fake_test_part_result_reporter.html#a4817d59ca70228ebd5d5c3c4e8dd729d":[55,0,26,53,3],
 "classtesting_1_1_scoped_fake_test_part_result_reporter.html#a57cbc09ed48627c8a73e622618dc4b4f":[55,0,26,53,2],
 "classtesting_1_1_scoped_fake_test_part_result_reporter.html#a82531434f51632d98ed7cdcdb10b8b92":[55,0,26,53,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_arg_number.html":[55,0,26,1,4],
 "classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_arg_number.html#a5076ebd17fb1cc93952b4a80fe6de894":[55,0,26,1,4,1],
 "classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_arg_number.html#ad5b40981c39bc0bec3b63632cf827153":[55,0,26,1,4,0],
-"classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_constness.html":[55,0,26,1,5],
-"classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_constness.html#a3447041442c4ca64d597186e894b307d":[55,0,26,1,5,1],
-"classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_constness.html#a83e2840ed88fe4a01a878c3bb529d793":[55,0,26,1,5,0],
-"classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_stack.html":[55,0,26,1,6]
+"classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_overloaded_on_constness.html":[55,0,26,1,5]
 };

@@ -83,41 +83,278 @@ $(document).ready(function(){initNavTree('class_yolo.html',''); initResizable();
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_yolo-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Yolo Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parse yolo model and detect Humans.  
+ <a href="class_yolo.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="yolo_8hpp_source.html">yolo.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Yolo:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_yolo__coll__graph.png" border="0" usemap="#_yolo_coll__map" alt="Collaboration graph"/></div>
+<map name="_yolo_coll__map" id="_yolo_coll__map">
+<area shape="rect" title="Parse yolo model and detect Humans." alt="" coords="11,95,59,121"/>
+<area shape="rect" title=" " alt="" coords="5,5,64,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aefba1ec6eab77787b08f8a67efe8540d"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_yolo.html#aefba1ec6eab77787b08f8a67efe8540d">getOutput</a> ()</td></tr>
-<tr class="memdesc:aefba1ec6eab77787b08f8a67efe8540d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Output image.  <a href="class_yolo.html#aefba1ec6eab77787b08f8a67efe8540d">More...</a><br /></td></tr>
-<tr class="separator:aefba1ec6eab77787b08f8a67efe8540d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b519117856153a0350533d9bb7b0260"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_yolo.html#a8b519117856153a0350533d9bb7b0260">Yolo</a> (string)</td></tr>
+<tr class="memdesc:a8b519117856153a0350533d9bb7b0260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_yolo.html" title="Parse yolo model and detect Humans.">Yolo</a>:: <a class="el" href="class_yolo.html" title="Parse yolo model and detect Humans.">Yolo</a> object.  <a href="class_yolo.html#a8b519117856153a0350533d9bb7b0260">More...</a><br /></td></tr>
+<tr class="separator:a8b519117856153a0350533d9bb7b0260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed08abbde6e88fce02937199eadd0021"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_yolo.html#aed08abbde6e88fce02937199eadd0021">load_class_list</a> (string)</td></tr>
+<tr class="memdesc:aed08abbde6e88fce02937199eadd0021"><td class="mdescLeft">&#160;</td><td class="mdescRight">To load all the class names of coco dataset.  <a href="class_yolo.html#aed08abbde6e88fce02937199eadd0021">More...</a><br /></td></tr>
+<tr class="separator:aed08abbde6e88fce02937199eadd0021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5f5f2f779ede1edb2d4a2b2b38f5628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_yolo.html#aa5f5f2f779ede1edb2d4a2b2b38f5628">detect</a> (<a class="el" href="class_image.html">Image</a> &amp;, const std::vector&lt; std::string &gt; &amp;)</td></tr>
+<tr class="memdesc:aa5f5f2f779ede1edb2d4a2b2b38f5628"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function passes the image through yolo neural network and stores the result in vector.  <a href="class_yolo.html#aa5f5f2f779ede1edb2d4a2b2b38f5628">More...</a><br /></td></tr>
+<tr class="separator:aa5f5f2f779ede1edb2d4a2b2b38f5628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12d104330fe5c0cf103140cc172e48b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_yolo.html#ad12d104330fe5c0cf103140cc172e48b">getting_rect_dim</a> (std::vector&lt; cv::Rect &gt; &amp;, float *, float &amp;, float, float)</td></tr>
+<tr class="memdesc:ad12d104330fe5c0cf103140cc172e48b"><td class="mdescLeft">&#160;</td><td class="mdescRight">storing all the rectangle dimension which would be further used to draw on the object  <a href="class_yolo.html#ad12d104330fe5c0cf103140cc172e48b">More...</a><br /></td></tr>
+<tr class="separator:ad12d104330fe5c0cf103140cc172e48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a8b229902cb3a72737850165237386"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_yolo.html#a97a8b229902cb3a72737850165237386">remove_redundant_box</a> (float, <a class="el" href="class_image.html">Image</a> &amp;, std::vector&lt; cv::Rect &gt;, std::vector&lt; float &gt;)</td></tr>
+<tr class="memdesc:a97a8b229902cb3a72737850165237386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes unnessary detections with low confidence.  <a href="class_yolo.html#a97a8b229902cb3a72737850165237386">More...</a><br /></td></tr>
+<tr class="separator:a97a8b229902cb3a72737850165237386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ad6401e6d253d702d8b731f2b1e893617"><td class="memItemLeft" align="right" valign="top"><a id="ad6401e6d253d702d8b731f2b1e893617"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>model_path</b></td></tr>
+<tr class="separator:ad6401e6d253d702d8b731f2b1e893617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9ec78fb6674015f8df381ffd7a3fb4"><td class="memItemLeft" align="right" valign="top"><a id="a6c9ec78fb6674015f8df381ffd7a3fb4"></a>
+std::vector&lt; <a class="el" href="struct_detection.html">Detection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>output</b></td></tr>
+<tr class="separator:a6c9ec78fb6674015f8df381ffd7a3fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf48f14bf7dd79dd587714db4ef39765"><td class="memItemLeft" align="right" valign="top"><a id="abf48f14bf7dd79dd587714db4ef39765"></a>
+cv::dnn::Net&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
+<tr class="separator:abf48f14bf7dd79dd587714db4ef39765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="yolo_8hpp_source.html#l00021">21</a> of file <a class="el" href="yolo_8hpp_source.html">yolo.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aefba1ec6eab77787b08f8a67efe8540d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefba1ec6eab77787b08f8a67efe8540d">&#9670;&nbsp;</a></span>getOutput()</h2>
+<div class="textblock"><p>Parse yolo model and detect Humans. </p>
+
+<p class="definition">Definition at line <a class="el" href="yolo_8hpp_source.html#l00038">38</a> of file <a class="el" href="yolo_8hpp_source.html">yolo.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8b519117856153a0350533d9bb7b0260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b519117856153a0350533d9bb7b0260">&#9670;&nbsp;</a></span>Yolo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Yolo::Yolo </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>modelPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="class_yolo.html" title="Parse yolo model and detect Humans.">Yolo</a>:: <a class="el" href="class_yolo.html" title="Parse yolo model and detect Humans.">Yolo</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modelPath</td><td></td></tr>
+    <tr><td class="paramname">is_cuda</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="yolo_8cpp_source.html#l00018">18</a> of file <a class="el" href="yolo_8cpp_source.html">yolo.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa5f5f2f779ede1edb2d4a2b2b38f5628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f5f2f779ede1edb2d4a2b2b38f5628">&#9670;&nbsp;</a></span>detect()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cv::Mat Yolo::getOutput </td>
+          <td class="memname">void Yolo::detect </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_image.html">Image</a> &amp;&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>className</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function passes the image through yolo neural network and stores the result in vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image:cv::Mat</td><td>- Input frame </td></tr>
+    <tr><td class="paramname">className:vector&lt;string&gt;</td><td>string list with class name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="yolo_8cpp_source.html#l00073">73</a> of file <a class="el" href="yolo_8cpp_source.html">yolo.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad12d104330fe5c0cf103140cc172e48b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12d104330fe5c0cf103140cc172e48b">&#9670;&nbsp;</a></span>getting_rect_dim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Yolo::getting_rect_dim </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; cv::Rect &gt; &amp;&#160;</td>
+          <td class="paramname"><em>boxes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>box_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y_factor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>storing all the rectangle dimension which would be further used to draw on the object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boxes</td><td></td></tr>
+    <tr><td class="paramname">data</td><td></td></tr>
+    <tr><td class="paramname">box_height</td><td></td></tr>
+    <tr><td class="paramname">x_factor</td><td></td></tr>
+    <tr><td class="paramname">y_factor</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="yolo_8cpp_source.html#l00052">52</a> of file <a class="el" href="yolo_8cpp_source.html">yolo.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aed08abbde6e88fce02937199eadd0021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed08abbde6e88fce02937199eadd0021">&#9670;&nbsp;</a></span>load_class_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Yolo::load_class_list </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the Output image. </p>
-<dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
+<p>To load all the class names of coco dataset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;std::string&gt; </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="yolo_8cpp_source.html#l00013">13</a> of file <a class="el" href="yolo_8cpp_source.html">yolo.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="yolo_8cpp_source.html#l00033">33</a> of file <a class="el" href="yolo_8cpp_source.html">yolo.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a97a8b229902cb3a72737850165237386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a8b229902cb3a72737850165237386">&#9670;&nbsp;</a></span>remove_redundant_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Yolo::remove_redundant_box </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>box_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_image.html">Image</a> &amp;&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; cv::Rect &gt;&#160;</td>
+          <td class="paramname"><em>boxes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>confidences</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes unnessary detections with low confidence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box_height</td><td>(height of box) </td></tr>
+    <tr><td class="paramname">img</td><td>(<a class="el" href="class_image.html" title="Image class, manupulates images.">Image</a> object img) </td></tr>
+    <tr><td class="paramname">boxes</td><td>(Boxes) </td></tr>
+    <tr><td class="paramname">confidences</td><td>(confidences) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="yolo_8cpp_source.html#l00128">128</a> of file <a class="el" href="yolo_8cpp_source.html">yolo.cpp</a>.</p>
 
 </div>
 </div>

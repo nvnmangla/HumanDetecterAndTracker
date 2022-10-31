@@ -159,6 +159,7 @@ var hierarchy =
     [ "testing::DefaultValue< void >", "classtesting_1_1_default_value_3_01void_01_4.html", null ],
     [ "testing::gmock_more_actions_test::DeletionTester", "classtesting_1_1gmock__more__actions__test_1_1_deletion_tester.html", null ],
     [ "testing::internal::Derived", "classtesting_1_1internal_1_1_derived.html", null ],
+    [ "Detection", "struct_detection.html", null ],
     [ "testing::gmock_matchers_test::DivisibleByImpl", "classtesting_1_1gmock__matchers__test_1_1_divisible_by_impl.html", null ],
     [ "testing::internal::DoBothAction< Action1, Action2 >", "classtesting_1_1internal_1_1_do_both_action.html", null ],
     [ "testing::internal::DoDefaultAction", "classtesting_1_1internal_1_1_do_default_action.html", null ],
@@ -303,7 +304,6 @@ var hierarchy =
     [ "HTTPError", null, [
       [ "upload.ClientLoginError", "classupload_1_1_client_login_error.html", null ]
     ] ],
-    [ "HumanDetector", "class_human_detector.html", null ],
     [ "pump.IfNode", "classpump_1_1_if_node.html", null ],
     [ "testing::internal::IgnoredValue", "classtesting_1_1internal_1_1_ignored_value.html", null ],
     [ "testing::internal::IgnoreResultAction< A >", "classtesting_1_1internal_1_1_ignore_result_action.html", null ],
@@ -517,8 +517,8 @@ var hierarchy =
       [ "testing::StringMatchResultListener", "classtesting_1_1_string_match_result_listener.html", null ]
     ] ],
     [ "testing::internal::MaxBipartiteMatchState", "classtesting_1_1internal_1_1_max_bipartite_match_state.html", null ],
-    [ "testing::Message", "classtesting_1_1_message.html", null ],
     [ "my_namespace::testing::Message", "classmy__namespace_1_1testing_1_1_message.html", null ],
+    [ "testing::Message", "classtesting_1_1_message.html", null ],
     [ "Mock", "class_mock.html", null ],
     [ "testing::Mock", "classtesting_1_1_mock.html", null ],
     [ "testing::gmock_generated_function_mockers_test::MockB", "classtesting_1_1gmock__generated__function__mockers__test_1_1_mock_b.html", null ],
@@ -566,8 +566,8 @@ var hierarchy =
     [ "testing::internal::NotMatcher< InnerMatcher >", "classtesting_1_1internal_1_1_not_matcher.html", null ],
     [ "testing::internal::NotNullMatcher", "classtesting_1_1internal_1_1_not_null_matcher.html", null ],
     [ "testing::gmock_generated_actions_test::NullaryConstructorClass", "classtesting_1_1gmock__generated__actions__test_1_1_nullary_constructor_class.html", null ],
-    [ "testing::gmock_generated_actions_test::NullaryFunctor", "classtesting_1_1gmock__generated__actions__test_1_1_nullary_functor.html", null ],
     [ "testing::gmock_more_actions_test::NullaryFunctor", "classtesting_1_1gmock__more__actions__test_1_1_nullary_functor.html", null ],
+    [ "testing::gmock_generated_actions_test::NullaryFunctor", "classtesting_1_1gmock__generated__actions__test_1_1_nullary_functor.html", null ],
     [ "object", null, [
       [ "cpp.ast._NullDict", "classcpp_1_1ast_1_1___null_dict.html", null ],
       [ "cpp.ast.AstBuilder", "classcpp_1_1ast_1_1_ast_builder.html", null ],
@@ -742,15 +742,9 @@ var hierarchy =
     [ "gtest_test_utils.Subprocess", "classgtest__test__utils_1_1_subprocess.html", null ],
     [ "testing::gmock_more_actions_test::SumOf5Functor", "structtesting_1_1gmock__more__actions__test_1_1_sum_of5_functor.html", null ],
     [ "testing::gmock_generated_actions_test::SumOf5Functor", "structtesting_1_1gmock__generated__actions__test_1_1_sum_of5_functor.html", null ],
-    [ "testing::gmock_generated_actions_test::SumOf6Functor", "structtesting_1_1gmock__generated__actions__test_1_1_sum_of6_functor.html", null ],
     [ "testing::gmock_more_actions_test::SumOf6Functor", "structtesting_1_1gmock__more__actions__test_1_1_sum_of6_functor.html", null ],
+    [ "testing::gmock_generated_actions_test::SumOf6Functor", "structtesting_1_1gmock__generated__actions__test_1_1_sum_of6_functor.html", null ],
     [ "testing::gmock_generated_actions_test::TenArgConstructorClass", "classtesting_1_1gmock__generated__actions__test_1_1_ten_arg_constructor_class.html", null ],
-    [ "Test", null, [
-      [ "DisabledTest", "class_disabled_test.html", null ],
-      [ "FailedTest", "class_failed_test.html", null ],
-      [ "PropertyRecordingTest", "class_property_recording_test.html", null ],
-      [ "SuccessfulTest", "class_successful_test.html", null ]
-    ] ],
     [ "my_namespace::testing::Test", "classmy__namespace_1_1testing_1_1_test.html", null ],
     [ "testing::Test", "classtesting_1_1_test.html", [
       [ "bar::MixedUpTestCaseTest", "classbar_1_1_mixed_up_test_case_test.html", null ],
@@ -799,7 +793,12 @@ var hierarchy =
       [ "TypedTest< T >", "class_typed_test.html", null ],
       [ "TypeParamTest< T >", "class_type_param_test.html", null ]
     ] ],
-    [ "testing::TestCase", "classtesting_1_1_test_case.html", null ],
+    [ "Test", null, [
+      [ "DisabledTest", "class_disabled_test.html", null ],
+      [ "FailedTest", "class_failed_test.html", null ],
+      [ "PropertyRecordingTest", "class_property_recording_test.html", null ],
+      [ "SuccessfulTest", "class_successful_test.html", null ]
+    ] ],
     [ "TestCase", null, [
       [ "cpp.gmock_class_test.TestCase", "classcpp_1_1gmock__class__test_1_1_test_case.html", [
         [ "cpp.gmock_class_test.GenerateMethodsTest", "classcpp_1_1gmock__class__test_1_1_generate_methods_test.html", null ],
@@ -828,6 +827,7 @@ var hierarchy =
         [ "gtest_xml_output_unittest.GTestXMLOutputUnitTest", "classgtest__xml__output__unittest_1_1_g_test_x_m_l_output_unit_test.html", null ]
       ] ]
     ] ],
+    [ "testing::TestCase", "classtesting_1_1_test_case.html", null ],
     [ "testing::internal::TestCaseNameIs", "classtesting_1_1internal_1_1_test_case_name_is.html", null ],
     [ "testing::TestEventListener", "classtesting_1_1_test_event_listener.html", [
       [ "testing::EmptyTestEventListener", "classtesting_1_1_empty_test_event_listener.html", [
