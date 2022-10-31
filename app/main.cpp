@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     // Getting output image
     // functions draws all the rectangle and prints the depth
     cv::Mat out_img =
-        img.draw_rectangles(static_cast<int>(yol.output.size()), yol.output);
+        img.draw_rectangles(yol.output);
 
     cv::imshow("Display window", out_img);
     if (cv::waitKey(1) != -1) {

@@ -5,9 +5,7 @@
  * @version 0.1
  * @date 2022-10-14
  * @copyright Copyright (c) 2022
- *
  */
-
 #include <cmath>
 #include <image.hpp>
 #include <yolo.hpp>
@@ -18,6 +16,7 @@
  * @param is_cuda
  */
 Yolo::Yolo(string modelPath) {
+  this->model_path = modelPath;
   this->model = cv::dnn::readNetFromONNX(modelPath);
 
   std::cout << "Running on CPU\n";
@@ -118,7 +117,15 @@ void Yolo::detect(Image &img, const std::vector<std::string> &className) {
   remove_redundant_box(box_height, img, boxes, confidences);
 }
 
-void Yolo::remove_redundant_box(float &box_height, Image &img,
+/**
+ * @brief Removes unnessary detections with low confidence 
+ * @param box_height (height of box)
+ * @param img  (Image object img)
+ * @param boxes (Boxes)
+ * @param confidences (confidences)
+ */
+
+void Yolo::remove_redundant_box(float box_height, Image &img,
                                 std::vector<cv::Rect> boxes,
                                 std::vector<float> confidences) {
   std::vector<int> nms_result;
@@ -128,11 +135,12 @@ void Yolo::remove_redundant_box(float &box_height, Image &img,
   for (int i = 0; i < static_cast<int>(nms_result.size()); i++) {
     int idx = nms_result[i];
     Detection result;
-
+    //// LCOV_EXCL_START
     result.confidence = confidences[idx];
     result.box = boxes[idx];
     result.depth =
         (2 / tan((box_height * 55 * 3.14159 / 180) / img.square_img().rows));
     this->output.push_back(result);
+    //// LCOV_EXCL_STOP
   }
 }

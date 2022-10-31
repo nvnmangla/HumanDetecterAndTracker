@@ -1,42 +1,22 @@
 /**
  * @file image.cpp
- * @author Naveen Mangla (nmangla@umd.edu)
+ * @author Naveen Mangla (nmangla@umd.edu);
+ * @author Mahima Arora (marora1@umd.edu);
+ * @author Abhinav Garg (agarg125@umd.edu)
  * @brief Functions definitions for class Image
  * @version 0.1
  * @date 2022-10-14
  * @copyright Copyright (c) 2022
  *
  */
-
 #include "./image.hpp"
-/**
- * @brief Construct a new Image:: Image object
- *
- * @param pathToImage
- */
-Image::Image(cv::Mat &img) {
-  // this->imagePath = pathToImage;
+
+Image::Image(cv::Mat img) {
   this->image = img;
 }
 
 cv::Mat Image::get_image() { return this->image; }
-/**
- * @brief To view the image frame
- *
- */
-// void Image::view() {
-//   cout << "Photo in View\tPress 0 to close";
-//   cv::imshow("View Window", this->image);
-//   cv::waitKey(0);
-// }
 
-/**
- * @brief we need to pass a square image to Yolo, hence this function returns a
- * square image
- *
- * @param source (input image)
- * @return cv::Mat
- */
 cv::Mat Image::square_img() {
   int col = this->image.cols;
   int row = this->image.rows;
@@ -46,18 +26,9 @@ cv::Mat Image::square_img() {
   return result;
 }
 
-/**
- * @brief This function edits the image by drawing rectange around the objects
- in the image it also prints the depth measurement of object.
- *
- * @param detections (output size)
- * @param output (contains the measurement of all the rectangles)
- * @param in_img (input image)
- * @return cv::Mat
- */
-cv::Mat Image::draw_rectangles(int detections, std::vector<Detection> output) {
+cv::Mat Image::draw_rectangles(std::vector<Detection> output) {
   cv::Mat out_img = this->image.clone();
-  for (int i{}; i < static_cast<int>(detections); i++) {
+  for (int i{}; i < static_cast<int>(output.size()); i++) {
     //// LCOV_EXCL_START
     auto rectangle = output[i];
 
