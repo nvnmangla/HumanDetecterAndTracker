@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('md_vendor_googletest_googletest_docs__
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This guide will explain how to use the Google Testing Framework in your Xcode projects on Mac OS X. This tutorial begins by quickly explaining what to do for experienced users. After the quick start, the guide goes provides additional explanation about each step.</p>
-<h1><a class="anchor" id="autotoc_md1076"></a>
+<h1><a class="anchor" id="autotoc_md1077"></a>
 Quick Start</h1>
 <p>Here is the quick guide for using Google Test in your Xcode project.</p>
 <ol type="1">
@@ -111,7 +111,7 @@ Quick Start</h1>
 <li>Build and Go</li>
 </ol>
 <p>The following sections further explain each of the steps listed above in depth, describing in more detail how to complete it including some variations.</p>
-<h1><a class="anchor" id="autotoc_md1077"></a>
+<h1><a class="anchor" id="autotoc_md1078"></a>
 Get the Source</h1>
 <p>Currently, the gtest.framework discussed here isn't available in a tagged release of Google Test, it is only available in the trunk. As explained at the Google Test [site](<a href="http://code.google.com/p/googletest/source/checkout">http://code.google.com/p/googletest/source/checkout</a>"&gt;svn), you can get the code from anonymous SVN with this command:</p>
 <div class="fragment"><div class="line">svn checkout http://googletest.googlecode.com/svn/trunk/ googletest-read-only</div>
@@ -121,14 +121,14 @@ Get the Source</h1>
 <p>Here is an example of using the svn:externals properties on a trunk (read via <code>svn propget</code>) of a project. This value checks out a copy of Google Test into the <code>trunk/externals/src/googletest/</code> directory.</p>
 <div class="fragment"><div class="line">[Computer:svn] user$ svn propget svn:externals trunk</div>
 <div class="line">externals/src/googletest http://googletest.googlecode.com/svn/trunk</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1078"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1079"></a>
 Add the Framework to Your Project</h1>
 <p>The next step is to build and add the gtest.framework to your own project. This guide describes two common ways below.</p>
 <ul>
 <li><b>Option 1</b> &mdash; The simplest way to add Google Test to your own project, is to open gtest.xcodeproj (found in the xcode/ directory of the Google Test trunk) and build the framework manually. Then, add the built framework into your project using the "Add-&gt;Existing Framework..." from the context menu or "Project-&gt;Add..." from the main menu. The gtest.framework is relocatable and contains the headers and object code that you'll need to make tests. This method requires rebuilding every time you upgrade Google Test in your project.</li>
 <li><b>Option 2</b> &mdash; If you are going to be living off the trunk of Google Test, incorporating its latest features into your unit tests (or are a Google Test developer yourself). You'll want to rebuild the framework every time the source updates. to do this, you'll need to add the gtest.xcodeproj file, not the framework itself, to your own Xcode project. Then, from the build products that are revealed by the project's disclosure triangle, you can find the gtest.framework, which can be added to your targets (discussed below).</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md1079"></a>
+<h1><a class="anchor" id="autotoc_md1080"></a>
 Make a Test Target</h1>
 <p>To start writing tests, make a new "Shell Tool" target. This target template is available under BSD, Cocoa, or Carbon. Add your unit test source code to the "Compile Sources" build phase of the target.</p>
 <p>Next, you'll want to add gtest.framework in two different ways, depending upon which option you chose above.</p>
@@ -136,7 +136,7 @@ Make a Test Target</h1>
 <li><b>Option 1</b> &mdash; During compilation, Xcode will need to know that you are linking against the gtest.framework. Add the gtest.framework to the "Link Binary with Libraries" build phase of your test target. This will include the Google Test headers in your header search path, and will tell the linker where to find the library.</li>
 <li><b>Option 2</b> &mdash; If your working out of the trunk, you'll also want to add gtest.framework to your "Link Binary with Libraries" build phase of your test target. In addition, you'll want to add the gtest.framework as a dependency to your unit test target. This way, Xcode will make sure that gtest.framework is up to date, every time your build your target. Finally, if you don't share build directories with Google Test, you'll have to copy the gtest.framework into your own build products directory using a "Run Script" build phase.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md1080"></a>
+<h1><a class="anchor" id="autotoc_md1081"></a>
 Set Up the Executable Run Environment</h1>
 <p>Since the unit test executable is a shell tool, it doesn't have a bundle with a <code>Contents/Frameworks</code> directory, in which to place gtest.framework. Instead, the dynamic linker must be told at runtime to search for the framework in another location. This can be accomplished by setting the "DYLD\_FRAMEWORK\_PATH" environment variable in the "Edit Active Executable ..." Arguments tab, under "Variables to be set in the environment:". The path for this value is the path (relative or absolute) of the directory containing the gtest.framework.</p>
 <p>If you haven't set up the DYLD_FRAMEWORK_PATH, correctly, you might get a message like this:</p>
@@ -145,7 +145,7 @@ Set Up the Executable Run Environment</h1>
 <div class="line">    Referenced from: /Users/username/Documents/Sandbox/gtestSample/build/Debug/WidgetFrameworkTest</div>
 <div class="line">    Reason: image not found</div>
 </div><!-- fragment --><p>To correct this problem, got to the directory containing the executable named in "Referenced from:" value in the error message above. Then, with the terminal in this location, find the relative path to the directory containing the gtest.framework. That is the value you'll need to set as the DYLD_FRAMEWORK_PATH.</p>
-<h1><a class="anchor" id="autotoc_md1081"></a>
+<h1><a class="anchor" id="autotoc_md1082"></a>
 Build and Go</h1>
 <p>Now, when you click "Build and Go", the test will be executed. Dumping out something like this:</p>
 <div class="fragment"><div class="line">[Session started at 2008-08-06 06:36:13 -0600.]</div>
@@ -161,7 +161,7 @@ Build and Go</h1>
 <div class="line">[  PASSED  ] 2 tests.</div>
 <div class="line"> </div>
 <div class="line">The Debugger has exited with status 0.  </div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1082"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1083"></a>
 Summary</h1>
 <p>Unit testing is a valuable way to ensure your data model stays valid even during rapid development or refactoring. The Google Testing Framework is a great unit testing framework for C and C++ which integrates well with an Xcode development environment. </p>
 </div></div><!-- contents -->

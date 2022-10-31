@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 <div class="textblock"><p><a href="https://www.gnu.org/licenses/gpl-3.0"><object type="image/svg+xml" data="https://img.shields.io/badge/License-GPLv3-blue.svg" style="pointer-events: none;">License: GPL v3</object></a> <a href="https://github.com/mahimaarora2208/HumanDetecterAndTracker//actions/workflows/build_and_coveralls.yml"><object type="image/svg+xml" data="https://github.com/mahimaarora2208/HumanDetecterAndTracker/actions/workflows/build_and_coveralls.yml/badge.svg" style="pointer-events: none;">Build Status</object></a> <a href="https://coveralls.io/github/mahimaarora2208/HumanDetecterAndTracker?branch=main"><img src="https://coveralls.io/repos/github/mahimaarora2208/HumanDetecterAndTracker/badge.png?branch=main" alt="Coverage Status" class="inline"/></a> </p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Overview</h1>
-<p>In this project, a Human Detector and Tracker has been developed. To achieve this, we used the pre-trained model of Yolo-V5. The last layer of the <a class="el" href="class_yolo.html">Yolo</a> neural network was frozen so that it only detects humans in the image. After detecting the humans in the image there distance was calculated from the camera. Assumption we have taken is that the human in average is of 5ft.</p>
+<p>In this project, a Human Detector and Tracker has been developed. To achieve this, we used the pre-trained model of Yolo-V5. The last layer of the <a class="el" href="class_yolo.html" title="Parse yolo model and detect Humans.">Yolo</a> neural network was frozen so that it only detects humans in the image. After detecting the humans in the image there distance was calculated from the camera. Assumption we have taken is that the human in average is of 5ft.</p>
 <p>Four classes were implemented to achieve this objective, in which the master class is <b>Human-Detector</b>.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Team:Group 4</h1>
@@ -105,13 +105,30 @@ AIP Development</h1>
 Important Links</h1>
 <p><a href="https://drive.google.com/file/d/10hK7GmJcISf981nXX9E4CqcFHO8nGW70/view?usp=sharing">Phase 0 Proposal</a></p>
 <p><a href="https://drive.google.com/file/d/1qjiJ8MVaANbqeYgCbcMmP3CATyp1pWou/view?usp=sharing">Phase 0 Video</a></p>
-<p><a href="https://drive.google.com/file/d/16ZB5cMJbd44Ys_4KVa8fdSBXSPN-JB1F/view?usp=sharing">UML Class Diagram</a></p>
+<p><a href="https://drive.google.com/file/d/1FNlZqDXzz6H9pJ2Tok4gB1hnIMF776Sp/view?usp=sharing">Phase 1 Video</a></p>
+<p><a href="https://drive.google.com/file/d/16ZB5cMJbd44Ys_4KVa8fdSBXSPN-JB1F/view?usp=sharing">UML Class Diagram Phase 0</a></p>
+<p><a href="https://drive.google.com/file/d/1Ky4Y5SGkwsw3tudvV3qMJoQ9zC0JVxFh/view?usp=sharing">UML Class Diagram Phase 1</a></p>
+<p><a href="https://drive.google.com/file/d/1glShZYrTTs4PfVRKWUgJwSy6m5da1fdX/view?usp=sharing">UML Class Diagram Phase 2</a></p>
 <p><a href="https://drive.google.com/file/d/1PFQ3R563C5RVZqSqUmu6HlybmQZDz23V/view?usp=sharing">Activity Diagram Phase 0</a></p>
 <p><a href="https://drive.google.com/file/d/1kqztJTiyrLfmTfumVQuHahukdQgT3-xU/view?usp=sharing">Quad Chart</a></p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Sprint Planning Notes</h1>
-<p><a href="https://docs.google.com/document/d/1r_AImnCmMG55agtjQzNZ3n2YdrxkfY6n6iax4RRetbs/edit?usp=sharing">Link</a></p>
+<p>The below link contains combined notes of sprint 1 and sprint 2. <a href="https://docs.google.com/document/d/1r_AImnCmMG55agtjQzNZ3n2YdrxkfY6n6iax4RRetbs/edit?usp=sharing">Link</a></p>
 <h1><a class="anchor" id="autotoc_md6"></a>
+Downloading Dependencies</h1>
+<p>The main dependency that needs to be downloaded is openCV 4.2 or above.</p>
+<div class="fragment"><div class="line"># Installing Dependencies</div>
+<div class="line">sudo apt install -y g++ cmake make git libgtk2.0-dev pkg-config</div>
+<div class="line"> </div>
+<div class="line"># Cloning Git repository</div>
+<div class="line">git clone https://github.com/opencv/opencv.git;mkdir -p build &amp;&amp; cd build</div>
+<div class="line"> </div>
+<div class="line"># CMAKE</div>
+<div class="line">cmake ../opencv;make -j4</div>
+<div class="line"> </div>
+<div class="line"># Installing OpenCV </div>
+<div class="line">sudo make install</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
 How to build and run demo code</h1>
 <div class="fragment"><div class="line">git clone https://github.com/nvnmangla/HumanDetecterAndTracker.git</div>
 <div class="line">cd &lt;path to repository&gt;</div>
@@ -121,14 +138,14 @@ How to build and run demo code</h1>
 <div class="line">make</div>
 <div class="line">Run tests: ./test/cpp-test</div>
 <div class="line">Run program: ./app/shell-app</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 To Generate and Check code coverage</h1>
 <div class="fragment"><div class="line">sudo apt-get install lcov</div>
 <div class="line">cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../</div>
 <div class="line">make</div>
 <div class="line">make code_coverage</div>
 </div><!-- fragment --><p>This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 To Generate Doxygen Documentation</h1>
 <p>open your terminal in your repository </p><div class="fragment"><div class="line">doxywizard</div>
 </div><!-- fragment --><p>Follow steps in GUI after selecting path of your repository. </p>

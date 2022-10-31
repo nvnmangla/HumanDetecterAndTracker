@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"classrelease__docs_1_1_wiki_brancher.html#a344b32e2b65f0e8bab9fbf1e670d33fd":[55,0,24,0,0],
+"classrelease__docs_1_1_wiki_brancher.html#a4ac9c796f95690cca04049b557055443":[55,0,24,0,5],
+"classrelease__docs_1_1_wiki_brancher.html#a5ef284f7e1742f465ecd0c14d2667327":[55,0,24,0,1],
 "classrelease__docs_1_1_wiki_brancher.html#a938c78ba6e8adfb6af039dd500ac6466":[55,0,24,0,4],
 "classrelease__docs_1_1_wiki_brancher.html#aa0bc4b1b78426fe7a8496d570b540f1d":[55,0,24,0,3],
 "classrelease__docs_1_1_wiki_brancher.html#aa33d991e629cc94fbfefe4f8569e283e":[55,0,24,0,6],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "classtesting_1_1_polymorphic_matcher.html":[55,0,26,51],
 "classtesting_1_1_polymorphic_matcher.html#a04c23972b2dcc6e036b00006d7689712":[55,0,26,51,0],
 "classtesting_1_1_polymorphic_matcher.html#a3b7227b1f5c203efd47d393b781b317c":[55,0,26,51,2],
-"classtesting_1_1_polymorphic_matcher.html#a6280c1485ca41a48c858c38828c1e04e":[55,0,26,51,3],
-"classtesting_1_1_polymorphic_matcher.html#ab10e4858d8dc903d3e1e378d53d25882":[55,0,26,51,1],
-"classtesting_1_1_safe_matcher_cast_impl.html":[55,0,26,52],
-"classtesting_1_1_scoped_fake_test_part_result_reporter.html":[55,0,26,53]
+"classtesting_1_1_polymorphic_matcher.html#a6280c1485ca41a48c858c38828c1e04e":[55,0,26,51,3]
 };

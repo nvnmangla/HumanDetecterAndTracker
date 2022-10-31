@@ -85,10 +85,10 @@ $(document).ready(function(){initNavTree('md_vendor_googletest_googletest__r_e_a
 <div class="title">Generic Build Instructions </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h3><a class="anchor" id="autotoc_md1232"></a>
+<div class="textblock"><h3><a class="anchor" id="autotoc_md1233"></a>
 Setup</h3>
 <p>To build Google Test and your tests that use it, you need to tell your build system where to find its headers and source files. The exact way to do it depends on which build system you use, and is usually straightforward.</p>
-<h3><a class="anchor" id="autotoc_md1233"></a>
+<h3><a class="anchor" id="autotoc_md1234"></a>
 Build</h3>
 <p>Suppose you put Google Test in directory <code>${GTEST_DIR}</code>. To build it, create a library build target (or a project as called by Visual Studio and Xcode) to compile </p><pre class="fragment">${GTEST_DIR}/src/gtest-all.cc
 </pre><p>with <code>${GTEST_DIR}/include</code> in the system header search path and <code>${GTEST_DIR}</code> in the normal header search path. Assuming a Linux-like system and gcc, something like the following will do: </p><pre class="fragment">g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
@@ -102,7 +102,7 @@ ar -rv libgtest.a gtest-all.o
 make
 ./sample1_unittest
 </pre><p>If you see errors, try to tweak the contents of <code>make/Makefile</code> to make them go away. There are instructions in <code>make/Makefile</code> on how to do it.</p>
-<h2><a class="anchor" id="autotoc_md1234"></a>
+<h2><a class="anchor" id="autotoc_md1235"></a>
 Using CMake</h2>
 <p>Google Test comes with a CMake build script ( <a href="CMakeLists.txt">CMakeLists.txt</a>) that can be used on a wide range of platforms ("C" stands for cross-platform.). If you don't have CMake installed already, you can download it for free from <a href="http://www.cmake.org/">http://www.cmake.org/</a>.</p>
 <p>CMake works by generating native makefiles or build projects that can be used in the compiler environment of your choice. The typical workflow starts with: </p><pre class="fragment">mkdir mybuild       # Create a directory to hold the build output.
@@ -112,7 +112,7 @@ cmake ${GTEST_DIR}  # Generate native build scripts.
 </pre><p>If you are on a *nix system, you should now see a Makefile in the current directory. Just type 'make' to build gtest.</p>
 <p>If you use Windows and have Visual Studio installed, a <code>gtest.sln</code> file and several <code>.vcproj</code> files will be created. You can then build them using Visual Studio.</p>
 <p>On Mac OS X with Xcode installed, a <code>.xcodeproj</code> file will be generated.</p>
-<h2><a class="anchor" id="autotoc_md1235"></a>
+<h2><a class="anchor" id="autotoc_md1236"></a>
 Legacy Build Scripts</h2>
 <p>Before settling on CMake, we have been providing hand-maintained build projects/scripts for Visual Studio, Xcode, and Autotools. While we continue to provide them for convenience, they are not actively maintained any more. We highly recommend that you follow the instructions in the previous two sections to integrate Google Test with your existing build system.</p>
 <p>If you still need to use the legacy build scripts, here's how:</p>
@@ -124,11 +124,11 @@ Legacy Build Scripts</h2>
 <li>update the SDK configuration options in xcode/Config/General.xconfig. Comment options <code>SDKROOT</code>, <code>MACOS_DEPLOYMENT_TARGET</code>, and <code>GCC_VERSION</code>. If you choose this route you lose the ability to target earlier versions of MacOS X.</li>
 <li>Install an SDK for an earlier version. This doesn't appear to be supported by Apple, but has been reported to work (<a href="http://stackoverflow.com/questions/5378518">http://stackoverflow.com/questions/5378518</a>).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md1236"></a>
+<h2><a class="anchor" id="autotoc_md1237"></a>
 Tweaking Google Test</h2>
 <p>Google Test can be used in diverse environments. The default configuration may not work (or may not work well) out of the box in some environments. However, you can easily tweak Google Test by defining control macros on the compiler command line. Generally, these macros are named like <code>GTEST_XYZ</code> and you define them to either 1 or 0 to enable or disable a certain feature.</p>
 <p>We list the most frequently used macros below. For a complete list, see file <a href="include/gtest/internal/gtest-port.h">include/gtest/internal/gtest-port.h</a>.</p>
-<h2><a class="anchor" id="autotoc_md1237"></a>
+<h2><a class="anchor" id="autotoc_md1238"></a>
 Choosing a TR1 Tuple Library</h2>
 <p>Some Google Test features require the C++ Technical Report 1 (TR1) tuple library, which is not yet available with all compilers. The good news is that Google Test implements a subset of TR1 tuple that's enough for its own need, and will automatically use this when the compiler doesn't provide TR1 tuple.</p>
 <p>Usually you don't need to care about which tuple library Google Test uses. However, if your project already uses TR1 tuple, you need to tell Google Test to use the same TR1 tuple library the rest of your project uses, or the two tuple implementations will clash. To do that, add </p><pre class="fragment">-DGTEST_USE_OWN_TR1_TUPLE=0
@@ -136,13 +136,13 @@ Choosing a TR1 Tuple Library</h2>
 </pre><p>to the compiler flags instead.</p>
 <p>If you don't want Google Test to use tuple at all, add </p><pre class="fragment">-DGTEST_HAS_TR1_TUPLE=0
 </pre><p>and all features using tuple will be disabled.</p>
-<h2><a class="anchor" id="autotoc_md1238"></a>
+<h2><a class="anchor" id="autotoc_md1239"></a>
 Multi-threaded Tests</h2>
 <p>Google Test is thread-safe where the pthread library is available. After <code>#include "gtest/gtest.h"</code>, you can check the <code>GTEST_IS_THREADSAFE</code> macro to see whether this is the case (yes if the macro is <code>#defined</code> to 1, no if it's undefined.).</p>
 <p>If Google Test doesn't correctly detect whether pthread is available in your environment, you can force it with </p><pre class="fragment">-DGTEST_HAS_PTHREAD=1
 </pre><p>or </p><pre class="fragment">-DGTEST_HAS_PTHREAD=0
 </pre><p>When Google Test uses pthread, you may need to add flags to your compiler and/or linker to select the pthread library, or you'll get link errors. If you use the CMake script or the deprecated Autotools script, this is taken care of for you. If you use your own build script, you'll need to read your compiler and linker's manual to figure out what flags to add.</p>
-<h2><a class="anchor" id="autotoc_md1239"></a>
+<h2><a class="anchor" id="autotoc_md1240"></a>
 As a Shared Library (DLL)</h2>
 <p>Google Test is compact, so most users can build and link it as a static library for the simplicity. You can choose to use Google Test as a shared library (known as a DLL on Windows) if you prefer.</p>
 <p>To compile <em>gtest</em> as a shared library, add </p><pre class="fragment">-DGTEST_CREATE_SHARED_LIBRARY=1
@@ -150,17 +150,17 @@ As a Shared Library (DLL)</h2>
 <p>To compile your <em>tests</em> that use the gtest shared library, add </p><pre class="fragment">-DGTEST_LINKED_AS_SHARED_LIBRARY=1
 </pre><p>to the compiler flags.</p>
 <p>Note: while the above steps aren't technically necessary today when using some compilers (e.g. GCC), they may become necessary in the future, if we decide to improve the speed of loading the library (see <a href="http://gcc.gnu.org/wiki/Visibility">http://gcc.gnu.org/wiki/Visibility</a> for details). Therefore you are recommended to always add the above flags when using Google Test as a shared library. Otherwise a future release of Google Test may break your build script.</p>
-<h2><a class="anchor" id="autotoc_md1240"></a>
+<h2><a class="anchor" id="autotoc_md1241"></a>
 Avoiding Macro Name Clashes</h2>
 <p>In C++, macros don't obey namespaces. Therefore two libraries that both define a macro of the same name will clash if you <code>#include</code> both definitions. In case a Google Test macro clashes with another library, you can force Google Test to rename its macro to avoid the conflict.</p>
 <p>Specifically, if both Google Test and some other code define macro FOO, you can add </p><pre class="fragment">-DGTEST_DONT_DEFINE_FOO=1
 </pre><p>to the compiler flags to tell Google Test to change the macro's name from <code>FOO</code> to <code>GTEST_FOO</code>. Currently <code>FOO</code> can be <code>FAIL</code>, <code>SUCCEED</code>, or <code>TEST</code>. For example, with <code>-DGTEST_DONT_DEFINE_TEST=1</code>, you'll need to write </p><pre class="fragment">GTEST_TEST(SomeTest, DoesThis) { ... }
 </pre><p>instead of </p><pre class="fragment">TEST(SomeTest, DoesThis) { ... }
 </pre><p>in order to define a test.</p>
-<h1><a class="anchor" id="autotoc_md1241"></a>
+<h1><a class="anchor" id="autotoc_md1242"></a>
 Developing Google Test</h1>
 <p>This section discusses how to make your own changes to Google Test.</p>
-<h2><a class="anchor" id="autotoc_md1242"></a>
+<h2><a class="anchor" id="autotoc_md1243"></a>
 Testing Google Test Itself</h2>
 <p>To make sure your changes work as intended and don't break existing functionality, you'll want to compile and run Google Test's own tests. For that you can use CMake: </p><pre class="fragment">mkdir mybuild
 cd mybuild

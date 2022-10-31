@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['view_1900',['view',['../class_image.html#af4aec9904198a5958a6871f812feabed',1,'Image']]]
+  ['yolo_1898',['Yolo',['../class_yolo.html#a8b519117856153a0350533d9bb7b0260',1,'Yolo']]]
 ];

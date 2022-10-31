@@ -1,5 +1,12 @@
 <map id="include/yolo.hpp" name="include/yolo.hpp">
-<area shape="rect" id="node1" title="Model related functions." alt="" coords="51,5,181,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="109,80,264,107"/>
+<area shape="rect" id="node1" title="Model related functions." alt="" coords="55,5,185,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,155,151,181"/>
+<area shape="rect" id="node4" href="$image_8hpp.html" title="Image related functions." alt="" coords="272,80,363,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="176,155,256,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="281,155,354,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="378,155,515,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="540,155,673,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="697,155,860,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="884,155,1039,181"/>
 </map>

@@ -86,13 +86,13 @@ $(document).ready(function(){initNavTree('md_vendor_googletest_googlemock_docs__
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>As any non-trivial software system, Google <a class="el" href="class_mock.html">Mock</a> has some known limitations and problems. We are working on improving it, and welcome your help! The follow is a list of issues we know about.</p>
-<h2><a class="anchor" id="autotoc_md190"></a>
+<h2><a class="anchor" id="autotoc_md191"></a>
 README contains outdated information on Google Mock's compatibility with other testing frameworks</h2>
 <p>The <code>README</code> file in release 1.1.0 still says that Google <a class="el" href="class_mock.html">Mock</a> only works with Google Test. Actually, you can configure Google <a class="el" href="class_mock.html">Mock</a> to work with any testing framework you choose.</p>
-<h2><a class="anchor" id="autotoc_md191"></a>
+<h2><a class="anchor" id="autotoc_md192"></a>
 Tests failing on machines using Power PC CPUs (e.g. some Macs)</h2>
 <p><code>gmock_output_test</code> and <code>gmock-printers_test</code> are known to fail with Power PC CPUs. This is due to portability issues with these tests, and is not an indication of problems in Google <a class="el" href="class_mock.html">Mock</a> itself. You can safely ignore them.</p>
-<h2><a class="anchor" id="autotoc_md192"></a>
+<h2><a class="anchor" id="autotoc_md193"></a>
 Failed to resolve libgtest.so.0 in tests when built against installed Google Test</h2>
 <p>This only applies if you manually built and installed Google Test, and then built a Google <a class="el" href="class_mock.html">Mock</a> against it (either explicitly, or because gtest-config was in your path post-install). In this situation, Libtool has a known issue with certain systems' ldconfig setup:</p>
 <p><a href="http://article.gmane.org/gmane.comp.sysutils.automake.general/9025">http://article.gmane.org/gmane.comp.sysutils.automake.general/9025</a></p>

@@ -1,8 +1,8 @@
 <map id="include/image.hpp" name="include/image.hpp">
-<area shape="rect" id="node1" title="Image related functions." alt="" coords="190,5,333,32"/>
-<area shape="rect" id="node2" href="$image_8cpp.html" title="Functions definitions for class Image." alt="" coords="17,80,135,107"/>
-<area shape="rect" id="node3" href="$human_detector_8hpp.html" title="The binding class." alt="" coords="160,80,363,107"/>
-<area shape="rect" id="node6" href="$test_8cpp.html" title="Test cases for functions." alt="" coords="347,155,450,181"/>
-<area shape="rect" id="node4" href="$human_detector_8cpp.html" title="Functions definitions for class HumanDetector." alt="" coords="5,155,184,181"/>
-<area shape="rect" id="node5" href="$app_2main_8cpp.html" title="Implementation." alt="" coords="209,155,319,181"/>
+<area shape="rect" id="node1" title="Image related functions." alt="" coords="141,5,284,32"/>
+<area shape="rect" id="node2" href="$image_8cpp.html" title="Functions definitions for class Image." alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node3" href="$yolo_8cpp_source.html" title=" " alt="" coords="80,155,185,181"/>
+<area shape="rect" id="node4" href="$yolo_8hpp.html" title="Model related functions." alt="" coords="200,80,329,107"/>
+<area shape="rect" id="node6" href="$test_8cpp.html" title="Test cases for functions." alt="" coords="344,155,447,181"/>
+<area shape="rect" id="node5" href="$app_2main_8cpp.html" title="Implementation." alt="" coords="209,155,320,181"/>
 </map>
