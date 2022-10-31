@@ -25,11 +25,10 @@ This project will be completed using AIP process with the involvement of 3 progr
 
 [Phase 0 Proposal](https://drive.google.com/file/d/10hK7GmJcISf981nXX9E4CqcFHO8nGW70/view?usp=sharing)
 
+
 [Phase 0 Video](https://drive.google.com/file/d/1qjiJ8MVaANbqeYgCbcMmP3CATyp1pWou/view?usp=sharing)
 
 [Phase 1 Video](https://drive.google.com/file/d/1FNlZqDXzz6H9pJ2Tok4gB1hnIMF776Sp/view?usp=sharing)
-
-[Phase 2 Video](https://drive.google.com/file/d/1FNlZqDXzz6H9pJ2Tok4gB1hnIMF776Sp/view?usp=sharing) #### TO-DO
 
 [UML Class Diagram Phase 0](https://drive.google.com/file/d/16ZB5cMJbd44Ys_4KVa8fdSBXSPN-JB1F/view?usp=sharing)
 
@@ -93,4 +92,3 @@ open your terminal in your repository
 doxywizard
 ```
 Follow steps in GUI after selecting path of your repository.
-
