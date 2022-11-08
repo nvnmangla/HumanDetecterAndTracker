@@ -92,4 +92,3 @@ open your terminal in your repository
 doxywizard
 ```
 Follow steps in GUI after selecting path of your repository.
-

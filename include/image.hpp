@@ -78,4 +78,8 @@ class Image {
   cv::Mat draw_rectangles(std::vector<Detection>);
 };
 
+<<<<<<< HEAD
+#endif  // INCLUDE_IMAGE_HPP_
+=======
 #endif  // HUMANDETECTERANDTRACKER_INCLUDE_IMAGE_HPP_
+>>>>>>> nvnmangla-main
